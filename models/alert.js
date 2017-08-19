@@ -1,6 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Alert = sequelize.define("Alert", {
 
+      //1 is active, 0 is NOT active (user already acknowlege this alert)
+
       alert_status: { type: DataTypes.INTEGER,
             allowNull: false
       

@@ -20,6 +20,19 @@ module.exports = function(app) {
             res.json(dbUser);
         })
     });
+    //get location, watch, alert information for a userid
+    app.get("/api/users/:id",function(req,res) {
+        db.User.findAll({
+            //include: [db.Location, {include:[db.Watch]}]
+            include: [{model: db.Location,
+                include:[{model: db.Watch, include: [db.Alert]}]}],
+                where: {
+                    id: req.params.id
+                }
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        })
+    });
     //delete a user
     app.delete("/api/users/:id", function(req, res) {
         db.User.destroy({
@@ -31,9 +44,3 @@ module.exports = function(app) {
         });
       });
 };
-
-// models.Survey.create(survey,{
-//     include:  [models.Question,{include: [models.Option]}]
-//   }).then(function() {
-// reply({success:1});
-// });

@@ -16,7 +16,7 @@ require("./routes/user-api-routes")(app);
 require("./routes/location-api-routes")(app);
 
 
-db.sequelize.sync({force:true}).then(function(){
+db.sequelize.sync().then(function(){
 
     app.listen(PORT,function(){
 

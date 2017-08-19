@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Alert = sequelize.define("Alert", {
 
-      alert_status: { type: DataTypes.STRING,
+      alert_status: { type: DataTypes.INTEGER,
             allowNull: false
       
         },

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
     var express    = require('express')
     var app        = express()
     var passport   = require('passport')
@@ -8,28 +7,6 @@
     var exphbs     = require('express-handlebars')
 
 
-=======
-// Loree added semicolons
-var express = require('express');
-var app = express();
-var passport   = require('passport');
-var session    = require('express-session');
-var bodyParser = require('body-parser');
-var env = require('dotenv').load();
-var exphbs = require('express-handlebars');
-//Models
-var models = require("./app/models");
-//Routes
-var authRoute = require('./app/routes/auth.js')(app);
-
-
-//For Handlebars
-app.set('views', './app/views');
-app.engine('hbs', exphbs({
-    extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
->>>>>>> master
 
     //For BodyParser
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -53,20 +30,12 @@ app.set('view engine', '.hbs');
 	});
 
 
-<<<<<<< HEAD
 	//Models
     var models = require("./app/models");
-=======
-     console.log('Nice! Database looks fine');
->>>>>>> master
 
 
-<<<<<<< HEAD
     //Routes
     var authRoute = require('./app/routes/auth.js')(app,passport);
-=======
-     console.log(err, "Something went wrong with the Database Update!");
->>>>>>> master
 
 
     //load passport strategies

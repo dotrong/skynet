@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SkyNet</title>
+
+    <!-- //*****JQUERY*****// -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+    <!--//*****BOOTSTRAP*****// -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- //********GOOGLE FONTS********// 
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins" rel="stylesheet">-->
+      
+    <!-- *****PREVENT FAVICON REQUESTS***** -->    
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <!-- *****LOCAL STYLES AND JS LINKS***** -->
+    <!-- USE WHEN NOT USING BOOTSTRAP <link rel="stylesheet" href="assets/css/reset.css"> -->
+<!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+<style>
+.signinContainer { margin: 0px auto; width: 95%; height: auto; /*border: 1px solid yellow;*/
+    position: relative;
+    /*width: 100%;*/
+}
+
+.image { /*background-image: url("../images/backgroundBlur2.jpg");*/
+  opacity: 1;
+  display: block;
+  /*width: 100%;
+  height: auto;*/
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle { /*position: fixed;*/  width: 80%;
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Standard syntax */
+  -ms-transform: translate(-50%, -50%)  /*IE 9*/
+}
+
+.signinContainer:hover .image {
+  opacity: 0.9;
+}
+
+.signinContainer:hover .middle {
+  opacity: 1;
+}
+
+.text { 
+  /*background-color: #222328;*/
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+/*SIGN IN FORM CONTAINER*/
+.signinForm {  background-color: #222328; opacity: 0.6; max-width: 800px; margin: 0px auto; /*border: 1px solid red;*/
+    /*width: 100%;*/
+    /*padding: 5px;*/
+}
+
+.signinForm input[type=text], input[type=password] { 
+    width: 90%;
+    padding: 12px;
+    margin: 8px;
+    display: block;
+    /*border: 1px solid #ccc;*/
+    box-sizing: border-box;
+}
+
+a.logInSubmitLink {  
+  text-decoration: none;
+  border: none; 
+  margin: 2px 2px 2px -23px;
+  background-color: #f7c04b;
+  color: white;
+  font-size: 16px;
+  padding: 16px 52px;
+}
+
+a.logInSubmitLink:hover, a.userLink:hover {
+  color: #222328;
+}
+
+a.userLink { 
+  text-decoration: none;
+  border: none; 
+  margin: 2px;
+  background-color: #0f5ffb;
+  color: white;
+  font-size: 16px;
+  padding: 16px 30px;
+}
+
+a.aboutLink {
+  text-decoration: none;
+}
+
+a.aboutLink:hover {
+  color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="signinContainer">
+  <img src="images/backgroundBlur2.jpg" alt="Avatar" class="image" style="width:100%">
+  <div class="middle">
+    <form class="signinForm">
+    <div class="text">
+      <span class="close">&times;</span>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="password" placeholder="Enter Password" name="psw" required>        
+      <div class="text">
+        <a href="location.html" class="logInSubmitLink">Log In</a>
+        <a href="user.html" class="userLink">Create Account</a>
+      </div>
+      <div class="text">
+        <a href="about.html" class="aboutLink">About</a>
+      </div>
+      <!-- <a href="newUser.html" class="nuButton">New User</a> -->
+
+    </div>
+  </form>
+  
+  </div>
+</div>
+
+
+</body>
+</html>

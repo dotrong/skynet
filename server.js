@@ -3,6 +3,7 @@ var bodyParser = require("body-parser");
 var db = require('./models');
 var PORT = 3000;
 var app = express();
+var helper = require('./utils/helper');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,11 +17,13 @@ require("./routes/user-api-routes")(app);
 require("./routes/location-api-routes")(app);
 
 
+
 db.sequelize.sync().then(function(){
 
     app.listen(PORT,function(){
 
         console.log("Listening on port "+ PORT);
+        setInterval(helper.runQuery,10000);
 
     })
 });

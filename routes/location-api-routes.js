@@ -10,13 +10,13 @@ module.exports = function(app) {
           res.json(dbLocation);
         });
     });
-    //find all locations
+    //find all locations with watch
     app.get("/api/locations",function(req,res) {
-        db.User.findAll({
-            //include: [db.Location, {include:[db.Watch]}]
+        db.Location.findAll({
+
             include: [db.Watch]
-        }).then(function(dbUser) {
-            res.json(dbUser);
+        }).then(function(dbLocation) {
+            res.json(dbLocation);
         })
     });
 
@@ -44,28 +44,3 @@ module.exports = function(app) {
 
     });
 };
-
-// models.Survey.create(survey,{
-//     include:  [models.Question,{include: [models.Option]}]
-//   }).then(function() {
-// reply({success:1});
-// });
-
-// survey = {
-//     title: title,
-//     description: description,
-//     Questions:[
-//       {
-//         question_type: 'Radio',
-//         question: 'q1',
-//         Options:[
-//           {
-//             option: 'o1'
-//           },
-//           {
-//             option: 'o2'
-//           }
-//         ]
-//       }
-//     ]
-//   }

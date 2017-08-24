@@ -19,8 +19,7 @@ module.exports = function(sequelize, DataTypes) {
 
         classMethods: {
           associate: function(models) {
-            // Associating User with Locations
-            // When an User is deleted, also delete any associated Locations
+
             Alert.belongsTo(models.Watch);
 
           }

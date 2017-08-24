@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-
+    //create location with watch
     app.post("/api/locations", function(req, res) {
 
         db.Location.create(req.body, {
@@ -10,37 +10,5 @@ module.exports = function(app) {
           res.json(dbLocation);
         });
     });
-    //find all locations
-    app.get("/api/locations",function(req,res) {
-        db.User.findAll({
-            //include: [db.Location, {include:[db.Watch]}]
-            include: [db.Watch]
-        }).then(function(dbUser) {
-            res.json(dbUser);
-        })
-    });
 
-    //find all locations by user id
-    app.get("/api/locations/users/:id",function(req,res) {
-        db.User.findAll({
-            where: {
-                UserId: req.params.id
-            }
-
-        }).then(function(dbLocation) {
-            res.json(dbLocation);
-        })
-    });
-    //to delete a location by id
-    app.post("/api/locations/:id", function(req, res) {
-
-        db.Location.destroy({
-            where: {
-              id: req.params.id
-            }
-          }).then(function(dbLocation) {
-            res.json(dbLocation);
-        });
-
-    });
 };

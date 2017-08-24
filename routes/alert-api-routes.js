@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    //create alert
+    //create alert: in body must have watchId information
     app.post("/api/alerts", function(req, res) {
 
         db.Alert.create(req.body).then(function(dbAlert) {
@@ -16,8 +16,8 @@ module.exports = function(app) {
         db.Alert.update(req.body, 
             {
                 where: {
-                            id:req.body.id
-                        }
+                    id:req.body.id
+                }
             }).then(function(dbAlert) {
 
             res.json(dbAlert);

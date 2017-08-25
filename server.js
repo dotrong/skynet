@@ -3,6 +3,8 @@ var bodyParser = require("body-parser");
 //add for authentication
 var passport   = require('passport');
 var session    = require('express-session');
+var exphbs     = require('express-handlebars')
+var path = require('path');
 //end
 
 var db = require('./models');
@@ -23,11 +25,19 @@ app.use(passport.session()); // persistent login sessions
 
 // Static directory
 app.use(express.static("./public"));
+     //For Handlebars
+app.set('views', './public/views')
+app.engine('hbs', exphbs({extname: '.hbs'}));
+app.set('view engine', '.hbs');
 
 require("./routes/user-api-routes")(app);
 require("./routes/location-api-routes")(app);
 //add for authentication
-var authRoute = require('./app/routes/auth.js')(app);
+
+//var authRoute = require('./routes/auth.js')(app,passport);
+require('./routes/auth.js')(app,passport);
+//load passport strategies
+require('./config/passport/passport.js')(passport,db.User);
 //end
 
 db.sequelize.sync().then(function(){
@@ -35,7 +45,7 @@ db.sequelize.sync().then(function(){
     app.listen(PORT,function(){
 
         console.log("Listening on port "+ PORT);
-        setInterval(helper.runQuery,10000);
+       // setInterval(helper.runQuery,10000);
 
     })
 });

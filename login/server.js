@@ -5,6 +5,7 @@
     var bodyParser = require('body-parser')
     var env        = require('dotenv').load()
     var exphbs     = require('express-handlebars')
+    var path = require('path');
 
 
 
@@ -19,11 +20,13 @@
     app.use(passport.session()); // persistent login sessions
 
 
+    app.use(express.static(path.join(__dirname + 'public')));
+
      //For Handlebars
     app.set('views', './app/views')
     app.engine('hbs', exphbs({extname: '.hbs'}));
     app.set('view engine', '.hbs');
-    
+
 
     app.get('/', function(req, res){
 	  res.send('Welcome to Passport with Sequelize');
@@ -61,4 +64,3 @@
 
 
 
-    

@@ -1,21 +1,25 @@
 var exports = module.exports = {}
-
+var path = require("path");
 
 exports.signup = function(req,res){
 
-	res.render('signup'); 
+  //res.render('signup'); 
+  res.sendFile(path.join(__dirname + "/../../public/user.html"));
 
 }
 
 exports.signin = function(req,res){
 
-	res.render('signin'); 
+  //res.render('/'); 
+  res.sendFile(path.join(__dirname + "/../../public/index.html"));
 
 }
 
 exports.dashboard = function(req,res){
 
-	res.render('dashboard'); 
+  //res.render('dashboard'); 
+  
+  res.sendFile(path.join(__dirname + "/../../public/location.html"));
 
 }
 

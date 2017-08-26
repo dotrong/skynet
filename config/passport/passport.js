@@ -115,6 +115,7 @@
         }
 
         var userinfo = user.get();
+        console.log("User logged in");
 
         return done(null,userinfo);
 

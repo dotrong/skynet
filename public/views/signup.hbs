@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="./public/css/style.css">
+</head>
+<body>
+
+<style>
+#wrapper {
+    width: 500px;
+    margin: 0 auto;
+}
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+</style>
+<div id="wrapper">
+
+<form id="signup" name="signup" method="post" action="/signup">
+  <label style="color: black" for="email">Email Address</label>
+  <input class="text" name="email" type="email" />
+  <label style="color: black" for="firstname">Firstname</label>
+  <input name="firstname" type="text" />
+  <label style="color: black" for="lastname">Lastname</label>
+  <input name="lastname" type="text" />
+  <label style="color: black" for="password">Password</label>
+  <input name="password" type="password" />
+  <input class="btn" type="submit" value="Sign Up" />
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,307 @@
+/******* INDEX PAGE ******/
+body {
+	background-color: #222328; 
+}
+
+.signinContainer { 
+	margin: 0px auto; 
+	width: 100%; 
+	height: auto; 
+	position: relative;
+}
+
+.image { height: 100%; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
+	opacity: 1;
+	display: block;
+	width: 100%;
+	/*height: auto;*/
+	transition: .5s ease;
+	backface-visibility: hidden;
+}
+
+.middle { /*position: fixed;*/  
+	height: auto;
+	width: 70%;
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%); /* Standard syntax */
+	-ms-transform: translate(-50%, -50%)  /*IE 9*/
+}
+
+.signinContainer:hover .image {
+	opacity: 0.9;
+}
+
+.signinContainer:hover .middle {
+	opacity: 1;
+}
+
+.text { 
+	color: black;
+	font-size: 16px;
+	padding: 16px 32px;
+}
+
+/*SIGN IN FORM CONTAINER*/
+.signinForm {   height: 50%;
+	background-color: #222328; 
+	opacity: 0.6; 
+	max-width: 600px; 
+	margin: 0px auto;
+}
+
+.signinForm input[type=text], input[type=password], input.btn { 
+	width: 90%;
+	padding: 5px;
+	margin: 8px;
+	display: block;
+	/*border: 1px solid #ccc;*/
+	box-sizing: border-box;
+}
+
+input.btn {  border-radius: 0px; 
+	text-decoration: none;
+	border: none; 
+	margin: 0px 0px 8px 0px;
+	background-color: #f7c04b;
+	color: white;
+	font-size: 16px;
+	/*padding: 8px;*/
+}
+
+input.btn:hover, {
+  color: #222328;
+}
+
+#signUp {	
+	background-color: #0f5ffb;
+}
+
+/*a.aboutLink { 
+	text-decoration: none;
+}
+
+a.aboutLink:hover {
+	color: white;
+}*/
+
+/******* USER PAGE ******/
+body {border: none;
+	background-color: #f3f3f3;
+}
+
+#fixedNav { 
+	background-color: #0f5ffb;
+}
+
+.container-fluid { 
+	text-align: center;
+	margin: 10px;
+}
+
+h1 { /*clear: left;*/
+	display: inline;
+	width: 75%;
+	color: white;
+	text-align: center;
+}
+
+span.leftIcon, a { float: left;
+	/*display: inline;*/
+	margin: 5px;
+	color: white;
+}
+
+div.panel.panel-default { max-width: 800px; margin: 0px auto; 
+	border: none;
+}
+
+form { border: none; 
+	background-color: #f3f3f3;
+}
+
+.form-group { 
+	width: 80%;
+	margin: 0px auto;
+	padding: 10px;
+}
+
+.form-control, #userPassword { border-radius: 3px; 
+	padding: 20px;
+}
+
+#userPassword { 
+	width: 80%;
+	margin-left: 50px;
+}
+
+div.btns { 
+	padding: 10px;
+}
+
+.btn.btn-default { border-radius: 3px; color: white; 
+	background-color: #0f5ffb;
+	width: 25%;
+	margin: 10px;
+	padding: 10px;
+}
+
+#userSubmit { 
+	background-color: #f7c04b;
+}  
+
+/******* WATCH PAGE ******/
+body {
+	border: none;
+	background-color: #f3f3f3;
+}
+
+#fixedNav { 
+	background-color: #0f5ffb;
+}
+
+.container-fluid {
+	text-align: center;
+	margin: 10px;
+}
+
+h1 { /*clear: left;*/
+	display: inline;
+	width: 75%;
+	color: white;
+	text-align: center;
+}
+
+h2 { 
+	text-align: center;
+	font-size: 1.5em;
+	background-color: #f3f3f3;
+}
+
+span.leftIcon, a { float: left;
+	/*display: inline;*/
+	margin: 5px;
+	color: white;
+}
+
+div.panel.panel-default { max-width: 800px; margin: 0px auto;
+	border: none;
+}
+
+form { 
+	background-color: #f3f3f3;
+}
+
+.form-control, .form-check { height: 40px;
+	width: 80%;
+	margin: 0px auto;
+}
+
+div.btns { 
+	width: 80%;
+	margin: 0px auto;
+}
+
+.btn.btn-default { border-radius: 3px; color: white;
+	background-color: #0f5ffb;
+	width: 25%;
+	margin: 10px;
+	padding: 10px;
+}
+
+.btn.btn-default:hover {    
+	color: #222328;
+}
+
+#userSubmit { 
+	background-color: #f7c04b;
+}  
+
+#travelSummary, #wthrSummary, #iWthrSummary {
+	display: none;
+}  
+
+/******* LOCATION PAGE ******/
+body {
+	border: none;
+	background-color: #f3f3f3;
+}
+
+#fixedNav { 
+	background-color: #0f5ffb;
+}
+
+.container-fluid {
+	text-align: center;
+	margin: 10px;
+}
+
+h1 { /*clear: left;*/
+	display: inline;
+	/*margin: 10px;*/
+	width: 75%;
+	color: white;
+	text-align: center;
+}
+
+.wrapper { 
+	padding: 10px; 
+}
+
+.two, .three, .four { 
+	/*padding: 10px;*/
+	text-align: center;
+}
+
+div.two img, div.three img, div.four img { 
+	margin: 0px auto;
+	width: 90%;
+}
+.ui-collapsible-heading, .ui-collapsible-heading>.ui-btn {
+	width: 95%;
+	margin: 0px auto;
+}
+
+.ui-collapsible-content.ui-body-inherit {
+	background-color: #f3f3f3;
+	border-style: none;
+	margin: 0px auto;
+	width: 90%;
+}
+
+
+/******MEDIA QUERIES******/
+ @media screen and (min-width: 850px) {
+.wrapper { padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+/*.one { 
+  grid-column: 1 / 4; defines the start and end grid lines
+  grid-row: 1;
+}*/
+.two { 
+  grid-column: 1;
+  grid-row: 2;  
+}
+.three { 
+  grid-column: 2; 
+  grid-row: 2;
+}
+
+.four { 
+  grid-column: 3;
+  grid-row: 2;
+}
+/*.five { 
+  grid-column: 1 / 4;  defines the start and end grid lines
+  grid-row: 3;
+}*/
+
+
+

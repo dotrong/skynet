@@ -7,128 +7,33 @@
 
     <!-- //*****JQUERY*****// -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
     <!--//*****BOOTSTRAP*****// -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <!-- **********Font Awesome CSS Icons (For cool glyphicons)********** -->
+    <!-- **********Font Awesome CSS Icons (glyphicons)********** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-    <!-- //********GOOGLE FONTS********// 
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Poppins" rel="stylesheet">-->
       
     <!-- *****PREVENT FAVICON REQUESTS***** -->    
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
     <!-- *****LOCAL STYLES AND JS LINKS***** -->
-    <!-- USE WHEN NOT USING BOOTSTRAP <link rel="stylesheet" href="assets/css/reset.css"> -->
 <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
-<style>
+    <link rel="stylesheet" href="assets/style.css">
 
-  body {border: none;
-    background-color: #f3f3f3;
-  }
-
-  #fixedNav { 
-    background-color: #0f5ffb;
-  }
-
-  .container-fluid {
-    text-align: center;
-    margin: 10px;
-  }
-  
-  h1 { /*clear: left;*/
-    display: inline;
-    /*margin: 10px;*/
-    width: 75%;
-    color: white;
-    text-align: center;
-  }
-
-  h2 { text-align: center;
-    font-size: 1.5em;
-    background-color: #f3f3f3;
-  }
-
- span.leftIcon, a { float: left;
-    /*display: inline;*/
-    margin: 5px;
-    color: white;
-    }
-
- div.panel.panel-default { max-width: 800px; margin: 0px auto;
-    border: none;
-  }
-
-  form { 
-    background-color: #f3f3f3;
-  }
-
-  .form-control, .form-check { height: 40px;
-    width: 80%;
-    margin: 0px auto;
-    /*padding: 10px;*/
-  }
-
-  div.btns { 
-    width: 80%;
-    margin: 0px auto;
-  }
-
-  .btn.btn-default { border-radius: 3px; color: white;
-    background-color: #0f5ffb;
-    width: 25%;
-    margin: 10px;
-    padding: 10px;
-  }
-
-  .btn.btn-default:hover {    
-    color: #222328;
-  }
-
-  #userSubmit { 
-    background-color: #f7c04b;
-  }  
-
-</style>
 </head>
+
 <body>
 <!-- *****CONTAINER FOR NAV BAR***** -->  
 <header role="banner"> 
     <!-- *****NAVIGATON BAR***** -->
     <nav id="fixedNav" class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <!-- <div class="navbar-header"> -->
-           <!--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button> -->
-              <!-- <span class="leftIcon"><a href="index.html"><i class="glyphicon glyphicon-menu-left"></i>
-              </a></span>   -->       
-              <h1 class="text-center">Welcome</h1>
-              <!-- <a class="navbar-brand" class="userBack" href="/"></a> -->
-          <!-- </div> -->
-             <!-- Collect the nav links, forms, and other content for toggling -->
-              <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">        
-                <li class="active"><a href="/newUser">New User</a></li>
-                <li><a href="/contact">Contact</a></li>            
-            </ul>
-          </div> -->
+      <div class="container-fluid">    
+          <h1 class="text-center">Welcome</h1>
       </div>
     </nav>
 </header>
-
-<!-- <div class="servicesInfo">
-    <h1>New User Sign Up</h1>
-</div> -->
 
 <div class="userForm">
   <div class="panel panel-default">
@@ -136,80 +41,48 @@
       <form>
         <h2>Select the cities and alerts you want to watch</h2>
         <div class="form-group">
-              <input type="text" class="form-control" name="stateCountry" placeholder="State or Country" required>
-          </div>
-          <div class="form-group">
-              <input type="text" class="form-control" name="city" placeholder="City" required>
-          </div>
+              <input type="text" class="form-control" name="state" placeholder="State or Country" required>
+        </div>
 
-       <!-- <div class="form-group">
-           <label for="exampleFormControlSelect1">Select</label>
-          <select class="form-control" id="FormControlLocation1" name="Location1" required>
-            <option selected>Select City</option>
-            <option value="honolulu">Honolulu, HI</option>            
-            <option value="los angeles">Los Angeles, CA</option>
-            <option value="Miami, FL">Miami, FL</option>
-            <option value="New York City, NY">New York City, NY</option>
-            <option value="San Francisco, CA">San Francisco, CA</option>
-            <option value="Seattle, WA">Seattle, WA</option>
-          </select>
-        </div>
-        <div class="form-group">          
-          <select class="form-control" id="FormControlLocation2" name="Location2" placeholder="Location">
-            <option selected>Select City</option>
-            <option value="Honolulu">Honolulu</option>            
-            <option value="Los Angeles, CA">Los Angeles, CA</option>
-            <option value="Miami, FL">Miami, FL</option>
-            <option value="New York City, NY">New York City, NY</option>
-            <option value="San Francisco, CA">San Francisco, CA</option>
-            <option value="Seattle, WA">Seattle, WA</option>
-          </select>
-        </div>
-        <div class="form-group">          
-          <select class="form-control" id="FormControlLocation3" name="Location3" placeholder="Location">
-            <option selected>Select City</option>
-            <option value="Honolulu, HI">Honolulu, HI</option>            
-            <option value="Los Angeles, CA">Los Angeles, CA</option>
-            <option value="Miami, FL">Miami, FL</option>
-            <option value="New York City, NY">New York City, NY</option>
-            <option value="San Francisco, CA">San Francisco, CA</option>
-            <option value="Seattle, WA">Seattle, WA</option>
-          </select>
-        </div> -->
+        <div class="form-group">
+              <input type="text" class="form-control" name="city" placeholder="City">
+        </div>  
+
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
-            Current News
+              <input type="checkbox" class="form-check-input" name="weather">
+            Weather Alerts
           </label>
         </div>
+
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
-            Extreme Weather Alerts
+              <input type="checkbox" class="form-check-input" name="travel">
+            Travel Alerts
           </label>
         </div>
+
         <div class="form-check">
           <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
+              <input type="checkbox" class="form-check-input" name="earthquake">
             Earthquake Alerts
           </label>
-        </div>
-        <div class="form-check">
-          <label class="form-check-label">
-            <input type="checkbox" class="form-check-input">
-            Tsunami Alerts
-          </label>
-        </div>        
-          <div class="btns">
-            <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
-            <button type="reset" class="btn btn-default">Reset</button>
-          </div>
-        </div>  
+        </div> 
+
+        <div class="btns">
+          <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
+          <button type="reset" class="btn btn-default" id="userReset">Reset</button>
+        </div>          
       </form>
+
+      <div id="demo"> <!-- DYNAMIC RESULTS --> </div>      
+
   </div>    
 </div>
+
 </body>
 </html>	
 
 <!-- Main javascript functionality -->
 <!-- <script src="assets/scripts/main.js"></script> -->
+<script src="api.js"></script>

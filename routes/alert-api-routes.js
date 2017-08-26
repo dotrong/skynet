@@ -5,7 +5,8 @@ module.exports = function(app) {
     //create alert: in body must have watchId information
     app.post("/api/alerts", function(req, res) {
 
-        db.Alert.create(req.body).then(function(dbAlert) {
+       // db.Alert.create(req.body).then(function(dbAlert) {
+        db.Alert.upsert(req.body).then(function(dbAlert) {
           res.json(dbAlert);
         });
     });

@@ -63,10 +63,16 @@ var helper = {
 
             axios.get(url).then(function(response) {
 
-              console.log(response.data.main.temp);
+              //console.log(response.data.main.temp);
               axios.post("http://localhost:3000/api/alerts",{
-
+                alert_status: 1,
+                alert_descr: response.data.main.temp,
+                WatchId: watchId
               
+              }).then(function(response) {
+                console.log(response);
+              }).catch(function(error) {
+                console.log(error);
               })
             
           });

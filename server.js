@@ -31,6 +31,7 @@ app.engine('hbs', exphbs({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 require("./routes/user-api-routes")(app);
+require("./routes/alert-api-routes")(app);
 require("./routes/location-api-routes")(app);
 //add for authentication
 
@@ -45,7 +46,7 @@ db.sequelize.sync().then(function(){
     app.listen(PORT,function(){
 
         console.log("Listening on port "+ PORT);
-       // setInterval(helper.runQuery,10000);
+        setInterval(helper.runQuery,30000);
 
     })
 });

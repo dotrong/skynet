@@ -58,7 +58,7 @@
 
 .text { 
   /*background-color: #222328;*/
-  color: white;
+  color: black;
   font-size: 16px;
   padding: 16px 32px;
 }
@@ -118,14 +118,16 @@ a.aboutLink:hover {
 <div class="signinContainer">
   <img src="images/backgroundBlur2.jpg" alt="Avatar" class="image" style="width:100%">
   <div class="middle">
-    <form class="signinForm">
+    <form class="signinForm" method="POST" action="signin">
     <div class="text">
       <span class="close">&times;</span>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-      <input type="password" placeholder="Enter Password" name="psw" required>        
+      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="password" placeholder="Enter Password" name="password" required>
+             
       <div class="text">
-        <a href="location.html" class="logInSubmitLink">Log In</a>
-        <a href="user.html" class="userLink">Create Account</a>
+        <input class="btn" type="submit" value="Sign In" /> 
+        
+        <a href="/signup" class="userLink">Create Account</a>
       </div>
       <div class="text">
         <a href="about.html" class="aboutLink">About</a>

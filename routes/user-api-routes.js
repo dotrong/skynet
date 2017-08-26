@@ -13,7 +13,7 @@ module.exports = function(app) {
 
     app.get("/api/users/all",function(req,res) {
 
-        if (req.user) {
+        //if (req.user) {
 
             db.User.findAll({
                 //include: [db.Location, {include:[db.Watch]}]
@@ -23,10 +23,10 @@ module.exports = function(app) {
                 res.json(dbUser);
             })
 
-        }
-        else {
-            res.render("signin");
-        }
+        //}
+        // else {
+        //     res.render("signin");
+        // }
         
 
     });

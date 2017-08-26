@@ -6,7 +6,10 @@ module.exports = function(app) {
     app.post("/api/alerts", function(req, res) {
 
        // db.Alert.create(req.body).then(function(dbAlert) {
-        db.Alert.upsert(req.body).then(function(dbAlert) {
+        db.Alert.upsert(req.body,{where: {
+
+            WatchId: req.body.WatchId
+        }}).then(function(dbAlert) {
           res.json(dbAlert);
         });
     });

@@ -1,19 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
       // Giving the Author model a name of type STRING
-      u_firstName: { type: DataTypes.STRING,
-            allowNull: false
-      
+      firstname: { type: DataTypes.STRING,
+            allowNull: false      
         },
-      u_lastName: {type: DataTypes.STRING,
+      lastname: {type: DataTypes.STRING,
         allowNull: false},
-      u_email:{type: DataTypes.STRING,
+      email:{type: DataTypes.STRING,
         allowNull: false
         }, 
-    u_username:{type: DataTypes.STRING,
-        allowNull: false
-        },
-        u_password:{type: DataTypes.STRING,
+        password:{type: DataTypes.STRING,
             allowNull: false
         },
     

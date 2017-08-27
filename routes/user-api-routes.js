@@ -11,14 +11,47 @@ module.exports = function(app) {
     });
     //get a list of users and all locations information
 
+    app.get("/api/users/all",function(req,res) {
+
+        if (req.user) {
+
+            db.User.findAll({
+                //include: [db.Location, {include:[db.Watch]}]
+                include: [{model: db.Location,
+                    include:[{model: db.Watch, include: [db.Alert]}]}]
+            }).then(function(dbUser) {
+                res.json(dbUser);
+            })
+
+        }
+        else {
+            res.render("signin");
+        }
+        
+
+    });
+    //get location, watch, alert information for a userid
     app.get("/api/users",function(req,res) {
-        db.User.findAll({
-            //include: [db.Location, {include:[db.Watch]}]
-            include: [{model: db.Location,
-                include:[{model: db.Watch, include: [db.Alert]}]}]
-        }).then(function(dbUser) {
-            res.json(dbUser);
-        })
+
+        if (!req.user) {
+            // The user is not logged in, send back an empty object
+            res.json({});
+          }
+          else {
+            // Otherwise send back the user's email and id
+            // Sending back a password, even a hashed password, isn't a good idea
+            db.User.findOne({
+                //include: [db.Location, {include:[db.Watch]}]
+                include: [{model: db.Location,
+                    include:[{model: db.Watch, include: [db.Alert]}]}],
+                    where: {
+                        id: req.user.id
+                    }
+            }).then(function(dbUser) {
+                res.json(dbUser);
+            })
+          }
+
     });
     //delete a user
     app.delete("/api/users/:id", function(req, res) {
@@ -31,9 +64,3 @@ module.exports = function(app) {
         });
       });
 };
-
-// models.Survey.create(survey,{
-//     include:  [models.Question,{include: [models.Option]}]
-//   }).then(function() {
-// reply({success:1});
-// });

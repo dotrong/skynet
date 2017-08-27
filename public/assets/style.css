@@ -1,54 +1,54 @@
 /******* INDEX PAGE ******/
-body {
-	background-color: #222328; 
+html {
+	background-color: #1e1d22;
+	
 }
 
-.signinContainer { 
+.signinContainer { 	
 	margin: 0px auto; 
 	width: 100%; 
-	height: auto; 
-	position: relative;
+	height: 100%; 
+	/*position: relative;*/
 }
 
-.image { height: 100%; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover;
+.image { 
+	/*height: 100%; */
+	background-attachment: fixed; 
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
 	opacity: 1;
 	display: block;
 	width: 100%;
-	/*height: auto;*/
+	height: auto;
 	transition: .5s ease;
-	backface-visibility: hidden;
+	/*backface-visibility: hidden;*/
 }
 
-.middle { /*position: fixed;*/  
-	height: auto;
-	width: 70%;
+.middle { /*position: fixed;  */ 
+	/*height: auto;*/
+	width: 65%;
 	transition: .5s ease;
 	opacity: 0;
 	position: absolute;
-	top: 55%;
+	top: 45%;
 	left: 50%;
 	transform: translate(-50%, -50%); /* Standard syntax */
 	-ms-transform: translate(-50%, -50%)  /*IE 9*/
 }
 
-.signinContainer:hover .image {
+/*.signinContainer:hover .image {
 	opacity: 0.9;
-}
+}*/
 
 .signinContainer:hover .middle {
 	opacity: 1;
 }
 
-.text { 
-	color: black;
-	font-size: 16px;
-	padding: 16px 32px;
-}
-
 /*SIGN IN FORM CONTAINER*/
-.signinForm {   height: 50%;
+.signinForm {   height: 50%;  padding: 15px; 
 	background-color: #222328; 
-	opacity: 0.6; 
+	opacity: 0.7; 
 	max-width: 600px; 
 	margin: 0px auto;
 }
@@ -56,20 +56,21 @@ body {
 .signinForm input[type=text], input[type=password], input.btn { 
 	width: 90%;
 	padding: 5px;
-	margin: 8px;
+	margin: 0px auto;
 	display: block;
+	border: none;
 	/*border: 1px solid #ccc;*/
-	box-sizing: border-box;
+	/*box-sizing: border-box;*/
+	color: black;
+	font-size: 16px;	
 }
 
 input.btn {  border-radius: 0px; 
 	text-decoration: none;
 	border: none; 
-	margin: 0px 0px 8px 0px;
 	background-color: #f7c04b;
 	color: white;
 	font-size: 16px;
-	/*padding: 8px;*/
 }
 
 input.btn:hover, {
@@ -275,33 +276,32 @@ div.two img, div.three img, div.four img {
 
 /******MEDIA QUERIES******/
  @media screen and (min-width: 850px) {
-.wrapper { padding: 10px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-}
-/*.one { 
-  grid-column: 1 / 4; defines the start and end grid lines
-  grid-row: 1;
-}*/
-.two { 
-  grid-column: 1;
-  grid-row: 2;  
-}
-.three { 
-  grid-column: 2; 
-  grid-row: 2;
-}
+	.wrapper { padding: 10px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	grid-auto-rows: minmax(100px, auto);
+	}
+	/*.one { 
+	grid-column: 1 / 4; defines the start and end grid lines
+	grid-row: 1;
+	}*/
+	.two { 
+	grid-column: 1;
+	grid-row: 2;  
+	}
+	.three { 
+	grid-column: 2; 
+	grid-row: 2;
+	}
 
-.four { 
-  grid-column: 3;
-  grid-row: 2;
-}
-/*.five { 
-  grid-column: 1 / 4;  defines the start and end grid lines
-  grid-row: 3;
-}*/
-
-
+	.four { 
+	grid-column: 3;
+	grid-row: 2;
+	}
+	/*.five { 
+	grid-column: 1 / 4;  defines the start and end grid lines
+	grid-row: 3;
+	}*/
+ }
 

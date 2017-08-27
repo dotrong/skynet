@@ -91,7 +91,7 @@ a.aboutLink:hover {
 
 /******* USER PAGE ******/
 body {border: none;
-	background-color: #f3f3f3;
+	background-color: #1e1d22;
 }
 
 #fixedNav { 
@@ -121,7 +121,7 @@ div.panel.panel-default { max-width: 800px; margin: 0px auto;
 }
 
 form { border: none; 
-	background-color: #f3f3f3;
+	background-color: #1e1d22;
 }
 
 .form-group { 
@@ -157,7 +157,7 @@ div.btns {
 /******* WATCH PAGE ******/
 body {
 	border: none;
-	background-color: #f3f3f3;
+	background-color: #1e1d22;
 }
 
 #fixedNav { 
@@ -169,17 +169,17 @@ body {
 	margin: 10px;
 }
 
-h1 { /*clear: left;*/
+h1 { /*clear: left;*/ 
 	display: inline;
 	width: 75%;
 	color: white;
 	text-align: center;
 }
 
-h2 { 
+h2 { color: white;
 	text-align: center;
 	font-size: 1.5em;
-	background-color: #f3f3f3;
+	background-color: #1e1d22;
 }
 
 span.leftIcon, a { float: left;
@@ -193,10 +193,10 @@ div.panel.panel-default { max-width: 800px; margin: 0px auto;
 }
 
 form { 
-	background-color: #f3f3f3;
+	background-color: #1e1d22;
 }
 
-.form-control, .form-check { height: 40px;
+.form-control, .form-check { height: 40px; color: white;
 	width: 80%;
 	margin: 0px auto;
 }
@@ -228,7 +228,7 @@ div.btns {
 /******* LOCATION PAGE ******/
 body {
 	border: none;
-	background-color: #f3f3f3;
+	background-color: #1e1d22;
 }
 
 #fixedNav { 
@@ -267,7 +267,7 @@ div.two img, div.three img, div.four img {
 }
 
 .ui-collapsible-content.ui-body-inherit {
-	background-color: #f3f3f3;
+	background-color: #1e1d22;
 	border-style: none;
 	margin: 0px auto;
 	width: 90%;

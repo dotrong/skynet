@@ -41,8 +41,7 @@
         <!--<div class="text">-->
           <input class="btn" type="submit" value="Sign In" />
           <br>
-          <input class="btn" id="signUp" type="signup" value="Create Account" /signup>
-          <!-- <a href="/signup" class="userLink">Create Account</a> -->
+          <input class="btn" id="signUp" type="button" value="Create Account">
           <!--<br>-->
         <!--</div> -->
 
@@ -59,7 +58,12 @@
   
   </div>
 </div>
-
+<script>
+  $("#signUp").click(function () {
+    window.location.href="user.html";
+    return false;
+  });
+</script>
 
 </body>
 </html>

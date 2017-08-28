@@ -73,13 +73,14 @@ input.btn {  border-radius: 0px;
 	font-size: 16px;
 }
 
-input.btn:hover, {
+input.btn:hover {
   color: #222328;
 }
 
-#signUp {	
+#signUp { 
+	border: none; 
 	background-color: #0f5ffb;
-}
+  }
 
 /*a.aboutLink { 
 	text-decoration: none;

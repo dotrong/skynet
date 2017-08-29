@@ -131,24 +131,29 @@ form { border: none;
 	padding: 10px;
 }
 
-.form-control, #userPassword { border-radius: 3px; 
+.form-control, #userPassword { 
+	border-radius: 0px; 
+	font-size: 16px;
 	padding: 20px;
-}
-
-#userPassword { 
 	width: 80%;
-	margin-left: 50px;
 }
 
-div.btns { 
-	padding: 10px;
+.userBtns { 
+	width: 70%; 
+	margin: 0px auto; 
+	padding: 20px;	
 }
 
-.btn.btn-default { border-radius: 3px; color: white; 
+.btn.btn-default { border: none;
+	color: white; 
 	background-color: #0f5ffb;
 	width: 25%;
 	margin: 10px;
 	padding: 10px;
+}
+
+.btn.btn-default:hover {
+	color: #222328;
 }
 
 #userSubmit { 
@@ -156,71 +161,23 @@ div.btns {
 }  
 
 /******* WATCH PAGE ******/
-body {
-	border: none;
-	background-color: #1e1d22;
-}
-
-#fixedNav { 
-	background-color: #0f5ffb;
-}
-
-.container-fluid {
-	text-align: center;
-	margin: 10px;
-}
-
-h1 { /*clear: left;*/ 
-	display: inline;
-	width: 75%;
-	color: white;
-	text-align: center;
-}
-
 h2 { color: white;
 	text-align: center;
 	font-size: 1.5em;
 	background-color: #1e1d22;
 }
 
-span.leftIcon, a { float: left;
-	/*display: inline;*/
-	margin: 5px;
+.form-control, .form-check { 
+	font-size: 16px;
+	height: 40px; 
 	color: white;
-}
-
-div.panel.panel-default { max-width: 800px; margin: 0px auto;
-	border: none;
-}
-
-form { 
-	background-color: #1e1d22;
-}
-
-.form-control, .form-check { height: 40px; color: white;
 	width: 80%;
 	margin: 0px auto;
 }
 
-div.btns { 
-	width: 80%;
-	margin: 0px auto;
+.form-check { 
+	width: 60%;
 }
-
-.btn.btn-default { border-radius: 3px; color: white;
-	background-color: #0f5ffb;
-	width: 25%;
-	margin: 10px;
-	padding: 10px;
-}
-
-.btn.btn-default:hover {    
-	color: #222328;
-}
-
-#userSubmit { 
-	background-color: #f7c04b;
-}  
 
 #travelSummary, #wthrSummary, #iWthrSummary {
 	display: none;

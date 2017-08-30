@@ -9,13 +9,16 @@ var helper = {
 
   // This function serves our purpose of running the query to weathermapapi
   runQuery: function() {
+    var PORT = process.env.PORT||3000;
+    var baseUrl = "http://localhost:"+PORT;
 
-    axios.get("http://localhost:3000/api/locations").then(function(response) {
+    axios.get(baseUrl+"/api/locations").then(function(response,error) {
         var obj = {
           weather: [],
           tsunami: [],
           news: []
         };
+
         if (response.data) {
         
           //console.log(response.data);
@@ -64,7 +67,7 @@ var helper = {
             axios.get(url).then(function(response) {
 
               //console.log(response.data.main.temp);
-              axios.post("http://localhost:3000/api/alerts",{
+              axios.post(baseUrl+"/api/alerts",{
                 alert_status: 1,
                 alert_descr: response.data.main.temp,
                 WatchId: watchId
@@ -78,6 +81,7 @@ var helper = {
           });
 
         }
+
 
         //processing Tsunami
 

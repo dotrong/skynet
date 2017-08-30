@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Watch = sequelize.define("Watch", {
 
-      wat_type: { type: DataTypes.STRING,
+      type: { type: DataTypes.STRING,
             allowNull: false
       
         },

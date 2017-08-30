@@ -1,105 +1,69 @@
 // Include the axios package for performing HTTP requests (promise based alternative to request)
 var axios = require("axios");
+var PORT = process.env.PORT||3000;
+var baseUrl = "http://localhost:"+PORT;
 
 // example API
 //api.openweathermap.org/data/2.5/weather?q=London&appid=0558d69e2ef94da5a18c33d8a9dffd5b&units=imperial
 
 // Helper functions for making API Calls
 var helper = {
-
+  
   // This function serves our purpose of running the query to weathermapapi
   runQuery: function() {
-    var PORT = process.env.PORT||3000;
-    var baseUrl = "http://localhost:"+PORT;
-
     axios.get(baseUrl+"/api/locations").then(function(response,error) {
         var obj = {
           weather: [],
-          tsunami: [],
-          news: []
+          earthquake: [],
+          travel: []
         };
 
         if (response.data) {
-        
-          //console.log(response.data);
           for (var i = 0; i< response.data.length;i++) {
-            var loc_term = response.data[i].loc_term;
+            var city = response.data[i].city;
+            var state = response.data[i].state;
             for (var j = 0; j< response.data[i].Watches.length;j++) {
-              if (response.data[i].Watches[j].wat_type == 'Weather') {
+              if (response.data[i].Watches[j].type == 'Weather') {
                 var weatherObj = {
-                  city: loc_term,
+                  city: city,
+                  state: state,
                   watch_id: response.data[i].Watches[j].id
                 }
                 obj.weather.push(weatherObj) ;
               }
-              else if (response.data[i].Watches[j].wat_type == 'Tsunami') {
+              else if (response.data[i].Watches[j].type == 'Earthquake') {
 
-                var tsunamiObj = {
-                  city: loc_term,
+                var earthQuakeObj = {
+                  city: city,
+                  state: state,
                   watch_id: response.data[i].Watches[j].id
                 }
-                obj.tsunami.push(tsunamiObj) ;
+                obj.earthQuake.push(earthQuakeObj) ;
 
               }
+              //go to travel category
               else {
-                var newsObj = {
-                  city: loc_term,
+                var travelObj = {
+                  city: city,
+                  state: state,
                   watch_id: response.data[i].Watches[j].id
                 }
-                obj.news.push(newsObj) ;
+                obj.travel.push(travelObj) ;
               }
             }
           }
-        console.log(obj);
+          console.log(obj);
 
-          //processing weather
-
-        var appid = '0558d69e2ef94da5a18c33d8a9dffd5b';
-
-        for (var i = 0; i<obj.weather.length;i++) {
-            var url = 'https://api.openweathermap.org/data/2.5/weather?';
-            var city = obj.weather[i].city;
-            var watchId = obj.weather[i].watch_id;
-            //city ='london';
-            url = url+'q='+city+'&appid='+appid+'&units=imperial';
-            //console.log(url);
-
-            axios.get(url).then(function(response) {
-
-              //console.log(response.data.main.temp);
-              axios.post(baseUrl+"/api/alerts",{
-                alert_status: 1,
-                alert_descr: response.data.main.temp,
-                WatchId: watchId
-              
-              }).then(function(response) {
-                console.log(response);
-              }).catch(function(error) {
-                console.log(error);
-              })
-            
-          });
-
+          getWeatherWatch(obj.weather);
+       
         }
-
-
-        //processing Tsunami
-
-
-
-        //processing news
-        //Article Search API: 30043fc35dfa4f0089e6234400603470
-
-
-      }
-
     });
 
   },
 
 };
 //get all locations with watch
-var getLocationWatch = function() {
+var getWeatherWatch = function(weather) {
 
     //categorize locations --> term, watch type
 
@@ -109,6 +73,34 @@ var getLocationWatch = function() {
     //     tusnami: [{city: "honolulu", watchid: "4"},{city: "santa barbara", watchid:"5"}],
     //     earthquake: ["Los Angeles", "New York", "Washington DC"]
     // }
+
+    var appid = '0558d69e2ef94da5a18c33d8a9dffd5b';
+    
+      for (var i = 0; i<weather.length;i++) {
+          var url = 'https://api.openweathermap.org/data/2.5/weather?';
+          var city = weather[i].city;
+          var watchId = weather[i].watch_id;
+          //city ='london';
+          url = url+'q='+city+'&appid='+appid+'&units=imperial';
+          //console.log(url);
+
+          axios.get(url).then(function(response) {
+
+            //console.log(response.data.main.temp);
+            axios.post(baseUrl+"/api/alerts",{
+              status: 1,
+              description: response.data.main.temp,
+              WatchId: watchId
+            
+            }).then(function(response) {
+              console.log(response);
+            }).catch(function(error) {
+              console.log(error);
+            })
+          
+        });
+
+      }
 
 }
 

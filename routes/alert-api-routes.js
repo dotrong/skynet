@@ -8,7 +8,7 @@ module.exports = function(app) {
         db.Alert.findOne({
             where: {
                 WatchId: req.body.WatchId,
-                alert_status: 1
+                status: 1
             }
          }).then(function(dbAlert) {
              //res.json(dbUser);

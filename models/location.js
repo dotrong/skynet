@@ -1,13 +1,13 @@
 module.exports = function(sequelize, DataTypes) {
     var Location = sequelize.define("Location", {
 
-      loc_term: { type: DataTypes.STRING,
-            allowNull: false
+      picture: { type: DataTypes.STRING,
+            allowNull: true
       
         },
-      loc_state: {type: DataTypes.STRING,
+      state: {type: DataTypes.STRING,
         allowNull: false},
-      loc_city:{type: DataTypes.STRING,
+      city:{type: DataTypes.STRING,
         allowNull: false
         }, 
     

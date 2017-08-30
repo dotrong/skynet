@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
             // Associating User with Locations
             // When an User is deleted, also delete any associated Locations
             Watch.belongsTo(models.Location);
-            Watch.hasMany(models.Alert, {
+            Watch.hasOne(models.Alert, {
 
                 onDelete: "cascade"
                 

@@ -5,13 +5,24 @@ module.exports = function(app) {
     //create alert: in body must have watchId information
     app.post("/api/alerts", function(req, res) {
 
-       // db.Alert.create(req.body).then(function(dbAlert) {
-        db.Alert.upsert(req.body,{where: {
+        db.Alert.findOne({
+            where: {
+                WatchId: req.body.WatchId,
+                alert_status: 1
+            }
+         }).then(function(dbAlert) {
+             //res.json(dbUser);
+             return dbAlert;
+         }).then(function(dbAlert){
+            if (dbAlert) {
+                return db.Alert.update(req.body, { where: {WatchId: req.body.WatchId}});
+            }
+            else {
+                return db.Alert.create(req.body);
+            }
+         }).then(function(alert) {res.json(alert);
+        }).catch(function(error){console.log(error);});
 
-            WatchId: req.body.WatchId
-        }}).then(function(dbAlert) {
-          res.json(dbAlert);
-        });
     });
 
     //update alert status by id

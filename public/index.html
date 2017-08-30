@@ -24,11 +24,20 @@
 
 </head>
 
+<<<<<<< HEAD
 <body>
 
 <div class="signinContainer">
   <!-- <img src="images/backgroundBlur2.jpg" alt="City Lights" class="image"> -->
   <div class="middle">
+=======
+<body>  
+  
+<div class="signinContainer" >
+  <!--<img src="images/photo-1484851050019-ca9daf7736fb.jpg" alt="City Lights" class="image">-->
+    <img src="images/photo-1484851050019-ca9daf7736fb.jpg" alt="City Lights" class="image">
+    <div class="middle">
+>>>>>>> origin/master
 
 
     <form class="signinForm" method="POST" action="signin">
@@ -36,14 +45,16 @@
       <div class="text">
         <!-- <span class="close">&times;</span> -->
         <input type="text" placeholder="Enter Email" name="email" required>
+        <br>
         <input type="password" placeholder="Enter Password" name="password" required>
-               
-        <div class="text">
+        <br> 
+        <br>      
+        <!--<div class="text">-->
           <input class="btn" type="submit" value="Sign In" />
-          <input class="btn" id="signUp" type="signup" value="Create Account" /signup>
-          <!-- <a href="/signup" class="userLink">Create Account</a> -->
           <br>
-        </div> 
+          <input class="btn" id="signUp" type="button" value="Create Account">
+          <!--<br>-->
+        <!--</div> -->
 
         <!-- <div>
           <a href="/signup" class="userLink">Create Account</a>
@@ -58,7 +69,12 @@
   
   </div>
 </div>
-
+<script>
+  $("#signUp").click(function () {
+    window.location.href="/signup";
+    return false;
+  });
+</script>
 
 </body>
 </html>

@@ -56,7 +56,15 @@ var helper = {
           }
           console.log(obj);
 
-          getWeatherWatch(obj.weather);
+          //getWeatherWatch(obj.weather);
+
+          var earthquake = [
+            {city: 'Fiji', state: 'Fiji', watch_id: 1},
+            {city: 'Los Angeles', state: 'California', watch_id: 3}
+          ];
+
+          //getEarthQuakeWatch(earthquake);
+          getWeatherAlert(earthquake);
        
         }
     });
@@ -112,12 +120,15 @@ var getEarthQuakeWatch = function(earthquake) {
 
   var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.atom";
   axios.get(url).then(function(response) {
-    var $ = cheerio.load(html);
+    var $ = cheerio.load(response);
+    //console.log(response);
     for (var i =0; i< earthquake.length;i++) {
 
       var city = earthquake[i].city;
       var state = earthquake[i].state;
       var watchId = earthquake[i].watch_id;
+
+      console.log(city,state,watchId);
 
       var cityRegex = new RegExp(city, 'g'); // convert 'city' to regex for boolean parsing below
       var stateRegex = new RegExp(state, 'g');
@@ -125,11 +136,14 @@ var getEarthQuakeWatch = function(earthquake) {
         
         var magnitude = Number($(element).children("title").text().substring(2,5)); // capture magnitude and convert to number
         var titleInfo = $(element).children("title").text(); // variable of 'title' info 
+        console.log(titleInfo);
         var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
         var details = $(element).children("link").attr("href"); // variable of 'details' url
         
-        if (magnitude >= 6 && location != false) { // high magnitude in watched city
+        //if (magnitude >= 6 && location != false) { // high magnitude in watched city
           // console.log(el);
+
+        if (location != false) {
 
           var timeDate = $(element).children("updated").text();
           // Date
@@ -156,13 +170,146 @@ var getEarthQuakeWatch = function(earthquake) {
                   alertLevel = "green";
                   break;
           }//end of switch
+          console.log('city ' + city + ' magnitude ' + magnitude + ' alert ' + alertLevel);
         }  //end of if
       });//end of each
     }//end of for
+  }).catch(function(error) {console.log(error)});
+}
+
+var getTravelWatch = function(travel) { 
+  var timeZone = "UTC";
+  var alertLevel;
+
+  var url = 'https://travel.state.gov/_res/rss/TWs.xml';
+
+  request(url,function(error,response,xml) {
+    
+    var $ = cheerio.load(xml,{
+        xml: {
+            normalizeWhitespace: true,
+        }
+    });
+
+    $("item").each(function (i,element) { // loop through all entries
+
+      for (var i =0; i< travel.length;i++) {
+        
+        var city = travel[i].city;
+        var state = travel[i].state;
+        var watchId = travel[i].watch_id;
+        //console.log(element);
+        var title = $(element).children("title").text();
+        
+        var stateRegex = new RegExp(state, 'gi'); // convert for regex usage below
+        if (stateRegex.test(title) && state.length > 2) {
+
+          var month = entry.date.substring(5, 7);
+          var day = entry.date.substring(8, 10);
+          var year = entry.date.substring(0, 4);
+          var newDate = (year + "-" + month + "-" + day);
+          var summary = $(element).children("summary").text();
+          alertLevel = "Red";
+
+          console.log('title: ' + title + ' summary ' + summary + ' alert ' + alertLevel);
+
+        }
+      }
+
+    });
+
   });
 }
 
 
+var getWeatherAlert = function(weather) {
 
+  var timeZone = "UTC";
+  var alertLevel;
+  var wthrKey = "fe7effa08314f68a";
+
+  for (var i =0; i< weather.length;i++) {
+    
+    var city = weather[i].city;
+    var state = weather[i].state;
+    var watchId = weather[i].watch_id;
+
+    city = city.replace(/ /i, "_");
+    state = state.replace(/ /i, "_");
+
+    var alerts = "https://api.wunderground.com/api/" + wthrKey + "/alerts/q/" + state + "/" + city + ".json";
+    var conditions = "https://api.wunderground.com/api/" + wthrKey + "/conditions/q/" + state + "/" + city + ".json";
+  
+    var promise1 = axios.get(alerts);
+    var promise2 = axios.get(conditions);
+
+    Promise.all([promise1,promise2]).then(function(results) {
+      //console.log(results);
+      var alerts_result= results[0].data;
+      console.log(alerts_result);
+      var conditions_result = results[1].data;
+
+      var temp = alerts_result.current_observation.temp_f;
+      var wind_speed = alerts_result.current_observation.wind_mph;
+      var alert_weather = alerts_result.current_observation.weather;
+
+      if (conditions_result.alerts[0]) {
+        var item = response.alerts[0]; // only most recent result
+        var timeDate = item.date;
+        //DOMESTIC
+        if (/GMT/.test(timeDate) != true) { // is not Greenwich Meantime
+          
+          var onIndex = timeDate.search(/ on /i); // find starting index of ' on '
+          // Date
+          var newDate = timeDate.substring(onIndex + 4);
+          // Time
+          var time = timeDate.substring(0, onIndex);          
+          switch (item.type) {
+              case "TOR":
+                  alertLevel = "Red";
+                  break;
+              case "WRN":
+                  alertLevel = "Red";
+                  break;
+              case "FLO":
+                  alertLevel = "Red";
+                  break;
+              case "HWW":
+                  alertLevel = "Red";
+                  break;
+              case "SVR":
+                  alertLevel = "Red";
+                  break;
+              default:
+                  alertLevel = "Yellow";
+                  break;
+          }
+          var description = item.description;
+          var summary = item.message;
+          console.log('description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
+        }
+      }
+      else {
+        var month = timeDate.substring(5, 7);
+        var day = timeDate.substring(8, 10);
+        var year = timeDate.substring(0, 4);
+        var newDate = (year + "-" + month + "-" + day);
+        // console.log(newDate);
+
+        // Time
+        var hours = Number(timeDate.substring(11, 13));
+        var minutes = timeDate.substring(14, 16);
+        var time = hours + ":" + minutes + " " + timeZone;
+        // console.log(time);
+        alertLevel = item.level_meteoalarm_name;
+        var description = item.description;
+        var summary = item.message;
+        console.log('description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
+      }
+    }).catch(function(error) {
+      console.log(error);
+    });
+  }
+}
 // We export the API helper
 module.exports = helper;

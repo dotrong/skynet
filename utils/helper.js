@@ -59,12 +59,13 @@ var helper = {
           //getWeatherWatch(obj.weather);
 
           var earthquake = [
-            {city: 'Fiji', state: 'Fiji', watch_id: 1},
-            {city: 'Los Angeles', state: 'California', watch_id: 3}
+
+            {city: 'Los Angeles', state: 'CA', watch_id: 3}
           ];
 
-          //getEarthQuakeWatch(earthquake);
+          getEarthQuakeWatch(earthquake);
           getWeatherAlert(earthquake);
+          getTravelWatch(earthquake);
        
         }
     });
@@ -120,8 +121,8 @@ var getEarthQuakeWatch = function(earthquake) {
 
   var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.atom";
   axios.get(url).then(function(response) {
-    var $ = cheerio.load(response);
-    //console.log(response);
+    var $ = cheerio.load(response.data);
+
     for (var i =0; i< earthquake.length;i++) {
 
       var city = earthquake[i].city;
@@ -133,10 +134,9 @@ var getEarthQuakeWatch = function(earthquake) {
       var cityRegex = new RegExp(city, 'g'); // convert 'city' to regex for boolean parsing below
       var stateRegex = new RegExp(state, 'g');
       $("entry").each(function (i,element) { // loop through all entries
-        
+
         var magnitude = Number($(element).children("title").text().substring(2,5)); // capture magnitude and convert to number
         var titleInfo = $(element).children("title").text(); // variable of 'title' info 
-        console.log(titleInfo);
         var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
         var details = $(element).children("link").attr("href"); // variable of 'details' url
         
@@ -144,6 +144,8 @@ var getEarthQuakeWatch = function(earthquake) {
           // console.log(el);
 
         if (location != false) {
+
+          console.log("location is true");
 
           var timeDate = $(element).children("updated").text();
           // Date
@@ -203,15 +205,17 @@ var getTravelWatch = function(travel) {
         
         var stateRegex = new RegExp(state, 'gi'); // convert for regex usage below
         if (stateRegex.test(title) && state.length > 2) {
+          //console.log($(element).children("date"));
 
-          var month = entry.date.substring(5, 7);
-          var day = entry.date.substring(8, 10);
-          var year = entry.date.substring(0, 4);
+          var month = $(element).children("pubDate").text().substring(5, 7);
+          var day = $(element).children("pubDate").text().substring(8, 10);
+          var year = $(element).children("pubDate").text().substring(0, 4);
           var newDate = (year + "-" + month + "-" + day);
-          var summary = $(element).children("summary").text();
+          var summary = $(element).children("link").text();
+          //console.log(summary);
           alertLevel = "Red";
 
-          console.log('title: ' + title + ' summary ' + summary + ' alert ' + alertLevel);
+          console.log( 'summary '+ summary + ' date: ' + newDate + ' title: ' + title  + ' alert ' + alertLevel);
 
         }
       }
@@ -245,16 +249,18 @@ var getWeatherAlert = function(weather) {
 
     Promise.all([promise1,promise2]).then(function(results) {
       //console.log(results);
-      var alerts_result= results[0].data;
-      console.log(alerts_result);
-      var conditions_result = results[1].data;
+      var alerts_result= results[0].data.alerts;
+      //console.log(typeof(alerts_result));
+      var conditions_result = results[1].data.current_observation;
+      //console.log(conditions_result);
 
-      var temp = alerts_result.current_observation.temp_f;
-      var wind_speed = alerts_result.current_observation.wind_mph;
-      var alert_weather = alerts_result.current_observation.weather;
+      var temp = conditions_result.temp_f;
+      var wind_speed = conditions_result.wind_mph;
+      //var alert_weather = conditions_result.weather;
+      console.log(temp, wind_speed);
 
-      if (conditions_result.alerts[0]) {
-        var item = response.alerts[0]; // only most recent result
+      if (alerts_result[0]) {
+        var item = alerts_result[0]; // only most recent result
         var timeDate = item.date;
         //DOMESTIC
         if (/GMT/.test(timeDate) != true) { // is not Greenwich Meantime
@@ -287,25 +293,26 @@ var getWeatherAlert = function(weather) {
           var description = item.description;
           var summary = item.message;
           console.log('description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
+        } //end if Domestic
+        else {
+          var month = timeDate.substring(5, 7);
+          var day = timeDate.substring(8, 10);
+          var year = timeDate.substring(0, 4);
+          var newDate = (year + "-" + month + "-" + day);
+          // console.log(newDate);
+  
+          // Time
+          var hours = Number(timeDate.substring(11, 13));
+          var minutes = timeDate.substring(14, 16);
+          var time = hours + ":" + minutes + " " + timeZone;
+          // console.log(time);
+          alertLevel = item.level_meteoalarm_name;
+          var description = item.description;
+          var summary = item.message;
+          console.log('description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
         }
       }
-      else {
-        var month = timeDate.substring(5, 7);
-        var day = timeDate.substring(8, 10);
-        var year = timeDate.substring(0, 4);
-        var newDate = (year + "-" + month + "-" + day);
-        // console.log(newDate);
 
-        // Time
-        var hours = Number(timeDate.substring(11, 13));
-        var minutes = timeDate.substring(14, 16);
-        var time = hours + ":" + minutes + " " + timeZone;
-        // console.log(time);
-        alertLevel = item.level_meteoalarm_name;
-        var description = item.description;
-        var summary = item.message;
-        console.log('description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
-      }
     }).catch(function(error) {
       console.log(error);
     });

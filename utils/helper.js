@@ -1,5 +1,7 @@
 // Include the axios package for performing HTTP requests (promise based alternative to request)
 var axios = require("axios");
+var request = require("request");
+var cheerio = require("cheerio");
 var PORT = process.env.PORT||3000;
 var baseUrl = "http://localhost:"+PORT;
 
@@ -103,6 +105,64 @@ var getWeatherWatch = function(weather) {
       }
 
 }
+
+var getEarthQuakeWatch = function(earthquake) { 
+  var timeZone = "UTC";
+  var alertLevel;
+
+  var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.atom";
+  axios.get(url).then(function(response) {
+    var $ = cheerio.load(html);
+    for (var i =0; i< earthquake.length;i++) {
+
+      var city = earthquake[i].city;
+      var state = earthquake[i].state;
+      var watchId = earthquake[i].watch_id;
+
+      var cityRegex = new RegExp(city, 'g'); // convert 'city' to regex for boolean parsing below
+      var stateRegex = new RegExp(state, 'g');
+      $("entry").each(function (i,element) { // loop through all entries
+        
+        var magnitude = Number($(element).children("title").text().substring(2,5)); // capture magnitude and convert to number
+        var titleInfo = $(element).children("title").text(); // variable of 'title' info 
+        var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
+        var details = $(element).children("link").attr("href"); // variable of 'details' url
+        
+        if (magnitude >= 6 && location != false) { // high magnitude in watched city
+          // console.log(el);
+
+          var timeDate = $(element).children("updated").text();
+          // Date
+          var month = timeDate.substring(5, 7);
+          var day = timeDate.substring(8, 10);
+          var year = timeDate.substring(0, 4);
+          var newDate = (year + "-" + month + "-" + day);
+
+          // Time
+          var hours = Number(timeDate.substring(11, 13));
+          var minutes = timeDate.substring(14, 16);
+          var time = hours + ":" + minutes + " " + timeZone;
+          // console.log(pst);
+
+          // Alert Level
+          switch (true) {
+              case magnitude >=6 && magnitude < 7:
+                  alertLevel = "yellow";
+                  break;
+              case magnitude >= 7:
+                  alertLevel = "red";
+                  break;
+              case magnitude < 6:
+                  alertLevel = "green";
+                  break;
+          }//end of switch
+        }  //end of if
+      });//end of each
+    }//end of for
+  });
+}
+
+
 
 // We export the API helper
 module.exports = helper;

@@ -231,6 +231,30 @@ div.two img, div.three img, div.four img {
 	width: 90%;
 }
 
+/******* CHRIS CSS CODE ******/
+.cityImgs {
+ width: 400px;
+ height: 140px;
+ overflow: hidden;
+ background-color: black;
+}
+.cityImgs img {
+ width: 100%;
+ transform: translate(0, -23%) /* centers img vertically */
+}
+
+.ui-page-theme-a .ui-btn {
+ text-shadow: none;
+}
+
+.ui-page-theme-a .ui-btn:hover {
+ color: lightgrey;
+ text-shadow: none;
+}
+
+
+
+
 
 /******MEDIA QUERIES******/
  @media screen and (min-width: 850px) {

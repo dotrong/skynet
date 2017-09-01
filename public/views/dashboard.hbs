@@ -1,11 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Passport with Sequelize</title>
+  <meta charset="UTF-8"name="viewport" content="width=device-width" initial-scale="1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SkyNet - Locations</title>
+
+    <!-- //*****JQUERY*****// -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!--//*****BOOTSTRAP*****// -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- **********Font Awesome CSS Icons (For cool glyphicons)********** -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+     
+    <!-- *****PREVENT FAVICON REQUESTS***** -->    
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <!-- *****LOCAL STYLES AND JS LINKS***** -->
+    <!-- USE WHEN NOT USING BOOTSTRAP <link rel="stylesheet" href="assets/css/reset.css"> -->
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="assets/style.css">
+
 </head>
 <body>
-<h2>Dashboard</h2>
-<h5>Hurray! you are logged in.</h5>
+<!-- *****CONTAINER FOR NAV BAR***** -->  
+<header role="banner"> 
+    <!-- *****NAVIGATON BAR***** -->
+    <nav id="fixedNav" class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <span class="leftIcon">
+          <a href="/addwatch">
+            <i class="glyphicon glyphicon-menu-hamburger"></i>
+          </a>
+        </span>
+
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <!-- <div class="navbar-header"> -->
+           <!--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button> -->
+              <!-- <span class="leftIcon"><a href="/"><i class="glyphicon glyphicon-menu-left"></i>
+              </a></span>   -->       
+              <h1 class="text-center">Locations</h1>
+              <!-- <a class="navbar-brand" class="userBack" href="/"></a> -->
+          <!-- </div> -->
+             <!-- Collect the nav links, forms, and other content for toggling -->
+              <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">        
+                <li class="active"><a href="/newUser">New User</a></li>
+                <li><a href="/contact">Contact</a></li>            
+            </ul>
+          </div> -->
+        <span class="rightIcon">
+          <a href="/logout">
+            <i class="glyphicon glyphicon-user"> Welcome {{username}} </i>
+          </a>
+        </span> 
+      </div>
+    </nav>
+</header>
+
+<div class="wrapper">
+  <!-- <div id="two" data-role="main" class="ui-content">
+   <div class="cityImgs">
+       <img src="images/city.jpg">
+   </div>
+   <div data-role="collapsible">
+     <h1 id="test1">City 1</h1>
+   </div>
+ </div> -->
+  <div class="two" data-role="main" class="ui-content">
+      <a href="/watch"><img class="imgPlaceholder" src="images/imgPlaceholder.jpg"></a>
+    <!-- <img src="images/imgPlaceholder.jpg"> -->
+    <div data-role="collapsible">
+      <h1>City 1</h1>
+      <div class="newsSpot" class="spots">News</div>
+      <div class="earthquakeSpot" class="spots">Earthquakes</div>
+      <div class="travelSpot" class="spots">Travel Alerts</div>
+    </div>
+  </div>
+  <div class="three" data-role="main" class="ui-content">
+    <img src="images/city2.jpg">
+      <div data-role="collapsible">
+        <h1>City 2</h1>
+        <div class="newsSpot" class="spots">News</div>
+        <div class="earthquakeSpot" class="spots">Earthquakes</div>
+        <div class="travelSpot" class="spots">Travel Alerts</div>
+      </div>
+  </div>
+  <div class="four" data-role="main" class="ui-content">
+    <img src="images/city3.jpg">
+      <div data-role="collapsible">
+        <h1>City 3</h1>
+        <div class="newsSpot" class="spots">News</div>
+        <div class="earthquakeSpot" class="spots">Earthquakes</div>
+        <div class="travelSpot" class="spots">Travel Alerts</div>
+      </div>
+  </div>
+  <div class="five" data-role="main" class="ui-content">
+    <h1>API DATA</h1>
+  </div>
+  <div class="six" data-role="main" class="ui-content">
+    <h1>WORLD MAP</h1>
+  </div>
+</div>
 
 </body>
-</html>
+</html>	
+
+<!-- Main javascript functionality -->
+<!-- <script src="assets/scripts/main.js"></script> -->

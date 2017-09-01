@@ -14,6 +14,7 @@ app.post('/signup', passport.authenticate('local-signup',  { successRedirect: '/
 
 
 app.get('/dashboard',isLoggedIn, authController.dashboard);
+app.get('/watch',isLoggedIn, authController.watch);
 
 
 app.get('/logout',authController.logout);

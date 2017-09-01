@@ -60,7 +60,7 @@ var helper = {
 
           var earthquake = [
 
-            {city: 'Los Angeles', state: 'CA', watch_id: 3}
+            {city: 'new delhi', state: 'india', watch_id: 3}
           ];
 
           getEarthQuakeWatch(earthquake);
@@ -131,13 +131,15 @@ var getEarthQuakeWatch = function(earthquake) {
 
       console.log(city,state,watchId);
 
-      var cityRegex = new RegExp(city, 'g'); // convert 'city' to regex for boolean parsing below
-      var stateRegex = new RegExp(state, 'g');
+      var cityRegex = new RegExp(city, 'gi'); // convert 'city' to regex for boolean parsing below
+      var stateRegex = new RegExp(state, 'gi');
       $("entry").each(function (i,element) { // loop through all entries
 
         var magnitude = Number($(element).children("title").text().substring(2,5)); // capture magnitude and convert to number
-        var titleInfo = $(element).children("title").text(); // variable of 'title' info 
+        var titleInfo = $(element).children("title").text(); // variable of 'title' info
+        //console.log(titleInfo); 
         var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
+        //console.log(location);
         var details = $(element).children("link").attr("href"); // variable of 'details' url
         
         //if (magnitude >= 6 && location != false) { // high magnitude in watched city
@@ -172,7 +174,7 @@ var getEarthQuakeWatch = function(earthquake) {
                   alertLevel = "green";
                   break;
           }//end of switch
-          console.log('city ' + city + ' magnitude ' + magnitude + ' alert ' + alertLevel);
+          console.log('city ' + city + ' magnitude ' + magnitude + 'details ' + details +' alert ' + alertLevel);
         }  //end of if
       });//end of each
     }//end of for
@@ -225,7 +227,6 @@ var getTravelWatch = function(travel) {
   });
 }
 
-
 var getWeatherAlert = function(weather) {
 
   var timeZone = "UTC";
@@ -253,13 +254,18 @@ var getWeatherAlert = function(weather) {
       //console.log(typeof(alerts_result));
       var conditions_result = results[1].data.current_observation;
       //console.log(conditions_result);
+      var temp;
+      var wind_speed;
+      if (conditions_result) {
+        temp = conditions_result.temp_f;
+        wind_speed = conditions_result.wind_mph;
 
-      var temp = conditions_result.temp_f;
-      var wind_speed = conditions_result.wind_mph;
+      }
+
       //var alert_weather = conditions_result.weather;
       console.log(temp, wind_speed);
 
-      if (alerts_result[0]) {
+      if (alerts_result) {
         var item = alerts_result[0]; // only most recent result
         var timeDate = item.date;
         //DOMESTIC
@@ -292,7 +298,7 @@ var getWeatherAlert = function(weather) {
           }
           var description = item.description;
           var summary = item.message;
-          console.log('description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
+          console.log('date ' + newDate + 'description ' + description + ' alert ' + alertLevel);
         } //end if Domestic
         else {
           var month = timeDate.substring(5, 7);
@@ -309,7 +315,7 @@ var getWeatherAlert = function(weather) {
           alertLevel = item.level_meteoalarm_name;
           var description = item.description;
           var summary = item.message;
-          console.log('description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
+          console.log('date: ' + newDate + 'description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
         }
       }
 

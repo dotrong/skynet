@@ -14,12 +14,19 @@ exports.signin = function(req,res){
   res.sendFile(path.join(__dirname + "/../../public/index.html"));
 
 }
+exports.watch = function(req,res){
+  
+    //res.render('/'); 
+    res.sendFile(path.join(__dirname + "/../../public/watch.html"));
+  
+  }
 
 exports.dashboard = function(req,res){
+  console.log(req.user);
 
-  //res.render('dashboard'); 
+  res.render('dashboard',{username:req.user.firstname}); 
   
-  res.sendFile(path.join(__dirname + "/../../public/location.html"));
+  //res.sendFile(path.join(__dirname + "/../../public/location.html"));
 
 }
 

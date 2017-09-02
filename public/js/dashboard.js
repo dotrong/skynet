@@ -51,6 +51,10 @@ $(document).ready(function() {
 
 });
 
+setInterval(function() {
+    reload();
+}, 15000);
+
 var reload = function() {
 
     $.get("/api/users",function(data,status) {

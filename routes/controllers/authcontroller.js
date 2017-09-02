@@ -17,7 +17,9 @@ exports.signin = function(req,res){
 exports.watch = function(req,res){
   
     //res.render('/'); 
-    res.sendFile(path.join(__dirname + "/../../public/watch.html"));
+    //res.sendFile(path.join(__dirname + "/../../public/watch.html"));
+
+    res.render('watch',{username:req.user.firstname}); 
   
   }
 
@@ -33,7 +35,8 @@ exports.dashboard = function(req,res){
 exports.logout = function(req,res){
 
   req.session.destroy(function(err) {
-  res.redirect('/');
+    res.redirect('/');
+  //res.sendFile(path.join(__dirname + "/../../public/index.html"));
   });
 
 }

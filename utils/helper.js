@@ -25,7 +25,7 @@ var helper = {
             var city = response.data[i].city;
             var state = response.data[i].state;
             for (var j = 0; j< response.data[i].Watches.length;j++) {
-              if (response.data[i].Watches[j].type == 'Weather') {
+              if (response.data[i].Watches[j].type == 'weather') {
                 var weatherObj = {
                   city: city,
                   state: state,
@@ -33,14 +33,14 @@ var helper = {
                 }
                 obj.weather.push(weatherObj) ;
               }
-              else if (response.data[i].Watches[j].type == 'Earthquake') {
+              else if (response.data[i].Watches[j].type == 'earthquake') {
 
                 var earthQuakeObj = {
                   city: city,
                   state: state,
                   watch_id: response.data[i].Watches[j].id
                 }
-                obj.earthQuake.push(earthQuakeObj) ;
+                obj.earthquake.push(earthQuakeObj) ;
 
               }
               //go to travel category
@@ -54,18 +54,35 @@ var helper = {
               }
             }
           }
-          console.log(obj);
+          //console.log(obj);
 
           //getWeatherWatch(obj.weather);
 
-          var earthquake = [
+          // var earthquake = [
 
-            {city: 'new delhi', state: 'india', watch_id: 3}
-          ];
+          //   {city: 'new delhi', state: 'india', watch_id: 1},
+          //   {city: 'pyongyang', state: 'North Korea', watch_id: 2},
+          //   {city: 'Heicheng', state: 'China', watch_id: 3} //Heicheng, China
 
-          getEarthQuakeWatch(earthquake);
-          getWeatherAlert(earthquake);
-          getTravelWatch(earthquake);
+          // ];
+
+          // var weather = [
+
+          //   {city: 'new delhi', state: 'india', watch_id: 4},
+          //   {city: 'pyongyang', state: 'North Korea', watch_id: 5},
+          //   {city: 'Irvine', state: 'California', watch_id: 6}
+          // ];
+
+          // var travel = [
+
+          //   {city: 'pyongyang', state: 'North Korea', watch_id: 7},
+          //   {city: 'damacus', state: 'Venezuela', watch_id: 8},
+          //   {city: 'Irvine', state: 'California', watch_id: 9},
+          // ];
+
+          getEarthQuakeWatch(obj.earthquake);
+          getWeatherAlert(obj.weather);
+          getTravelWatch(obj.travel);
        
         }
     });
@@ -73,47 +90,6 @@ var helper = {
   },
 
 };
-//get all locations with watch
-var getWeatherWatch = function(weather) {
-
-    //categorize locations --> term, watch type
-
-    //  return obj = {
-    //     weather: [ {city: "irvine", watchid: "1" }, {city: "rancho cucamonga", id:"2"}, 
-    //      {city: "las vegas",id:"3"}],
-    //     tusnami: [{city: "honolulu", watchid: "4"},{city: "santa barbara", watchid:"5"}],
-    //     earthquake: ["Los Angeles", "New York", "Washington DC"]
-    // }
-
-    var appid = '0558d69e2ef94da5a18c33d8a9dffd5b';
-    
-      for (var i = 0; i<weather.length;i++) {
-          var url = 'https://api.openweathermap.org/data/2.5/weather?';
-          var city = weather[i].city;
-          var watchId = weather[i].watch_id;
-          //city ='london';
-          url = url+'q='+city+'&appid='+appid+'&units=imperial';
-          //console.log(url);
-
-          axios.get(url).then(function(response) {
-
-            //console.log(response.data.main.temp);
-            axios.post(baseUrl+"/api/alerts",{
-              status: 1,
-              description: response.data.main.temp,
-              WatchId: watchId
-            
-            }).then(function(response) {
-              console.log(response);
-            }).catch(function(error) {
-              console.log(error);
-            })
-          
-        });
-
-      }
-
-}
 
 var getEarthQuakeWatch = function(earthquake) { 
   var timeZone = "UTC";
@@ -144,6 +120,7 @@ var getEarthQuakeWatch = function(earthquake) {
         
         //if (magnitude >= 6 && location != false) { // high magnitude in watched city
           // console.log(el);
+        var alerts = [];
 
         if (location != false) {
 
@@ -160,6 +137,8 @@ var getEarthQuakeWatch = function(earthquake) {
           var hours = Number(timeDate.substring(11, 13));
           var minutes = timeDate.substring(14, 16);
           var time = hours + ":" + minutes + " " + timeZone;
+
+          var dateTime = newDate + ' ' + time;
           // console.log(pst);
 
           // Alert Level
@@ -174,7 +153,22 @@ var getEarthQuakeWatch = function(earthquake) {
                   alertLevel = "green";
                   break;
           }//end of switch
-          console.log('city ' + city + ' magnitude ' + magnitude + 'details ' + details +' alert ' + alertLevel);
+          //console.log('dateTime: '+ dateTime + 'city ' + city + ' temp ' + magnitude + 'details ' + details +' alert ' + alertLevel);
+          //alerts.push({external:details,description:magnitude,severity:alertLevel,WatchId:WatchId});
+
+          axios.post(baseUrl+"/api/alerts",{
+            status: 1,
+            description: magnitude,
+            WatchId: watchId,
+            severity: alertLevel,
+            external: details,
+            dateTime: dateTime,
+            title: 'EarthQuake Warning'          
+          }).then(function(response) {
+            //console.log(response);
+          }).catch(function(error) {
+            console.log(error);
+          })
         }  //end of if
       });//end of each
     }//end of for
@@ -215,9 +209,23 @@ var getTravelWatch = function(travel) {
           var newDate = (year + "-" + month + "-" + day);
           var summary = $(element).children("link").text();
           //console.log(summary);
-          alertLevel = "Red";
+          alertLevel = "red";
 
-          console.log( 'summary '+ summary + ' date: ' + newDate + ' title: ' + title  + ' alert ' + alertLevel);
+          //console.log( 'summary '+ summary + ' date: ' + newDate + ' title: ' + title  + ' alert ' + alertLevel);
+
+          axios.post(baseUrl+"/api/alerts",{
+            status: 1,
+            //description: summary,
+            WatchId: watchId,
+            severity: alertLevel,
+            title:title,
+            external: summary,
+            dateTime: newDate          
+          }).then(function(response) {
+            //console.log(response);
+          }).catch(function(error) {
+            console.log(error);
+          })
 
         }
       }
@@ -228,101 +236,105 @@ var getTravelWatch = function(travel) {
 }
 
 var getWeatherAlert = function(weather) {
-
   var timeZone = "UTC";
   var alertLevel;
   var wthrKey = "fe7effa08314f68a";
-
-  for (var i =0; i< weather.length;i++) {
-    
+  for (var i =0; i< weather.length;i++) {   
     var city = weather[i].city;
     var state = weather[i].state;
     var watchId = weather[i].watch_id;
-
+    //console.log("watchId: " + watchId);
     city = city.replace(/ /i, "_");
     state = state.replace(/ /i, "_");
-
     var alerts = "https://api.wunderground.com/api/" + wthrKey + "/alerts/q/" + state + "/" + city + ".json";
-    var conditions = "https://api.wunderground.com/api/" + wthrKey + "/conditions/q/" + state + "/" + city + ".json";
-  
+    var conditions = "https://api.wunderground.com/api/" + wthrKey + "/conditions/q/" + state + "/" + city + ".json"; 
     var promise1 = axios.get(alerts);
     var promise2 = axios.get(conditions);
-
-    Promise.all([promise1,promise2]).then(function(results) {
-      //console.log(results);
+    Promise.all([promise1,promise2,watchId]).then(function(results) {
       var alerts_result= results[0].data.alerts;
-      //console.log(typeof(alerts_result));
       var conditions_result = results[1].data.current_observation;
-      //console.log(conditions_result);
       var temp;
-      var wind_speed;
+      var newWatchId = results[2];
+      
+      var dateTime;
+      var description;
+      var alertLevel;
       if (conditions_result) {
         temp = conditions_result.temp_f;
-        wind_speed = conditions_result.wind_mph;
-
       }
+      console.log(temp,watchId);
+      console.log(alerts_result);
 
-      //var alert_weather = conditions_result.weather;
-      console.log(temp, wind_speed);
-
-      if (alerts_result) {
+      if (alerts_result && alerts_result.length > 0) {
         var item = alerts_result[0]; // only most recent result
         var timeDate = item.date;
         //DOMESTIC
         if (/GMT/.test(timeDate) != true) { // is not Greenwich Meantime
           
           var onIndex = timeDate.search(/ on /i); // find starting index of ' on '
-          // Date
           var newDate = timeDate.substring(onIndex + 4);
-          // Time
           var time = timeDate.substring(0, onIndex);          
           switch (item.type) {
               case "TOR":
-                  alertLevel = "Red";
+                  alertLevel = "red";
                   break;
               case "WRN":
-                  alertLevel = "Red";
+                  alertLevel = "red";
                   break;
               case "FLO":
-                  alertLevel = "Red";
+                  alertLevel = "red";
                   break;
               case "HWW":
-                  alertLevel = "Red";
+                  alertLevel = "red";
                   break;
               case "SVR":
-                  alertLevel = "Red";
+                  alertLevel = "red";
                   break;
               default:
-                  alertLevel = "Yellow";
+                  alertLevel = "yellow";
                   break;
           }
-          var description = item.description;
-          var summary = item.message;
-          console.log('date ' + newDate + 'description ' + description + ' alert ' + alertLevel);
+          description = item.description;
+          dateTime = newDate + ' ' + time;
         } //end if Domestic
         else {
           var month = timeDate.substring(5, 7);
           var day = timeDate.substring(8, 10);
           var year = timeDate.substring(0, 4);
           var newDate = (year + "-" + month + "-" + day);
-          // console.log(newDate);
-  
-          // Time
           var hours = Number(timeDate.substring(11, 13));
           var minutes = timeDate.substring(14, 16);
           var time = hours + ":" + minutes + " " + timeZone;
-          // console.log(time);
           alertLevel = item.level_meteoalarm_name;
-          var description = item.description;
+          description = item.description;
+          dateTime = newDate + ' ' + time;
           var summary = item.message;
-          console.log('date: ' + newDate + 'description ' + description + ' summary ' + summary + ' alert ' + alertLevel);
         }
-      }
 
+      }
+        //insert/update db
+      if (temp) {
+        console.log('date: ' + dateTime + 'description ' + temp + ' title ' + description + ' alert ' + alertLevel);
+        axios.post(baseUrl+"/api/alerts",{
+          status: 1,
+          description: temp,
+          title: description,
+          WatchId: newWatchId,
+          severity: alertLevel,
+          dateTime: dateTime          
+        }).then(function(response) {
+          //console.log(response);
+        }).catch(function(error) {
+          console.log(error);
+        })
+        
+      }
     }).catch(function(error) {
       console.log(error);
     });
-  }
+
+
+  } //end of for loop
 }
 // We export the API helper
 module.exports = helper;

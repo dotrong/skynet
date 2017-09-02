@@ -37,27 +37,7 @@
           </a>
         </span>
 
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <!-- <div class="navbar-header"> -->
-           <!--  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button> -->
-              <!-- <span class="leftIcon"><a href="/"><i class="glyphicon glyphicon-menu-left"></i>
-              </a></span>   -->       
               <h1 class="text-center">Locations</h1>
-              <!-- <a class="navbar-brand" class="userBack" href="/"></a> -->
-          <!-- </div> -->
-             <!-- Collect the nav links, forms, and other content for toggling -->
-              <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav">        
-                <li class="active"><a href="/newUser">New User</a></li>
-                <li><a href="/contact">Contact</a></li>            
-            </ul>
-          </div> -->
         <span class="rightIcon">
           <a href="/logout">
             <i class="glyphicon glyphicon-user"> Welcome {{username}} </i>
@@ -68,16 +48,9 @@
 </header>
 
 <div class="wrapper">
-  <!-- <div id="two" data-role="main" class="ui-content">
-   <div class="cityImgs">
-       <img src="images/city.jpg">
-   </div>
-   <div data-role="collapsible">
-     <h1 id="test1">City 1</h1>
-   </div>
- </div> -->
-  <div class="two" data-role="main" class="ui-content">
-      <a href="/watch"><img class="imgPlaceholder" src="images/imgPlaceholder.jpg"></a>
+
+  <div class="two" data-role="main" class="ui-content" id='0'>
+      <a href="#" id="city1" class="addLocaton"><img class="imgPlaceholder" src="images/imgPlaceholder.jpg"></a>
     <!-- <img src="images/imgPlaceholder.jpg"> -->
     <div data-role="collapsible">
       <h1>City 1</h1>
@@ -86,34 +59,82 @@
       <div class="travelSpot" class="spots">Travel Alerts</div>
     </div>
   </div>
-  <div class="three" data-role="main" class="ui-content">
-    <img src="images/city2.jpg">
-      <div data-role="collapsible">
-        <h1>City 2</h1>
-        <div class="newsSpot" class="spots">News</div>
-        <div class="earthquakeSpot" class="spots">Earthquakes</div>
-        <div class="travelSpot" class="spots">Travel Alerts</div>
-      </div>
+  <div class="three" data-role="main" class="ui-content" id ='1'>
+      <a href="#" id="city2" class="addLocaton"><img class="imgPlaceholder" src="images/imgPlaceholder.jpg"></a>
+    <!-- <img src="images/imgPlaceholder.jpg"> -->
+    <div data-role="collapsible">
+      <h1>City 2</h1>
+      <div class="newsSpot" class="spots">News</div>
+      <div class="earthquakeSpot" class="spots">Earthquakes</div>
+      <div class="travelSpot" class="spots">Travel Alerts</div>
+    </div>
   </div>
-  <div class="four" data-role="main" class="ui-content">
-    <img src="images/city3.jpg">
-      <div data-role="collapsible">
-        <h1>City 3</h1>
-        <div class="newsSpot" class="spots">News</div>
-        <div class="earthquakeSpot" class="spots">Earthquakes</div>
-        <div class="travelSpot" class="spots">Travel Alerts</div>
-      </div>
+  <div class="four" data-role="main" class="ui-content" id='2'>
+      <a href="#" id="city3" class="addLocaton"><img class="imgPlaceholder" src="images/imgPlaceholder.jpg"></a>
+    <!-- <img src="images/imgPlaceholder.jpg"> -->
+    <div data-role="collapsible">
+      <h1>City 3</h1>
+      <div class="newsSpot" class="spots">News</div>
+      <div class="earthquakeSpot" class="spots">Earthquakes</div>
+      <div class="travelSpot" class="spots">Travel Alerts</div>
+    </div>
   </div>
-  <div class="five" data-role="main" class="ui-content">
-    <h1>API DATA</h1>
-  </div>
-  <div class="six" data-role="main" class="ui-content">
-    <h1>WORLD MAP</h1>
-  </div>
+
 </div>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 style="color:blue;"><span class="glyphicon glyphicon-lock"></span> Add Location</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+
+            <div class="form-group">
+                  <input type="text" class="form-control" name="state" placeholder="State or Country" required>
+            </div>
+
+            <div class="form-group">
+                  <input type="text" class="form-control" name="city" placeholder="City" required>
+            </div>  
+
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="weather" checked >
+                Weather Alerts
+              </label>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="travel" checked >
+                Travel Alerts
+              </label>
+            </div>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input" name="earthquake" checked >
+                Earthquake Alerts
+              </label>
+            </div>        
+        </form>
+        </div>
+        <div class="modal-footer">
+            <div class="userBtns">
+              <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>  
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+  <script src="js/dashboard.js"></script> 
 
 </body>
 </html>	
-
-<!-- Main javascript functionality -->
-<!-- <script src="assets/scripts/main.js"></script> -->

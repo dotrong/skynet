@@ -10,7 +10,7 @@ html {
 	height: 100%; 
 }
 
-.image { 
+.indexImage { 
 	background-attachment: fixed; 
 	background-position: center; 
 	background-repeat: no-repeat; 
@@ -30,10 +30,10 @@ html {
 	transform: translate(-50%, -50%); /* Standard syntax */
 	-ms-transform: translate(-50%, -50%)  /*IE 9*/
 }
-
+/* 
 .signinContainer, .middle {
 	opacity: 1.0;
-}
+} */
 
 /*SIGN IN FORM CONTAINER*/
 .signinForm {   height: 50%;  padding: 15px; 

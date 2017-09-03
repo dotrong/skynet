@@ -8,28 +8,22 @@ html {
 	margin: 0px auto; 
 	width: 100%; 
 	height: 100%; 
-	/*position: relative;*/
 }
 
 .image { 
-	/*height: 100%; */
 	background-attachment: fixed; 
 	background-position: center; 
 	background-repeat: no-repeat; 
 	background-size: cover;
-	opacity: 1;
 	display: block;
 	width: 100%;
 	height: auto;
 	transition: .5s ease;
-	/*backface-visibility: hidden;*/
 }
 
-.middle { /*position: fixed;  */ 
-	/*height: auto;*/
+.middle { 
 	width: 65%;
 	transition: .5s ease;
-	opacity: 0;
 	position: absolute;
 	top: 45%;
 	left: 50%;
@@ -37,17 +31,14 @@ html {
 	-ms-transform: translate(-50%, -50%)  /*IE 9*/
 }
 
-/*.signinContainer:hover .image {
-	opacity: 0.9;
-}*/
-
-.signinContainer:hover .middle {
-	opacity: 1;
+.signinContainer, .middle {
+	opacity: 1.0;
 }
 
 /*SIGN IN FORM CONTAINER*/
 .signinForm {   height: 50%;  padding: 15px; 
-	background-color: #222328; 
+	/* background-color: #222328;  */
+	background-color: white;
 	opacity: 0.7; 
 	max-width: 600px; 
 	margin: 0px auto;
@@ -62,24 +53,26 @@ html {
 	/*border: 1px solid #ccc;*/
 	/*box-sizing: border-box;*/
 	color: black;
-	font-size: 16px;	
+	font-size: 16px;
+	font-weight: bolder;
+	background-color: #ddd;		
 }
 
 input.btn {  border-radius: 0px; 
 	text-decoration: none;
 	border: none; 
-	background-color: #f7c04b;
+	background-color: #febb00;
 	color: white;
 	font-size: 16px;
 }
 
 input.btn:hover {
-  color: #222328;
+  color: #00222b;
 }
 
 #signUp { 
 	border: none; 
-	background-color: #0f5ffb;
+	background-color: #074290;
   }
 
 /*a.aboutLink { 
@@ -92,11 +85,15 @@ a.aboutLink:hover {
 
 /******* USER PAGE ******/
 body {border: none;
-	background-color: #1e1d22;
+	background-color: #00222b;
 }
 
 #fixedNav { border-radius: 0px; border: none;
 	background-color: #0f5ffb;
+}
+
+.navbar { 
+	margin-bottom: 0px; 
 }
 
 .container-fluid { 
@@ -104,7 +101,7 @@ body {border: none;
 	margin: 10px;
 }
 
-h1 { /*clear: left;*/
+h1 { 
 	display: inline;
 	width: 75%;
 	color: white;
@@ -112,52 +109,79 @@ h1 { /*clear: left;*/
 }
 
 span.leftIcon, a { float: left;
-	/*display: inline;*/
 	margin: 5px;
 	color: white;
 }
+.backgroundImage { 
+	/*height: 100%; */
+	background-attachment: fixed; 
+	background-position: center; 
+	background-repeat: no-repeat; 
+	background-size: cover;
+	/*opacity: 1.0;*/
+	width: 100%;
+	height: auto;
+	transition: .5s ease;
+}
 
-div.panel.panel-default { max-width: 800px; margin: 0px auto; 
+div.panel.panel-default { 
+	background-color: transparent; 
 	border: none;
+	border-radius: 0px;
+	width: 90%; 
+	height: 55%;
+	transition: .5s ease; 
+	position: absolute;
+	top: 60%; 
+	left: 50%; 
+	transform: translate(-50%, -50%); /* Standard syntax */
+	-ms-transform: translate(-50%, -50%)  /*IE 9*/ 
 }
 
-form { border: none; 
-	background-color: #1e1d22;
-}
-
-.form-group { color: black;
-	width: 80%;
-	margin: 0px auto;
-	padding: 10px;
-}
-
-.form-control, #userPassword { 
-	border-radius: 0px; 
-	font-size: 16px;
+form { 
 	padding: 20px;
-	width: 80%;
+	max-width: 850px;
+	margin: 0px auto; 
+	background-color: white;
+	opacity: 0.7;
+}
+
+.form-group input[type=text], input[type=email], input[type=password] { 	
+	margin-bottom: 25px;
+	color: black; 
+}
+
+.form-control, #userFN, #userLN, #userEmail, #userPassword, #userConfirm { 
+	background-color: #ddd; 
+	font-weight: bolder;
+	border-radius: 0px; 
+	font-size: 25px;
+	padding: 20px 5px;
+	width: 90%;
 }
 
 .userBtns { 
-	width: 70%; 
-	margin: 0px auto; 
-	padding: 20px;	
+	width: 90%; 
+	margin: 0px auto; 	
 }
 
-.btn.btn-default { border: none;
+.btn.btn-default { 
+	border: none;
+	border-radius: 0px;
+	font-weight: bolder;
 	color: white; 
-	background-color: #0f5ffb;
+	background-color: #074290;
 	width: 25%;
-	margin: 10px;
-	padding: 10px;
+	margin: 0px 10px 0px 0px;
+	padding: 18px;
 }
 
 .btn.btn-default:hover {
-	color: #222328;
+	color: #00222b;
 }
 
 #userSubmit { 
-	background-color: #f7c04b;
+	background-color: #febb00;
 }  
 
 /******* WATCH PAGE ******/

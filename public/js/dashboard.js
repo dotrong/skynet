@@ -86,7 +86,8 @@ var reload = function() {
                 var severity = watches[j].Alert.severity;
             }
 
-            console.log(city,state,type,title,description,dateTime,external,severity);
+            console.log(city,state,type,title);
+            console.log(description,dateTime,external,severity);
 
             // $('#'+i).find('h1').text(city_state);    
         }

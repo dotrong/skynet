@@ -21,29 +21,26 @@ html {
 }
 
 .middle { 
-	width: 65%;
+	width: 90%;
 	transition: .5s ease;
 	position: absolute;
-	top: 45%;
+	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%); /* Standard syntax */
 	-ms-transform: translate(-50%, -50%)  /*IE 9*/
 }
-/* 
-.signinContainer, .middle {
-	opacity: 1.0;
-} */
 
 /*SIGN IN FORM CONTAINER*/
-.signinForm {   height: 50%;  padding: 15px; 
-	/* background-color: #222328;  */
+.signinForm {  height: 50%; padding: 15px;  
+	border-radius: 5px;
 	background-color: white;
-	opacity: 0.7; 
+	opacity: 0.8; 
 	max-width: 600px; 
 	margin: 0px auto;
 }
 
-.signinForm input[type=text], input[type=password], input.btn { 
+.signinForm input[type=text], input[type=password], input.btn {
+	border-radius: 5px;
 	width: 90%;
 	padding: 5px;
 	margin: 0px auto;
@@ -57,7 +54,8 @@ html {
 	background-color: #ddd;		
 }
 
-input.btn {  border-radius: 0px; 
+input.btn {  
+	border-radius: 5px; 
 	text-decoration: none;
 	border: none; 
 	background-color: #febb00;
@@ -73,13 +71,6 @@ input.btn:hover {
 	border: none; 
 	background-color: #074290;
   }
-
-/*a.aboutLink { 
-	text-decoration: none;
-}
-a.aboutLink:hover {
-	color: white;
-}*/
 
 /******* USER PAGE ******/
 body {border: none;
@@ -99,7 +90,7 @@ body {border: none;
 	margin: 10px;
 }
 
-h1 { 
+ h1 { 
 	display: inline;
 	width: 75%;
 	color: white;
@@ -123,32 +114,18 @@ span.leftIcon, a { float: left;
 	transition: .5s ease;
 }
 
- /*div.panel.panel-default { 
-	background-color: transparent; 
-	border: none;
-	border-radius: 0px;
-	width: 65%; 
-	height: 75%;
-	transition: .5s ease; 
-	position: absolute;
-	top: 70%; 
-	left: 50%; 
-	transform: translate(-50%, -50%); Standard syntax 
-	-ms-transform: translate(-50%, -50%)  IE 9 
-}*/
-
  form.userSignup{ height: auto;
-	border-radius: 0px;
+	border-radius: 5px;
 	padding: 20px;
-	width: 65%;
-	/* max-width: 800px; */
+	width: 90%;
+	max-width: 600px;
 	/* height: 60%; */
 	margin: 0px auto; 
 	background-color: white;
-	opacity: 0.7;
+	opacity: 0.8;
 	transition: .5s ease; 
 	position: absolute;
-	top: 65%; 
+	top: 70%; 
 	left: 50%; 
 	transform: translate(-50%, -50%); /*Standard syntax */
 	-ms-transform: translate(-50%, -50%) /*IE 9*/
@@ -159,14 +136,14 @@ span.leftIcon, a { float: left;
 	color: black;
 	background-color: #ddd; 
 	font-weight: bolder;
-	border-radius: 0px; 
+	border-radius: 5px; 
 	font-size: 15px;
 	padding: 15px 5px;
 	width: 90%; 
 }
 
 #userPassword, #userConfirm { 
-	border-radius: 0px;
+	border-radius: 5px;
 	font-size: 15px;
 }
 
@@ -175,7 +152,7 @@ span.leftIcon, a { float: left;
 	margin: 0px auto; 	
 }
 .userSubmit, .userReset, .btn.btn-default {  
-	border-radius: 0px; 
+	border-radius: 5px; 
 	font-weight: bolder;
 	text-decoration: none;
 	border: none; 
@@ -199,7 +176,7 @@ span.leftIcon, a { float: left;
 h2 { color: white;
 	text-align: center;
 	font-size: 1.5em;
-	background-color: #1e1d22;
+	background-color: #00222b;
 }
 
 /*LOREE COMMENTED OUT - CONFLICTING WITH USER.HTML
@@ -218,7 +195,7 @@ h2 { color: white;
 /******* LOCATION PAGE ******/
 html.ui-mobile, body.ui-mobile-viewport, div.ui-mobile-viewport, div.ui-page-theme-a.ui-page-active {
   border: none;
-  background-color: #1e1d22; 
+  background-color: #00222b; 
 }
 
 /*span.leftIcon, a { float: left;
@@ -303,7 +280,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
  width: 100%;
  height: 120px;
  overflow: hidden;
- background-color: #1e1d22;
+ background-color: #00222b;
 }
 .cityImgs img {
  width: 100%;
@@ -323,6 +300,11 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 
 
 /******MEDIA QUERIES******/
+@media screen and (max-width: 665px) {
+	h1 {
+		font-size: 2em;
+	}
+}
  @media screen and (min-width: 850px) {
 	.wrapper { padding: 10px;
 	display: grid;

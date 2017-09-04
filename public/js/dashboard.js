@@ -90,7 +90,7 @@ var reload = function() {
                 }
             }
 
-            console.log(city,state,type,title/*,description,dateTime,external,severity*/);
+            console.log(city,state,type,title,description,dateTime,external,severity);
 
             // $('#'+i).find('h1').text(city_state);    
         }

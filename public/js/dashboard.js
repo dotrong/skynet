@@ -75,13 +75,13 @@ var reload = function() {
             var city = location[i].city;
             var state = location[i].state;
 
-            var watches = data.Locations[i].Watches;
+            var watches = location[i].Watches;
             for (var j=0; j<watches.length; j++) {
                 // console.log(data.Locations[i].Watches[1]);
                 var type = watches[j].type;
                 var title = watches[j].title;
-                console.log(data.Locations[i].Watches[j].Alert);
-                console.log(data.Locations[i].Watches[j].Alert.description);
+                console.log(watches[j].Alert);
+                console.log(watches[j].Alert.description);
                 /*var description = data.Locations[i].Watches[j].Alert.description;
                 var dateTime = watches[j].Alert.dateTime;
                 var external = watches[j].Alert.external;

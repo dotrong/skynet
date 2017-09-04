@@ -80,7 +80,7 @@ var helper = {
           //   {city: 'Irvine', state: 'California', watch_id: 9},
           // ];
 
-          customImgs();
+          // customImgs();
           getEarthQuakeWatch(obj.earthquake);
           getWeatherAlert(obj.weather);
           getTravelWatch(obj.travel);

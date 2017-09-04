@@ -76,14 +76,15 @@ var reload = function() {
             var state = location[i].state;
 
             for (var j=0; j<watches.length; j++) {
-                var title = watches[j].title;
+                var type = watches[j].type;
+                var title = watches[j].Alert.title;
                 var description = watches[j].Alert.description;
                 var dateTime = watches[j].Alert.dateTime;
                 var external = watches[j].Alert.external;
                 var severity = watches[j].Alert.severity;
             }
 
-            console.log(city,state,title,description,dateTime,external,severity);
+            console.log(city,state,type,title,description,dateTime,external,severity);
 
             // $('#'+i).find('h1').text(city_state);    
         }

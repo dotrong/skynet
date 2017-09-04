@@ -310,7 +310,7 @@ div#two img, div#three img, div#four img {
 }
 
 /******* CHRIS CSS CODE (start) ******/
-.cityImgs {
+/* .cityImgs {
   width: 100%;
   height: 120px;
   overflow: hidden;
@@ -318,7 +318,7 @@ div#two img, div#three img, div#four img {
 }
 .cityImgs img {
   width: 100%;
-  transform: translate(0, -23%) /* centers img vertically */
+  transform: translate(0, -23%) centers img vertically 
 }
 
 .ui-page-theme-a .ui-btn {
@@ -329,7 +329,7 @@ div#two img, div#three img, div#four img {
 .ui-page-theme-a .ui-btn:hover {
   color: #333;
   text-shadow: none;
-}
+}*/
 /******* CHRIS CSS CODE (end) ******/
 
 

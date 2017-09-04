@@ -72,8 +72,8 @@ var reload = function() {
         }*/
 
         for (var i=0; i<location.length; i++) {
-            var city = location[i].city;
-            var state = location[i].state;
+            var city = location[i].Watches.city;
+            var state = location[i].Watches.state;
 
             for (var j=0; j<watches.length; j++) {
                 var type = watches[j].type;

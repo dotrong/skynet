@@ -72,19 +72,20 @@ var reload = function() {
         }*/
 
         for (var i=0; i<location.length; i++) {
-            var city = location[i].Watches.city;
-            var state = location[i].Watches.state;
+            // var city = location[i].city;
+            // var state = location[i].state;
 
             // for (var j=0; j<watches.length; j++) {
-                var type = watches[0].type;
-                var title = watches[0].Alert.title;
-                var description = watches[0].Alert.description;
-                var dateTime = watches[0].Alert.dateTime;
-                var external = watches[0].Alert.external;
-                var severity = watches[0].Alert.severity;
+                console.log(data.Locations.Watches[1]);
+                // var type = watches[0].type;
+                // var title = watches[0].Alert.title;
+                // var description = watches[0].Alert.description;
+                // var dateTime = watches[0].Alert.dateTime;
+                // var external = watches[0].Alert.external;
+                // var severity = watches[0].Alert.severity;
             // }
 
-            console.log(city,state,type,title,description,dateTime,external,severity);
+            // console.log(city,state,type,title,description,dateTime,external,severity);
 
             // $('#'+i).find('h1').text(city_state);    
         }

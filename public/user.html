@@ -43,9 +43,9 @@
 
 <div class="userForm">
     <img src="images/ocean2.jpg" alt="ocean with clouds" class="backgroundImage">
-    <div class="panel panel-default">
+    <!-- <div class="panel panel-default"> -->
    
-      <form action="/signup" method="POST" name="user">
+      <form class="userSignup" action="/signup" method="POST" name="user">
          <div class="form-group">
             <input type="text" id="userFN" class="form-control" name="firstname" placeholder="First Name" required>
         </div>
@@ -70,11 +70,12 @@
         </div>
         <div class="userBtns">
             <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
-            <button type="reset" class="btn btn-default">Reset</button>
+            <br>
+            <button type="reset" class="btn btn-default" id="userReset">Reset</button>
         </div>
       </form>
 
-  </div>    
+  <!-- </div>     -->
 </div>
 </body>
 </html>	

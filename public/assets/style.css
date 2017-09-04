@@ -112,6 +112,7 @@ span.leftIcon, a { float: left;
 	margin: 5px;
 	color: white;
 }
+
 .backgroundImage { 
 	/*height: 100%; */
 	background-attachment: fixed; 
@@ -128,7 +129,7 @@ div.panel.panel-default {
 	background-color: transparent; 
 	border: none;
 	border-radius: 0px;
-	width: 90%; 
+	width: 65%; 
 	height: 55%;
 	transition: .5s ease; 
 	position: absolute;
@@ -140,7 +141,7 @@ div.panel.panel-default {
 
 form { 
 	padding: 20px;
-	max-width: 850px;
+	max-width: 800px;
 	margin: 0px auto; 
 	background-color: white;
 	opacity: 0.7;
@@ -155,8 +156,8 @@ form {
 	background-color: #ddd; 
 	font-weight: bolder;
 	border-radius: 0px; 
-	font-size: 25px;
-	padding: 20px 5px;
+	font-size: 15px;
+	padding: 15px 5px;
 	width: 90%;
 }
 
@@ -173,7 +174,7 @@ form {
 	background-color: #074290;
 	width: 25%;
 	margin: 0px 10px 0px 0px;
-	padding: 18px;
+	/*padding: 18px;*/
 }
 
 .btn.btn-default:hover {
@@ -283,14 +284,15 @@ span.rightIcon, a { float: right;
 
 #two, #three, #four, #five, #six { /*border: 1px solid orange; */
   padding: 10px 10px 50px 10px;
-	/*text-align: center; CHRIS REMOVED*/
-	/*margin: 20px auto; CHRIS REMOVED*/
+	text-align: center; /*CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
+	margin: 20px auto; /*CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
 }
 
+/*LOREE REMOVED - CONFLICTING WITH USER.HTML
 div#two img, div#three img, div#four img { 
-  /*margin: 0px auto;*/
-  /*width: 90%;*/
-}
+  margin: 0px auto;
+  width: 90%;
+}*/
 
 .imgPlaceholder {
 	border: 2px solid #0f5ffb;

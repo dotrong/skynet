@@ -76,7 +76,7 @@ var reload = function() {
             // var state = location[i].state;
 
             // for (var j=0; j<watches.length; j++) {
-                console.log(data.Locations.Watches);
+                console.log(data.Locations[i].Watches[1]);
                 // var type = watches[0].type;
                 // var title = watches[0].Alert.title;
                 // var description = watches[0].Alert.description;

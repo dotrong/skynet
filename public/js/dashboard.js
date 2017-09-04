@@ -83,7 +83,8 @@ var reload = function() {
 
             // Fill city and state/country text into button
             // $("#watch" + i + ".ui-content img").attr('src', picture);
-            $("#watch" + i + " div.ui-collapsible-content").html(""); 
+            $("#watch" + i + " div.ui-collapsible-content").html("");
+            $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity); 
             $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
             $("#watchTitle" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
             $("#watchTitle" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");

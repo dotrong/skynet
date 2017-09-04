@@ -125,56 +125,68 @@ span.leftIcon, a { float: left;
 	transition: .5s ease;
 }
 
-div.panel.panel-default { 
+ /*div.panel.panel-default { 
 	background-color: transparent; 
 	border: none;
 	border-radius: 0px;
 	width: 65%; 
-	height: 55%;
+	height: 75%;
 	transition: .5s ease; 
 	position: absolute;
-	top: 60%; 
+	top: 70%; 
 	left: 50%; 
-	transform: translate(-50%, -50%); /* Standard syntax */
-	-ms-transform: translate(-50%, -50%)  /*IE 9*/ 
-}
+	transform: translate(-50%, -50%); Standard syntax 
+	-ms-transform: translate(-50%, -50%)  IE 9 
+}*/
 
-form { 
+ form.userSignup{ height: auto;
+	border-radius: 0px;
 	padding: 20px;
-	max-width: 800px;
+	width: 65%;
+	/* max-width: 800px; */
+	/* height: 60%; */
 	margin: 0px auto; 
 	background-color: white;
 	opacity: 0.7;
+	transition: .5s ease; 
+	position: absolute;
+	top: 65%; 
+	left: 50%; 
+	transform: translate(-50%, -50%); /*Standard syntax */
+	-ms-transform: translate(-50%, -50%) /*IE 9*/
 }
 
-.form-group input[type=text], input[type=email], input[type=password] { 	
-	margin-bottom: 25px;
-	color: black; 
-}
-
-.form-control, #userFN, #userLN, #userEmail, #userPassword, #userConfirm { 
+.userSignup input[type=text], input[type=email], input[type=password] button { 	
+	margin: 0px auto;
+	color: black;
 	background-color: #ddd; 
 	font-weight: bolder;
 	border-radius: 0px; 
 	font-size: 15px;
 	padding: 15px 5px;
-	width: 90%;
+	width: 90%; 
+}
+
+#userPassword, #userConfirm { 
+	border-radius: 0px;
+	font-size: 15px;
 }
 
 .userBtns { 
 	width: 90%; 
 	margin: 0px auto; 	
 }
-
-.btn.btn-default { 
-	border: none;
-	border-radius: 0px;
+.userSubmit, .userReset, .btn.btn-default {  
+	border-radius: 0px; 
 	font-weight: bolder;
-	color: white; 
+	text-decoration: none;
+	border: none; 
 	background-color: #074290;
-	width: 25%;
-	margin: 0px 10px 0px 0px;
-	/*padding: 18px;*/
+	color: white;
+	font-size: 16px;
+	width: 100%;
+	padding: 5px;
+	display: block;
 }
 
 .btn.btn-default:hover {

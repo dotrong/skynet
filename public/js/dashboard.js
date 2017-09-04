@@ -80,7 +80,7 @@ var reload = function() {
                 }
             }
             // console.log(city,state,type,title,picture,description,dateTime,external,severity);
-
+console.log(severity);
             // Fill city and state/country text into button
             // $("#watch" + i + ".ui-content img").attr('src', picture);
             $("#watch" + i + " div.ui-collapsible-content").html("");

@@ -75,14 +75,14 @@ var reload = function() {
             var city = location[i].Watches.city;
             var state = location[i].Watches.state;
 
-            for (var j=0; j<watches.length; j++) {
-                var type = watches[j].type;
-                var title = watches[j].Alert.title;
-                var description = watches[j].Alert.description;
-                var dateTime = watches[j].Alert.dateTime;
-                var external = watches[j].Alert.external;
-                var severity = watches[j].Alert.severity;
-            }
+            // for (var j=0; j<watches.length; j++) {
+                var type = watches[0].type;
+                var title = watches[0].Alert.title;
+                var description = watches[0].Alert.description;
+                var dateTime = watches[0].Alert.dateTime;
+                var external = watches[0].Alert.external;
+                var severity = watches[0].Alert.severity;
+            // }
 
             console.log(city,state,type,title,description,dateTime,external,severity);
 

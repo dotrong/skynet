@@ -82,6 +82,7 @@ var reload = function() {
             // console.log(city,state,type,title,picture,description,dateTime,external,severity);
 
             // Fill city and state/country text into button
+            $("#two.ui-content img").attr('src', picture);
             $("#watch" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
             // $("#two div.ui-collapsible-content").html("");  
         }

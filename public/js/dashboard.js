@@ -80,12 +80,14 @@ var reload = function() {
                 // console.log(data.Locations[i].Watches[1]);
                 var type = watches[j].type;
                 var title = watches[j].title;
-                console.log(watches[j].Alert); debugger;
-                console.log(watches[j].Alert.description); debugger;
-                /*var description = data.Locations[i].Watches[j].Alert.description;
-                var dateTime = watches[j].Alert.dateTime;
-                var external = watches[j].Alert.external;
-                var severity = watches[j].Alert.severity;*/
+                if (watches[j].Alert) {
+                    // console.log(watches[j].Alert);
+                    // console.log(watches[j].Alert.description);
+                    var description = watches[j].Alert.description;
+                    var dateTime = watches[j].Alert.dateTime;
+                    var external = watches[j].Alert.external;
+                    var severity = watches[j].Alert.severity;
+                }
             }
 
             console.log(city,state,type,title/*,description,dateTime,external,severity*/);

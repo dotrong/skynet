@@ -79,11 +79,11 @@ var reload = function() {
                     var severity = watches[j].Alert.severity;
                 }
             }
+            // console.log(city,state,type,title,picture,description,dateTime,external,severity);
 
-            console.log(city,state,type,title,picture,description,dateTime,external,severity);
-
+            // Fill city and state/country text into button
             var city_state = city + ", " + state;
-            $('#'+i).find('h1').text(city_state);    
+            $('#watch'+i).text(city_state);    
         }
 
 

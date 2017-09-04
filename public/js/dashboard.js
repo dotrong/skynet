@@ -82,6 +82,7 @@ var reload = function() {
 
             console.log(city,state,type,title,picture,description,dateTime,external,severity);
 
+            var city_state = city + ", " + state;
             $('#'+i).find('h1').text(city_state);    
         }
 

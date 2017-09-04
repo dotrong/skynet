@@ -79,7 +79,7 @@ var reload = function() {
             for (var j=0; j<watches.length; j++) {
                 // console.log(data.Locations[i].Watches[1]);
                 var type = watches[j].type;
-                var title = watches[j].Alert.title;
+                var title = watches[j].title;
                 var description = watches[j].Alert.description;
                 var dateTime = watches[j].Alert.dateTime;
                 var external = watches[j].Alert.external;

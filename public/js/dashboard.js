@@ -71,16 +71,16 @@ var reload = function() {
             $('#'+i).find('h1').text(city_state);    
         }*/
 
-        for (var i = 0; i<location.length;i++) {
+        for (var i=0; i<location.length; i++) {
             var city = location[i].city;
             var state = location[i].state;
 
-            for (var i = 0; i<watches.length;i++) {
-                var title = watches[i].title;
-                var description = watches[i].Alert.description;
-                var dateTime = watches[i].Alert.dateTime;
-                var external = watches[i].Alert.external;
-                var severity = watches[i].Alert.severity;
+            for (var j=0; j<watches.length; j++) {
+                var title = watches[j].title;
+                var description = watches[j].Alert.description;
+                var dateTime = watches[j].Alert.dateTime;
+                var external = watches[j].Alert.external;
+                var severity = watches[j].Alert.severity;
             }
 
             console.log(city,state,title,description,dateTime,external,severity);

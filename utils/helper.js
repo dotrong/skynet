@@ -92,7 +92,7 @@ var helper = {
 
 };
 
-function customImgs() {
+/*function customImgs() {
   var locImg = city + " " + state;
   var imgAttempt = 0; // counter for no result
   var imgKey = "6299821-762bdea8a954438f2918f510d";
@@ -135,7 +135,7 @@ function customImgs() {
         console.log(error);
       })
   }
-}
+}*/
 
 var getEarthQuakeWatch = function(earthquake) { 
   var timeZone = "UTC";

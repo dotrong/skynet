@@ -192,13 +192,14 @@ h2 { color: white;
 	background-color: #1e1d22;
 }
 
+/*LOREE COMMENTED OUT - CONFLICTING WITH USER.HTML
 .form-control, .form-check { 
 	font-size: 16px;
 	height: 40px; 
-	/*color: white;*/
+	color: white;
 	width: 80%;
 	margin: 0px auto;
-}
+}*/
 
 .form-check { color: white;
 	width: 60%;
@@ -209,23 +210,6 @@ html.ui-mobile, body.ui-mobile-viewport, div.ui-mobile-viewport, div.ui-page-the
   border: none;
   background-color: #1e1d22; 
 }
-
-  #fixedNav { 
-    background-color: #0f5ffb;
-  }
-
-  .container-fluid {
-    text-align: center;
-    margin: 10px;
-  }
-  
-  h1 { /*clear: left;*/
-    display: inline;
-    /*margin: 10px;*/
-    width: 75%;
-    color: white;
-    text-align: center;
-  }
 
 /*span.leftIcon, a { float: left;
   display: inline;

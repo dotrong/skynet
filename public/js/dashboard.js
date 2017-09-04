@@ -79,7 +79,7 @@ var reload = function() {
             var external = location[i].external;
             var severity = location[i].severity;
 
-            console.log(city,state,title,description,dateTime,external,several);
+            console.log(city,state,title,description,dateTime,external,severity);
 
             // $('#'+i).find('h1').text(city_state);    
         }

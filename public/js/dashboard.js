@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 setInterval(function() {
     reload();
-}, 15000);
+}, 3600000); // one hour
 
 var reload = function() {
 
@@ -62,15 +62,30 @@ var reload = function() {
         console.log(data);
         var location = data.Locations;
 
-        for (var i = 0; i<location.length;i++) {
+        /*for (var i = 0; i<location.length;i++) {
             var city = location[i].city;
             var state = location[i].state;
             var city_state = city + ', ' + state;
             console.log(city,state,city_state);
-            $('#'+i).find('h1').text(city_state);
+            $('#'+i).find('h1').text(city_state);    
+        }*/
 
-            
-    
+        for (var i = 0; i<location.length;i++) {
+            var city = location[i].city;
+            var state = location[i].state;
+            var title = location[i].title;
+            var description = location[i].description;
+            var dateTime = location[i].dateTime;
+            var external = location[i].external;
+            var severity = location[i].severity;
+
+            console.log(city,state,title,description,dateTime,external,several);
+
+            // $('#'+i).find('h1').text(city_state);    
         }
+
+
+
+
     });
 };

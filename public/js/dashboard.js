@@ -63,26 +63,16 @@ var reload = function() {
 
         var location = data.Locations;
 
-        /*for (var i = 0; i<location.length;i++) {
-            var city = location[i].city;
-            var state = location[i].state;
-            var city_state = city + ', ' + state;
-            console.log(city,state,city_state);
-            $('#'+i).find('h1').text(city_state);    
-        }*/
-
         for (var i=0; i<location.length; i++) {
             var city = location[i].city;
             var state = location[i].state;
 
             var watches = location[i].Watches;
             for (var j=0; j<watches.length; j++) {
-                // console.log(data.Locations[i].Watches[1]);
                 var type = watches[j].type;
                 var title = watches[j].title;
-                if (watches[j].Alert) {
-                    // console.log(watches[j].Alert);
-                    // console.log(watches[j].Alert.description);
+                var picture = watches[j].picture;
+                if (watches[j].Alert) { // some watches don't have 'Alert' which causes an error
                     var description = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
@@ -90,9 +80,9 @@ var reload = function() {
                 }
             }
 
-            console.log(city,state,type,title,description,dateTime,external,severity);
+            console.log(city,state,type,title,picture,description,dateTime,external,severity);
 
-            // $('#'+i).find('h1').text(city_state);    
+            $('#'+i).find('h1').text(city_state);    
         }
 
 

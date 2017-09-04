@@ -60,8 +60,10 @@ var reload = function() {
     $.get("/api/users",function(data,status) {
         
         console.log(data);
+
+        var i;
         var location = data.Locations;
-        var watches = data.Locations.Watches;
+        var watches = data.Locations[i].Watches;
 
         /*for (var i = 0; i<location.length;i++) {
             var city = location[i].city;
@@ -72,20 +74,20 @@ var reload = function() {
         }*/
 
         for (var i=0; i<location.length; i++) {
-            // var city = location[i].city;
-            // var state = location[i].state;
+            var city = location[i].city;
+            var state = location[i].state;
 
-            // for (var j=0; j<watches.length; j++) {
-                console.log(data.Locations[i].Watches[1]);
-                // var type = watches[0].type;
-                // var title = watches[0].Alert.title;
-                // var description = watches[0].Alert.description;
-                // var dateTime = watches[0].Alert.dateTime;
-                // var external = watches[0].Alert.external;
-                // var severity = watches[0].Alert.severity;
-            // }
+            for (var j=0; j<watches.length; j++) {
+                // console.log(data.Locations[i].Watches[1]);
+                var type = watches[j].type;
+                var title = watches[j].Alert.title;
+                var description = watches[j].Alert.description;
+                var dateTime = watches[j].Alert.dateTime;
+                var external = watches[j].Alert.external;
+                var severity = watches[j].Alert.severity;
+            }
 
-            // console.log(city,state,type,title,description,dateTime,external,severity);
+            console.log(city,state,type,title,description,dateTime,external,severity);
 
             // $('#'+i).find('h1').text(city_state);    
         }

@@ -89,7 +89,7 @@ var reload = function() {
             $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);            
             $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
-            if (severity != "/Green/i") {                
+            if (severity != "green") {                
                 $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");

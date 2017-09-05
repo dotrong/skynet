@@ -10,6 +10,49 @@ var baseUrl = "http://localhost:"+PORT;
 
 // Helper functions for making API Calls
 var helper = {
+
+  customImg: function (city,state) {
+
+    return new Promise(function(resolve,reject) {
+
+      var locImg = city + " " + state;
+      var imgAttempt = 0; // counter for no result
+      var imgKey = "6299821-762bdea8a954438f2918f510d";
+      var url = "https://pixabay.com/api/?key=" + imgKey + "&q=" + locImg + "&image_type=photo&orientation=horizontal&category=places&safesearch=true";
+      console.log(url);
+      axios.get(url).then(function(response) {
+        //console.log(response);
+    
+        if (response.data.hits.length > 0) { // if at least one image result
+            // Store the number of likes in an array
+            var userLikes = 0;
+            var bestImg;
+            for (var i=0; i<response.data.hits.length; i++) {
+                var width = response.data.hits[i].webformatWidth;
+                var height = response.data.hits[i].webformatHeight;
+                var ratio = height/width; // aspect ratio
+                // console.log(ratio);
+                if (ratio > 0.60 && response.data.hits[i].likes >= userLikes) { // if most likes and not panorama img
+                    userLikes = response.data.hits[i].likes; // store most likes
+                    bestImg = response.data.hits[i]; // store current img data
+                }
+            }
+            // set the img variable          
+            var customImg = bestImg.webformatURL;
+            console.log(customImg); 
+              resolve(customImg);
+        }
+        else if (imgAttempt < 2 && response.data.hits.length === 0) {
+          imgAttempt++;
+          locImg = city; // make 2nd attempt with only city
+          //customImgs();
+        }
+        else {
+            resolve(false);
+        }
+      }).catch(function(error) {console.log(error)});
+    })
+  },
   
   // This function serves our purpose of running the query to weathermapapi
   runQuery: function() {

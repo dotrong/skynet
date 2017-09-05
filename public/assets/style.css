@@ -296,7 +296,19 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 } 
 /******* CHRIS CSS CODE (end) ******/
 
-
+/* DYNAMIC MAP */
+#mapContainer {
+	width:100%;
+	overflow: hidden;
+}
+#map {
+	width: 100%;
+	position: absolute;
+}
+#mapOverlay {
+	width: 100%;
+	position: absolute;
+}
 
 
 /******MEDIA QUERIES******/

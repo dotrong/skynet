@@ -246,7 +246,7 @@ span.rightIcon, a { float: right;
 }
 /*CHRIS ADDED (end)*/
 
-#watch0, #watch1, #watch1, #worldMap { /*border: 1px solid orange; */
+#watch0, #watch1, #watch1 { /*border: 1px solid orange; */
   padding: 10px 10px 50px 10px;
 	text-align: center; /*CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
 	margin: 20px auto; /*CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
@@ -269,34 +269,38 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 
 .ui-collapsible-content.ui-body-inherit {
-  background-color: #f3f3f3;
-  border-style: none;
-  margin: 0px auto;
-  width: 90%;
+	background-color: #f3f3f3;
+	border-style: none;
+	margin: 0px auto;
+	width: 90%;
 }
 
 /******* CHRIS CSS CODE (start) ******/
  .cityImgs {
- width: 100%;
- height: 120px;
- overflow: hidden;
- background-color: #00222b;
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+	background-color: #00222b;
 }
 .cityImgs img {
- width: 100%;
+	width: 100%;
  transform: translate(0, -23%) centers img vertically 
 }
 .ui-page-theme-a .ui-btn {
- color: black;
- text-shadow: none;
+	color: black;
+	text-shadow: none;
 }
 .ui-page-theme-a .ui-btn:hover {
- color: #333;
- text-shadow: none;
+	color: #333;
+	text-shadow: none;
 } 
 /******* CHRIS CSS CODE (end) ******/
 
 /* DYNAMIC MAP */
+#worldMap {
+	width: 100%;
+	position: absolute;
+}
 #mapContainer {
 	width:100%;
 	overflow: hidden;

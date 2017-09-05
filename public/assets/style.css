@@ -297,10 +297,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 /******* CHRIS CSS CODE (end) ******/
 
 /* DYNAMIC MAP */
-#worldMap {
-	width: 100%;
-	position: absolute;
-}
 #mapContainer {
 	width:100%;
 	overflow: hidden;

@@ -195,7 +195,7 @@ var getEarthQuakeWatch = function(earthquake) {
               case magnitude >= 7:
                   alertLevel = "Red";
                   break;
-              default:
+              case magnitude < 7:
                   alertLevel = "Green";
                   break;
           }//end of switch

@@ -102,7 +102,7 @@ var reload = function() {
 
             var countryCode2 = state;
             // var countryCode2 = countryCodes[state];
-            $("#mapContainer").append('<img src="images/map/' + countryCode2 + '-' + alertLevel + '.png" id="mapOverlay">');
+            $("#mapContainer").append('<img src="images/map/' + countryCode2 + '-' + severity + '.png" id="mapOverlay">');
         }
 
 

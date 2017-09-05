@@ -190,13 +190,13 @@ var getEarthQuakeWatch = function(earthquake) {
           // Alert Level
           switch (true) {
               case magnitude >=6 && magnitude < 7:
-                  alertLevel = "yellow";
+                  alertLevel = "Yellow";
                   break;
               case magnitude >= 7:
-                  alertLevel = "red";
+                  alertLevel = "Red";
                   break;
               case magnitude < 6:
-                  alertLevel = "green";
+                  alertLevel = "Green";
                   break;
           }//end of switch
           //console.log('dateTime: '+ dateTime + 'city ' + city + ' temp ' + magnitude + 'details ' + details +' alert ' + alertLevel);
@@ -255,7 +255,7 @@ var getTravelWatch = function(travel) {
           var newDate = (year + "-" + month + "-" + day);
           var summary = $(element).children("link").text();
           //console.log(summary);
-          alertLevel = "red";
+          alertLevel = "Red";
 
           //console.log( 'summary '+ summary + ' date: ' + newDate + ' title: ' + title  + ' alert ' + alertLevel);
 
@@ -323,22 +323,22 @@ var getWeatherAlert = function(weather) {
           var time = timeDate.substring(0, onIndex);          
           switch (item.type) {
               case "TOR":
-                  alertLevel = "red";
+                  alertLevel = "Red";
                   break;
               case "WRN":
-                  alertLevel = "red";
+                  alertLevel = "Red";
                   break;
               case "FLO":
-                  alertLevel = "red";
+                  alertLevel = "Red";
                   break;
               case "HWW":
-                  alertLevel = "red";
+                  alertLevel = "Red";
                   break;
               case "SVR":
-                  alertLevel = "red";
+                  alertLevel = "Red";
                   break;
               default:
-                  alertLevel = "yellow";
+                  alertLevel = "Yellow";
                   break;
           }
           description = item.description;

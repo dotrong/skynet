@@ -100,7 +100,7 @@ var reload = function() {
             //     $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
             // }
 
-            var countryCode2 = state;
+            var countryCode2 = "MX";
             // var countryCode2 = countryCodes[state];
             $("#mapContainer").append('<img src="images/map/' + countryCode2 + '-' + severity + '.png" id="mapOverlay">');
         }

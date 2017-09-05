@@ -79,8 +79,6 @@ var reload = function() {
 
 /*NEED TO CHECK FOR HIGHEST SEVERITY OF ALERT HERE*/
                     var severity = watches[j].Alert.severity;
-                    var severity = new RegExp(severity, 'i');
-                    console.log(severity);
                 }
             }
             console.log(city,state,type,title,picture,description,dateTime,external,severity);

@@ -166,7 +166,7 @@ var getEarthQuakeWatch = function(earthquake) {
         
         //if (magnitude >= 6 && location != false) { // high magnitude in watched city
           // console.log(el);
-        // var alerts = [];
+        var alerts = [];
 
         if (magnitude >= 5 && location != false) {
 

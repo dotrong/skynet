@@ -85,14 +85,20 @@ var reload = function() {
 
             // Fill in dynamic city, state/country data
             // $("#watch" + i + ".ui-content img").attr('src', picture);
-            $("#watch" + i + " div.ui-collapsible-content").html("");
-            $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity); 
-            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-            $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
-            $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
-            $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
-            // More Details
-            $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + '" id="wthrDetails" target="_blank">More Details</a><br>');
+            $("#watch" + i + " div.ui-collapsible-content").html("");            
+            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);            
+            $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+
+            if (severity != "Green") {                
+                $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
+                $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
+                $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
+                // More Details
+                $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + '" id="wthrDetails" target="_blank">More Details</a><br>');
+            }
+            else {
+                $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
+            }
         }
 
 

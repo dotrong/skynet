@@ -59,7 +59,7 @@ var reload = function() {
 
     $.get("/api/users",function(data,status) {
         
-        console.log(data);
+        // console.log(data);
 
         var location = data.Locations;
 
@@ -89,16 +89,16 @@ var reload = function() {
             $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);            
             $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
-            if (severity != "Green") {                
+            // if (severity != "Green") {                
                 $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
                 // More Details
                 $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + '" id="wthrDetails" target="_blank">More Details</a><br>');
-            }
-            else {
-                $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
-            }
+            // }
+            // else {
+            //     $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
+            // }
         }
 
 

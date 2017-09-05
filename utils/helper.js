@@ -166,11 +166,11 @@ var getEarthQuakeWatch = function(earthquake) {
         
         //if (magnitude >= 6 && location != false) { // high magnitude in watched city
           // console.log(el);
-        var alerts = [];
+        // var alerts = [];
 
-        if (location != false) {
+        if (magnitude >= 5 && location != false) {
 
-          console.log("location is true");
+          // console.log("location is true");
 
           var timeDate = $(element).children("updated").text();
           // Date
@@ -195,7 +195,7 @@ var getEarthQuakeWatch = function(earthquake) {
               case magnitude >= 7:
                   alertLevel = "Red";
                   break;
-              case magnitude < 6:
+              default:
                   alertLevel = "Green";
                   break;
           }//end of switch
@@ -249,10 +249,14 @@ var getTravelWatch = function(travel) {
         if (stateRegex.test(title) && state.length > 2) {
           //console.log($(element).children("date"));
 
-          var month = $(element).children("pubDate").text().substring(5, 7);
+          var month = $(element).date.substring(5, 7);
+          var day = $(element).date.substring(8, 10);
+          var year = $(element).date.substring(0, 4);
+          var newDate = (year + "-" + month + "-" + day);
+          /*var month = $(element).children("pubDate").text().substring(5, 7);
           var day = $(element).children("pubDate").text().substring(8, 10);
           var year = $(element).children("pubDate").text().substring(0, 4);
-          var newDate = (year + "-" + month + "-" + day);
+          var newDate = (year + "-" + month + "-" + day);*/
           var summary = $(element).children("link").text();
           //console.log(summary);
           alertLevel = "Red";
@@ -261,10 +265,10 @@ var getTravelWatch = function(travel) {
 
           axios.post(baseUrl+"/api/alerts",{
             status: 1,
-            //description: summary,
+            description: summary,
             WatchId: watchId,
             severity: alertLevel,
-            title:title,
+            title: title,
             external: summary,
             dateTime: newDate          
           }).then(function(response) {

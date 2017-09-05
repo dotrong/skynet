@@ -79,7 +79,7 @@ var reload = function() {
 
 /*NEED TO CHECK FOR HIGHEST SEVERITY OF ALERT HERE*/
                     var severity = watches[j].Alert.severity;
-                    var severity = new RegExp(severity, 'gi');
+                    var severity = new RegExp(severity, 'i');
                     console.log(severity);
                 }
             }
@@ -91,7 +91,7 @@ var reload = function() {
             $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);            
             $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
-            if (severity != green) {                
+            if (severity != Green) {                
                 $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");

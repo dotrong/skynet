@@ -1,27 +1,16 @@
 var db = require("../models");
-var helper = require('../utils/helper');
 
 module.exports = function(app) {
 
     app.post("/api/locations", function(req, res) {
 
-        var promise1 = helper.customImgs(req.body.city,req.body.state);
+        req.body.UserId = req.user.id;
 
-        promise1.then(function(response) {
-
-            if (response) {
-                req.body.picture  = response;
-            }
-            req.body.UserId = req.user.id;      
-            db.Location.create(req.body, {
-                include: [db.Watch]
-            } ).then(function(dbLocation) {
-                res.json(dbLocation);
-            });
-
-        })
-
-
+        db.Location.create(req.body, {
+            include: [db.Watch]
+        } ).then(function(dbLocation) {
+          res.json(dbLocation);
+        });
     });
     //find all locations with watch
     app.get("/api/locations",function(req,res) {

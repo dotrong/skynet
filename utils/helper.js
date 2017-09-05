@@ -90,61 +90,52 @@ var helper = {
 
   },
 
-  customImgs: function(city,state) {
-    
-    var locImg = city + " " + state;
-    var imgAttempt = 0; // counter for no result
-    var imgKey = "6299821-762bdea8a954438f2918f510d";
-    var url = "https://pixabay.com/api/?key=" + imgKey + "&q=" + locImg + "&image_type=photo&orientation=horizontal&category=places&safesearch=true";
-    
-    axios.get(url).then(function(response) {
-
-        if (response.hits.length > 0) { // if at least one image result
-            // Store the number of likes in an array
-            var userLikes = 0;
-            var bestImg;
-            for (var i=0; i<response.hits.length; i++) {
-                var width = response.hits[i].webformatWidth;
-                var height = response.hits[i].webformatHeight;
-                var ratio = height/width; // aspect ratio
-                // console.log(ratio);
-                if (ratio > 0.60 && response.hits[i].likes >= userLikes) { // if most likes and not panorama img
-                    userLikes = response.hits[i].likes; // store most likes
-                    bestImg = response.hits[i]; // store current img data
-                }
-            }
-            // set the img variable          
-            var customImg = bestImg.webformatURL;
-            return new Promise( function(resolve,reject) {
-                resolve(customImg);
-            })           
-        }
-        else if (imgAttempt < 2 && response.hits.length === 0) {
-          imgAttempt++;
-          locImg = city; // make 2nd attempt with only city
-          customImgs();
-        }
-        else {
-          return new Promise( function(resolve,reject) {
-            resolve(false);
-          }) 
-        }
-
-        // axios.post(baseUrl+"/api/alerts",{
-        //   status: 1,
-        //   picture: customImg          
-        // }).then(function(response) {
-        //   //console.log(response);
-        // }).catch(function(error) {
-        //   console.log(error);
-        // })
-    });
-    
-  }
-
 };
 
+/*function customImgs() {
+  var locImg = city + " " + state;
+  var imgAttempt = 0; // counter for no result
+  var imgKey = "6299821-762bdea8a954438f2918f510d";
+  var url = "https://pixabay.com/api/?key=" + imgKey + "&q=" + locImg + "&image_type=photo&orientation=horizontal&category=places&safesearch=true";
+  
+  axios.get(url).then(function(response) {
 
+      if (response.hits.length > 0) { // if at least one image result
+          // Store the number of likes in an array
+          var userLikes = 0;
+          var bestImg;
+          for (var i=0; i<response.hits.length; i++) {
+              var width = response.hits[i].webformatWidth;
+              var height = response.hits[i].webformatHeight;
+              var ratio = height/width; // aspect ratio
+              // console.log(ratio);
+              if (ratio > 0.60 && response.hits[i].likes >= userLikes) { // if most likes and not panorama img
+                  userLikes = response.hits[i].likes; // store most likes
+                  bestImg = response.hits[i]; // store current img data
+              }
+          }
+          // set the img variable          
+          var customImg = bestImg.webformatURL;            
+      }
+      else if (imgAttempt < 2 && response.hits.length === 0) {
+        imgAttempt++;
+        locImg = city; // make 2nd attempt with only city
+        customImgs();
+      }
+      else {
+        return false;
+      }
+
+      axios.post(baseUrl+"/api/alerts",{
+        status: 1,
+        picture: customImg          
+      }).then(function(response) {
+        //console.log(response);
+      }).catch(function(error) {
+        console.log(error);
+      })
+  }
+}*/
 
 var getEarthQuakeWatch = function(earthquake) { 
   var timeZone = "UTC";

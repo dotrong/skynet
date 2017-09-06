@@ -66,12 +66,12 @@ var reload = function() {
         for (var i=0; i<location.length; i++) {
             var city = location[i].city;
             var state = location[i].state;
+            var picture = location[i].picture;
 
             var watches = location[i].Watches;
             for (var j=0; j<watches.length; j++) {
                 var type = watches[j].type;
                 var title = watches[j].title;
-                var picture = watches[j].picture;
                 if (watches[j].Alert) { // some watches don't have 'Alert' which causes an error
                     var description = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;

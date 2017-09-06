@@ -86,7 +86,8 @@ var reload = function() {
             // Fill in dynamic city, state/country data
             $("#watch" + i + ".ui-content img").attr('src', picture);
             $("#watch" + i + " div.ui-collapsible-content").html("");            
-            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);            
+            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
+            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" class="delete">');
             $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
             if (severity != "Green") {                

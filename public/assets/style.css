@@ -241,12 +241,12 @@ span.rightIcon, a { float: right;
   grid-row: 2;
 }
 #worldMap { 
-  grid-column: 1 / 7;
+  grid-column: 1 / 5;
   grid-row: 3;
 }
 /*CHRIS ADDED (end)*/
 
-#watch0, #watch1, #watch2, #worldMap { border: 1px solid orange; 
+#watch0, #watch1, #watch2, #worldMap {
   padding: 10px 10px 50px 10px;
 	/*text-align: center; CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
 	/*margin: 20px auto; CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
@@ -297,7 +297,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 /******* CHRIS CSS CODE (end) ******/
 
 /* DYNAMIC MAP */
-#mapContainer { border: solid 1px green;
+#mapContainer {
 	width:100%;
 	overflow: hidden;
 }

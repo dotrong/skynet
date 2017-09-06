@@ -84,7 +84,7 @@ var reload = function() {
             console.log(city,state,type,title,picture,description,dateTime,external,severity);
 
             // Fill in dynamic city, state/country data
-            $("#watch" + i + ".ui-content img").attr('src', picture);
+            // $("#watch" + i + ".ui-content img").attr('src', picture);
             $("#watch" + i + " div.ui-collapsible-content").html("");            
             $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);            
             $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);

@@ -70,7 +70,7 @@ var reload = function() {
             var watches = location[i].Watches;
 
             for (var j=0; j<watches.length; j++) {
-                var type = watches[j].type.toUpperCase());
+                var type = watches[j].type.toUpperCase();
                 if (watches[j].Alert) { // some watches don't have 'Alert' which causes an error
                   console.log(watches[j].Alert.title);
                     var description = watches[j].Alert.description;

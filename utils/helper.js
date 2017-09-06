@@ -157,9 +157,16 @@ var getEarthQuakeWatch = function(earthquake) {
         var magnitude = Number($(element).children("title").text().substring(2,5)); // capture magnitude and convert to number
         var titleInfo = $(element).children("title").text(); // variable of 'title' info
         //console.log(titleInfo); 
-        var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
+// var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
         //console.log(location);
         var details = $(element).children("link").attr("href"); // variable of 'details' url
+
+if (state.length > 2) { // check if country and not state abbreviation
+  var location = stateRegex.test(titleInfo); // set regex of 'state' for conditional below
+}
+else { // is U.S. state
+  var location = cityRegex.test(titleInfo); // set regex of 'city' for conditional below
+}
         
         //if (magnitude >= 6 && location != false) { // high magnitude in watched city
           // console.log(el);

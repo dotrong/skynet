@@ -229,7 +229,7 @@ span.rightIcon, a { float: right;
 
 /*CHRIS ADDED (start)*/
 #watch0 { 
-  grid-column: 1 / 3; defines the start and end grid lines
+  grid-column: 1 / 3; /*defines the start and end grid lines*/
   grid-row: 2;  
 }
 #watch1 { 
@@ -246,7 +246,7 @@ span.rightIcon, a { float: right;
 }
 /*CHRIS ADDED (end)*/
 
-#watch0, #watch1, #watch1 { /*border: 1px solid orange; */
+#watch0, #watch1, #watch2 { /*border: 1px solid orange; */
   padding: 10px 10px 50px 10px;
 	text-align: center; /*CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
 	margin: 20px auto; /*CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/

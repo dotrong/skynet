@@ -246,10 +246,6 @@ var getTravelWatch = function(travel) {
         if (stateRegex.test(title) && state.length > 2) {
           //console.log($(element).children("date"));
 
-          /*var month = $(element).date.substring(5, 7);
-          var day = $(element).date.substring(8, 10);
-          var year = $(element).date.substring(0, 4);
-          var newDate = (year + "-" + month + "-" + day);*/
           var month = $(element).children("pubDate").text().substring(5, 7);
           var day = $(element).children("pubDate").text().substring(8, 10);
           var year = $(element).children("pubDate").text().substring(0, 4);

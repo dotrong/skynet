@@ -70,9 +70,8 @@ var reload = function() {
             var watches = location[i].Watches;
 
             for (var j=0; j<watches.length; j++) {
-                // var type = watches[j].type.toUpperCase();
                 if (watches[j].Alert) { // some watches don't have 'Alert' which causes an error
-                  var title = watches[j].Alert.title;
+                  var title = watches[j].Alert.title.toUpperCase();
                   // var alertStatus = watches[j].Alert;
                   var description = watches[j].Alert.description;
                   var dateTime = watches[j].Alert.dateTime;
@@ -91,8 +90,8 @@ var reload = function() {
             $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" class="delete">');
             $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
-            if (severity != "Green") {                
-                $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ALERT ***</div>");
+            // if (severity != "Green") {                
+                $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
                 // More Details
@@ -100,10 +99,10 @@ var reload = function() {
                 // Map Display
                 var countryCode = countryCodes[state];
                 $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
-            }
+            /*}
             else {
                 $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
-            }
+            }*/
         }
 
         $(".delete").click( function(){

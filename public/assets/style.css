@@ -305,6 +305,12 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	margin-right: -7px;
 }
 
+#watchTitle0 .ui-collapsible-heading-toggle .delete:hover,
+#watchTitle1 .ui-collapsible-heading-toggle .delete:hover,
+#watchTitle2 .ui-collapsible-heading-toggle .delete:hover {
+	opacity: 0.5;
+}
+
 /* DYNAMIC MAP */
 #mapContainer {
 	width:100%;

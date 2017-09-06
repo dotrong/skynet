@@ -296,8 +296,9 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 } 
 /******* CHRIS CSS CODE (end) ******/
 
-.ui-collapsible-heading-toggle .delete {
+.delete {
 	width: 23px;
+	height: 23px;
 	float: right;
 	margin-right: -7px;
 }

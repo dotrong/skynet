@@ -70,9 +70,9 @@ var reload = function() {
 
             var watches = location[i].Watches;
             for (var j=0; j<watches.length; j++) {
-                var type = watches[j].type;
-                var title = watches[j].title;
+                // var title = watches[j].title;
                 if (watches[j].Alert) { // some watches don't have 'Alert' which causes an error
+                    var type = watches[j].Alert.type.toUpperCase();
                     var description = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
@@ -91,7 +91,7 @@ var reload = function() {
             $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
             if (severity != "Green") {                
-                $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + title + " ***</div>");
+                $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + type + " ***</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                 $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
                 // More Details

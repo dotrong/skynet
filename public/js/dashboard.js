@@ -81,27 +81,29 @@ var reload = function() {
                     var severity = watches[j].Alert.severity;
                 }
             }
-            console.log(city,state,type,type,picture,description,dateTime,external,severity);
+            console.log(city,state,type,picture,description,dateTime,external,severity);
 
-            // Fill in dynamic city, state/country data
-            $("#watch" + i + ".ui-content img").attr('src', picture);
-            $("#watch" + i + " div.ui-collapsible-content").html("");            
-            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" class="delete">');
-            $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+            if (severity != null && watches[j].Alert != null) {
+              // Fill in dynamic city, state/country data
+              $("#watch" + i + ".ui-content img").attr('src', picture);
+              $("#watch" + i + " div.ui-collapsible-content").html("");            
+              $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
+              $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" class="delete">');
+              $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
-            if (severity != "Green") {                
-                $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + type + " ALERT ***</div>");
-                $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
-                $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
-                // More Details
-                $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + '" id="wthrDetails" target="_blank">More Details</a><br>');
-                // Map Display
-                var countryCode = countryCodes[state];
-                $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
-            }
-            else {
-                $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
+              if (severity != "Green") {                
+                  $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>*** " + type + " ALERT ***</div>");
+                  $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
+                  $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
+                  // More Details
+                  $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + '" id="wthrDetails" target="_blank">More Details</a><br>');
+                  // Map Display
+                  var countryCode = countryCodes[state];
+                  $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
+              }
+              else {
+                  $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
+              }
             }
         }
 

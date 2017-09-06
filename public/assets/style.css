@@ -241,7 +241,7 @@ span.rightIcon, a { float: right;
   grid-row: 2;
 }
 #worldMap { 
-  grid-column: 1 / 5;
+  grid-column: 1 / 7;
   grid-row: 3;
 }
 /*CHRIS ADDED (end)*/
@@ -298,6 +298,8 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 
 /* DYNAMIC MAP */
 #mapContainer {
+	grid-column: 1 / 7;
+  	grid-row: 4;
 	width:100%;
 	overflow: hidden;
 }
@@ -342,6 +344,11 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	  grid-column: 1 / 7;
 	  grid-row: 3;
 	}
+
+	#mapContainer {
+	grid-column: 1 / 7;
+  	grid-row: 4;
+  	}
 
 	#watch0, #watch1, #watch2, #worldMap {  
 		padding: 10px;

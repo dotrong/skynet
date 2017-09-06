@@ -79,8 +79,8 @@ var reload = function() {
 
 /*NEED TO CHECK FOR HIGHEST SEVERITY OF ALERT HERE*/
                   var severity = watches[j].Alert.severity;
-                }
-            }
+
+
             console.log(city,state,title,picture,description,dateTime,external,severity);
 
             // Fill in dynamic city, state/country data
@@ -104,6 +104,15 @@ var reload = function() {
             else {
                 $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
             }
+
+
+                }
+            }
+            
+
+
+
+
         }
 
         $(".delete").click( function(){

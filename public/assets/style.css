@@ -243,6 +243,8 @@ span.rightIcon, a { float: right;
 #worldMap { 
   grid-column: 1 / 7;
   grid-row: 3;
+  width:100%;
+  overflow: hidden;
 }
 /*CHRIS ADDED (end)*/
 
@@ -300,7 +302,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 #mapContainer { border: solid 1px green;
 	width:100%;
 	overflow: hidden;
-	text-align: center;
+	/*text-align: center;*/
 }
 #map {
 	width: 100%;

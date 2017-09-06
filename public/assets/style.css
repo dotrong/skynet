@@ -297,7 +297,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 /******* CHRIS CSS CODE (end) ******/
 
 /* DYNAMIC MAP */
-#mapContainer {
+#mapContainer { border: solid 1px green;
 	width:100%;
 	overflow: hidden;
 	text-align: center;

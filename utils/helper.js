@@ -250,9 +250,9 @@ var getTravelWatch = function(travel) {
           var day = $(element).date.substring(8, 10);
           var year = $(element).date.substring(0, 4);
           var newDate = (year + "-" + month + "-" + day);*/
-          var month = $(element).children("date").text().substring(5, 7);
-          var day = $(element).children("date").text().substring(8, 10);
-          var year = $(element).children("date").text().substring(0, 4);
+          var month = $(element).children("pubDate").text().substring(5, 7);
+          var day = $(element).children("pubDate").text().substring(8, 10);
+          var year = $(element).children("pubDate").text().substring(0, 4);
           var newDate = (year + "-" + month + "-" + day);
           var summary = $(element).children("link").text();
           //console.log(summary);

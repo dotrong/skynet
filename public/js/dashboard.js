@@ -97,7 +97,7 @@ var reload = function() {
                 $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + '" id="wthrDetails" target="_blank">More Details</a><br>');
                 // Map Display
                 var countryCode = countryCodes[state];
-                $("#mapContainer").append('<img src="images/map/' + countryCode + '-Red.png" id="mapOverlay">');
+                $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
             }
             else {
                 $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
@@ -107,8 +107,8 @@ var reload = function() {
 };
 
 var countryCodes = {
- "Afghanistan": "AF",
- "Albania": "AL",
+  "Afghanistan": "AF",
+  "Albania": "AL",
   "Algeria": "DZ",
   "Andorra": "AD",
   "Angola": "AO",

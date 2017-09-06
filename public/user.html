@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"name="viewport" content="width=device-width" initial-scale="1.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SkyNet - Create Account</title>
 
@@ -14,6 +14,9 @@
 
     <!-- **********Font Awesome CSS Icons (glyphicons)********** -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- *****GOOGLE FONTS***** -->
+        <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
       
     <!-- *****PREVENT FAVICON REQUESTS***** -->    
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
@@ -24,11 +27,11 @@
 </head>
 
 <body>
-<!-- *****CONTAINER FOR NAV BAR***** -->  
-<header role="banner"> 
+<!-- *****CONTAINER FOR NAV BAR*****   
+<header role="banner"> -->
 
   <!-- *****NAVIGATON BAR***** -->
-  <nav id="fixedNav" class="navbar navbar-default" role="navigation">
+  <!-- <nav id="fixedNav" class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <span class="leftIcon">
           <a href="/">
@@ -39,12 +42,17 @@
     </div>
   </nav>
 
-</header>
+</header> -->
 
 <div class="userForm">
-    <img src="images/ocean2.jpg" alt="ocean with clouds" class="backgroundImage">
+    <!-- <img src="images/ocean2.jpg" alt="ocean with clouds" class="backgroundImage"> -->
     <!-- <div class="panel panel-default"> -->
-   
+    <div class="user"><img src="images/indexLogo2.png">
+    <h1>Sign up with us</h1>
+    <br>
+    <p> create an account or press cancel to return to main menu </p>
+    </div>
+
       <form class="userSignup" action="/signup" method="POST" name="user">
          <div class="form-group">
             <input type="text" id="userFN" class="form-control" name="firstname" placeholder="First Name" required>
@@ -71,7 +79,7 @@
         <div class="userBtns">
             <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
             <br>
-            <button type="reset" class="btn btn-default" id="userReset">Reset</button>
+            <button type="reset" class="btn btn-default" id="userReset">Cancel</button>
         </div>
       </form>
 

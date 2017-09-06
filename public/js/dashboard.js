@@ -110,8 +110,9 @@ var reload = function() {
                   $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
                   // if (severity === "Red" || severity === "Yellow") {
-                  if (severity != "Green") {                
-                      $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>" + title + "</div>");
+                  if (severity != "Green") {
+                      $("#watch" + i + " div.ui-collapsible-content").append("<div>*************************</div>");
+                      $("#watch" + i + " div.ui-collapsible-content").append("<br><div>" + title + "</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
                       // More Details

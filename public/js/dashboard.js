@@ -71,7 +71,7 @@ var reload = function() {
 
             for (var j=0; j<watches.length; j++) {
                 var type = watches[j].type.toUpperCase();
-                if (watches[j].Alert) { // some watches don't have 'Alert' which causes an error
+                if (watches[j].Alert && watches[j].Alert != null && severity != null) { // some watches don't have 'Alert' which causes an error
                   // console.log(watches[j].Alert.title);
                     var description = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;
@@ -83,7 +83,7 @@ var reload = function() {
             }
             console.log(city,state,type,picture,description,dateTime,external,severity);
 
-            if (severity != null && watches[j].Alert != null) {
+            // if (severity != null) {
               // Fill in dynamic city, state/country data
               $("#watch" + i + ".ui-content img").attr('src', picture);
               $("#watch" + i + " div.ui-collapsible-content").html("");            
@@ -104,7 +104,7 @@ var reload = function() {
               else {
                   $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
               }
-            }
+            // }
         }
 
         $(".delete").click( function(){

@@ -104,6 +104,10 @@ var reload = function() {
                 $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
             }
         }
+
+        $(".delete").click( function(){
+          console.log("DELETE BUTTON IS WORKING");
+        });
     });
 };
 

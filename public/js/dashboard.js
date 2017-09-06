@@ -71,8 +71,9 @@ var reload = function() {
 
             for (var j=0; j<watches.length; j++) {
                 var type = watches[j].type.toUpperCase();
-                if (watches[j].Alert && watches[j].Alert != null) { // some watches don't have 'Alert' which causes an error
+                if (watches[j].Alert) { // some watches don't have 'Alert' which causes an error
                   // console.log(watches[j].Alert.title);
+                    var alertStatus = watches[j].Alert;
                     var description = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
@@ -83,7 +84,7 @@ var reload = function() {
             }
             console.log(city,state,type,picture,description,dateTime,external,severity);
 
-            if (severity != null) {
+            if (severity != null && alertStatus != null) {
               // Fill in dynamic city, state/country data
               $("#watch" + i + ".ui-content img").attr('src', picture);
               $("#watch" + i + " div.ui-collapsible-content").html("");            

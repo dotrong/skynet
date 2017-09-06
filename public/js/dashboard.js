@@ -109,13 +109,13 @@ var reload = function() {
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" class="delete">');
                   $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
-                  if (severity === "Red" || severity === "Yellow") {
-                  // if (severity != "Green") {                
+                  // if (severity === "Red" || severity === "Yellow") {
+                  if (severity != "Green") {                
                       $("#watch" + i + " div.ui-collapsible-content").append("<br><br><div>" + title + "</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
                       // More Details
-                      $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + '" id="wthrDetails" target="_blank">More Details</a><br>');
+                      $("#watch" + i + " div.ui-collapsible-content").append('<a href=' + external + ' id="wthrDetails" target="_blank">More Details</a><br>');
                       // Map Display
                       var countryCode = countryCodes[state];
                       $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
@@ -124,12 +124,7 @@ var reload = function() {
                       $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
                   }
                 }
-            }
-            
-
-
-
-
+            } 
         }
 
         $(".delete").click( function(){

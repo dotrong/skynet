@@ -296,10 +296,14 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 } 
 /******* CHRIS CSS CODE (end) ******/
 
+.delete {
+	width: 23px;
+	float: right;
+	margin-right: -7px;
+}
+
 /* DYNAMIC MAP */
 #mapContainer {
-	grid-column: 1 / 7;
-  	grid-row: 4;
 	width:100%;
 	overflow: hidden;
 }
@@ -344,11 +348,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	  grid-column: 1 / 7;
 	  grid-row: 3;
 	}
-
-	#mapContainer {
-	grid-column: 1 / 7;
-  	grid-row: 4;
-  	}
 
 	#watch0, #watch1, #watch2, #worldMap {  
 		padding: 10px;

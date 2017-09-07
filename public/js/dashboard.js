@@ -144,8 +144,8 @@ var reload = function() {
           // console.log(locId);
           $.ajax({
               url: '/api/locations/' + locId,
-              type: 'DELETE',
-              success: document.reload()
+              type: 'DELETE'
+              // success: document.reload()
           });
         });
     });

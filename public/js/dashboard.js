@@ -114,7 +114,6 @@ var reload = function() {
                       // $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************<div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>" + title + "</div>");
-                      $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
                       // More Details

@@ -131,8 +131,7 @@ var reload = function() {
 
         $(".delete").click( function(){
           console.log("DELETE WORKING");
-          // window.location.href='/api/locations/:id';
-          app.get("/api/locations/users/:id");
+          window.location.href='https://tenyks.herokuapp.com/api/locations/:id';
         });
     });
 };

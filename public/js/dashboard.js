@@ -32,7 +32,7 @@ $(document).ready(function() {
 
         }
 
-        //console.log(watches);
+        console.log(watches);
         
         $.post("/api/locations", {
             city: city,
@@ -42,12 +42,10 @@ $(document).ready(function() {
         },function(data,status) {
 
             console.log(data);
-
-            $("#myModal").modal('hide');
-            reload();
-
         })
 
+        $("#myModal").modal('hide');
+        reload();
 
     });
 
@@ -58,7 +56,6 @@ setInterval(function() {
 }, 3600000); // one hour
 
 var reload = function() {
-    console.log('in reload');
 
     $.get("/api/users",function(data,status) {
         
@@ -117,8 +114,8 @@ var reload = function() {
                       // $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************<div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************</div>");
                       $("#watch" + i + " div.ui-collapsible-content").append("<div>" + title + "</div>");
-                      $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
-                      $("#watch" + i + " div.ui-collapsible-content").append("<div>Time: " + dateTime + "</div>");
+                      // $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
+                      $("#watch" + i + " div.ui-collapsible-content").append("<div>" + dateTime + "</div>");
                       // More Details
                       $("#watch" + i + " div.ui-collapsible-content").append('<a href="' + external + '" target="_blank">More Details</a><br>');
                       // Map Display

@@ -60,7 +60,6 @@ var reload = function() {
     $.get("/api/users",function(data,status) {
         
         console.log(data);
-        var id = data.id;
 
         var location = data.Locations;
 
@@ -130,8 +129,11 @@ var reload = function() {
             } 
         }
 
+        var id = location.id;
+
         $(".delete").click( function(){
           // console.log("DELETE WORKING", id);
+          console.log($(this));
           window.location.href='api/locations/:' + id;
         });
     });

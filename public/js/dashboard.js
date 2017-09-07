@@ -77,8 +77,6 @@ var reload = function() {
                   var description = watches[j].Alert.description;
                   var dateTime = watches[j].Alert.dateTime;
                   var external = watches[j].Alert.external;
-
-/*NEED TO CHECK FOR HIGHEST SEVERITY OF ALERT HERE*/
                   var severity = watches[j].Alert.severity;
 
                   if (severity === "Red" && curSeverity === "Green") {
@@ -132,20 +130,21 @@ var reload = function() {
         var id = location.id;
 
         $(".delete").click( function(){
-          var btnId = $(this)[0].id; // grabs entire id
+          var btnId = $(this)[0].id; // grabs entire id of event target
           var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
           var locId = btnId.charAt(6); // first number
-          for (var i=delBtnIndex+1; i<btnId.length; i++) {
-            var locId = locId+btnId[i];
+          for (var i=delBtnIndex+1; i<btnId.length; i++) { // start at index position of number
+            var locId = locId+btnId[i]; // add next number
           }
           // console.log(locId);
-          // window.location.href='api/locations/:' + locId;
           $.ajax({
               url: '/api/locations/' + locId,
               type: 'DELETE',
               success: function(result) {
-                location.reload(true);
+                // console.log("DELETED");
               }
+          }).done(function() {
+            location.reload(true);
           });
         });
     });

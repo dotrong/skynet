@@ -14,7 +14,8 @@ module.exports = function(app) {
                 db.Location.create(req.body, {
                     include: [db.Watch]
                 } ).then(function(dbLocation) {
-                  res.json(dbLocation);
+                    helper.runQuery();  
+                    res.json(dbLocation);
                 });
         })
 

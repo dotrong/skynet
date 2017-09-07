@@ -69,6 +69,7 @@ var reload = function() {
             var picture = location[i].picture;
             var watches = location[i].Watches;
             var curSeverity = "Green";
+            var severity = "Green";
 
             for (var j=0; j<watches.length; j++) {
                 if (watches[j].Alert && watches[j].Alert.title != null) { // some watches don't have 'Alert' which causes an error
@@ -119,10 +120,6 @@ var reload = function() {
                       // Map Display
                       var countryCode = countryCodes[state];
                       $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
-                  }
-                  else {
-                      $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
-                      console.log("No Alerts");
                   }
                 }
                 else {

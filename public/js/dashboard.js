@@ -121,6 +121,12 @@ var reload = function() {
                       $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                   }
                   else {
+                      // Fill in dynamic city, state/country data
+                      $("#watch" + i + ".ui-content img").attr('src', picture);
+                      // $("#watch" + i + " div.ui-collapsible-content").html("");            
+                      $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
+                      $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
+                      $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", "green");
                       $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
                   }
                 }
@@ -140,10 +146,7 @@ var reload = function() {
           $.ajax({
               url: '/api/locations/' + locId,
               type: 'DELETE',
-              success: function() {
-                $(document).ajaxStop(function(){
-                window.location.reload()
-            });
+              success: document.reload()
           });
         });
     });

@@ -173,7 +173,8 @@ span.rightIcon, a { float: right;
 }
 #worldMap { 
   grid-column: 1 / 7;
-  grid-row: 3;
+  grid-row: 3 / auto;
+  align-self: auto;
 }
 /*CHRIS ADDED (end)*/
 #watch0, #watch1, #watch2, #worldMap {
@@ -295,14 +296,17 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	#mapContainer {
 		width:100%;
 		overflow: hidden;
+		/*position: relative;*/
 	}
 	#map {
 		width: 100%;
-		position: relative;
+		position: absolute;
+		left: 0;
 	}
 	#mapOverlay {
 		width: 100%;
-		position: relative;
+		position: absolute;
+		left: 0;
 	}
 	#worldMap { 
 	  grid-column: 1 / 7;

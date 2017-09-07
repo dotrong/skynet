@@ -144,7 +144,7 @@ var reload = function() {
                 // console.log("DELETED");
               }
           });
-          location.reload(true);
+          window.location.reload(true);
         });
     });
 };

@@ -241,19 +241,19 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 
 
-/* DYNAMIC MAP */
-#mapContainer {
-	width:100%;
-	overflow: hidden;
-}
-#map {
-	width: 100%;
-	position: absolute;
-}
-#mapOverlay {
-	width: 100%;
-	position: absolute;
-}
+/*  DYNAMIC MAP
+ #mapContainer {
+ 	width:100%;
+ 	overflow: hidden;
+ }
+ #map {
+ 	width: 100%;
+ 	position: absolute;
+ }
+ #mapOverlay {
+ 	width: 100%;
+ 	position: absolute;
+ } */ 
 
 
 
@@ -292,14 +292,22 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	  grid-column: 5 / 7;
 	  grid-row: 2;
 	}
+	#mapContainer {
+		width:100%;
+		overflow: hidden;
+	}
 	#map {
+		width: 100%;
 		position: relative;
+	}
+	#mapOverlay {
+		width: 100%;
+		position: absolute;
 	}
 	#worldMap { 
 	  grid-column: 1 / 7;
 	  grid-row: 3;
 	}
-
 	#watch0, #watch1, #watch2, #worldMap {  
 		padding: 10px;
 		text-align: center;

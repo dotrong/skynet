@@ -142,7 +142,7 @@ var reload = function() {
               type: 'DELETE',
               success: function() {
                 $(document).ajaxStop(function(){
-                window.location.reload();
+                window.location.reload()
             });
           });
         });

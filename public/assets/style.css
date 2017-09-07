@@ -4,6 +4,7 @@ html, body {
 	padding: 0px;
 	height: 100%;
 }
+html {background-color: #2d4f59;}
 body{
 	margin: 0px auto;
 	background-image: url("../images/ocean.jpg");

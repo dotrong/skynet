@@ -209,7 +209,11 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 .cityImgs img {
  width: 100%;
- transform: translate(0, -23%) centers img vertically 
+ transform: translate(0, -23%) /* centers img vertically */
+}
+.imgPlaceholder {
+ width: 100%;
+ transform: translate(0, -23%) /* centers img vertically */
 }
 .ui-page-theme-a .ui-btn {
  color: black;

@@ -140,9 +140,10 @@ var reload = function() {
           $.ajax({
               url: '/api/locations/' + locId,
               type: 'DELETE',
-              success: {
-                window.location.reload.bind(window.location);
-              }, error: { console.log("Delete Error"); }
+              success: function() {
+                $(document).ajaxStop(function(){
+                window.location.reload();
+            });
           });
         });
     });

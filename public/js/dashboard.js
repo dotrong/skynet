@@ -139,7 +139,7 @@ var reload = function() {
           var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
           var locId = delBtnIndex.indexOf(delBtnIndex); // first number
           for (var i=delBtnIndex+1; i<btnId.length; i++) {
-            var locId = locId.+btnId[i];
+            var locId = locId+btnId[i];
                console.log(locId);
           }
 

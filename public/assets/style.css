@@ -231,7 +231,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 #watchTitle2 .ui-collapsible-heading-toggle .delete {
 	width: 23px;
 	height: 23px;
-	position: relative; right: 0;
+	position: absolute; right: 0;
 	/*float: right;*/
 	margin-right: -7px;
 }

@@ -20,7 +20,7 @@ var helper = {
       var imgAttempt = 0; // counter for no result
       var imgKey = "6299821-762bdea8a954438f2918f510d";
       var url = "https://pixabay.com/api/?key=" + imgKey + "&q=" + locImg + "&image_type=photo&orientation=horizontal&category=places&safesearch=true";
-      console.log(url);
+      //console.log(url);
       axios.get(url).then(function(response) {
         //console.log(response);
     
@@ -49,7 +49,7 @@ var helper = {
           //customImgs();
         }
         else {
-            resolve(false);
+            resolve("NA");
         }
       }).catch(function(error) {console.log(error)});
     })

@@ -8,14 +8,18 @@ module.exports = function(app) {
         var promise1 = helper.customImg(req.body.city,req.body.state);
         promise1.then(function(response) {
             req.body.UserId = req.user.id;
-            if (response) {
+            console.log("titi"); 
+            
+            if (response != 'NA') {
                 req.body.picture = response; 
+                console.log("tata"); 
             } 
                 db.Location.create(req.body, {
                     include: [db.Watch]
                 } ).then(function(dbLocation) {
                     //force to check alert in backend after adding new locations
-                    helper.runQuery();  
+                    //helper.runQuery(); 
+                    console.log("toto"); 
                     res.json(dbLocation);
                 });
         })

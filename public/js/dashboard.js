@@ -122,13 +122,15 @@ var reload = function() {
                   }
                   else {
                       $("#watch" + i + " div.ui-collapsible-content").append("<br><br>No Alerts");
+                      console.log("No Alerts");
                   }
                 }
                 else {
                   console.log("Alert issue - no exists or null");
-                }
-            } 
-        }
+                } 
+            } // end of watches for loop
+
+        } // end of locations for loop
 
         var id = location.id;
 

@@ -215,7 +215,7 @@ var getEarthQuakeWatch = function(earthquake) {
             severity: alertLevel,
             external: details,
             dateTime: dateTime,
-            title: magnitude + 'EarthQuake'          
+            title: magnitude + ' EarthQuake'          
           }).then(function(response) {
             //console.log(response);
           }).catch(function(error) {

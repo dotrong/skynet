@@ -51,6 +51,8 @@ var helper = {
         }
         else {
             resolve("NA");
+           // var customImg = "images/defaultImg.jpg"
+
         }
       }).catch(function(error) {console.log(error)});
     })

@@ -138,7 +138,7 @@ var reload = function() {
           var btnId = $(this)[0].id; // grabs entire id
           var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
   console.log(delBtnIndex);
-          var locId = btnId.indexOf(6); // first number
+          var locId = btnId.charAt(6); // first number
   console.log(locId);
           for (var i=delBtnIndex+1; i<btnId.length; i++) {
             var locId = locId+btnId[i];

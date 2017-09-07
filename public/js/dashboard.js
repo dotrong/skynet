@@ -131,7 +131,8 @@ var reload = function() {
 
         $(".delete").click( function(){
           console.log("DELETE WORKING");
-          window.location.href='/api/locations/:id';
+          // window.location.href='/api/locations/:id';
+          app.get("/api/locations/users/:id");
         });
     });
 };

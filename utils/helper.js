@@ -217,13 +217,14 @@ else { // is U.S. state
 
           // Alert Level
           switch (true) {
-              case magnitude >=6 && magnitude < 7:
-                  alertLevel = "Yellow";
-                  break;
               case magnitude >= 7:
                   alertLevel = "Red";
                   break;
-              case magnitude < 7:
+              case magnitude >=5 && magnitude < 7:
+                  alertLevel = "Yellow";
+                  break;
+              
+              case magnitude < 5:
                   alertLevel = "Green";
                   break;
           }//end of switch
@@ -280,7 +281,7 @@ var getTravelWatch = function(travel) {
           var month = $(element).children("pubDate").text().substring(8, 11);
           var day = $(element).children("pubDate").text().substring(5, 7);
           var year = $(element).children("pubDate").text().substring(12, 16);
-          var newDate = (year + "-" + month + "-" + day);
+          var newDate = (month + " " + day + ", " + year);
           var summary = $(element).children("link").text();
           //console.log(summary);
           alertLevel = "Red";
@@ -372,7 +373,7 @@ var getWeatherAlert = function(weather) {
                   break;
           }
           description = item.description;
-          dateTime = newDate + ' ' + time;
+          dateTime = newDate;
         } //end if Domestic
         else {
           var month = timeDate.substring(5, 7);

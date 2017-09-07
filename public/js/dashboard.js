@@ -133,13 +133,13 @@ var reload = function() {
 
         $(".delete").click( function(){
           // console.log("DELETE WORKING", id);
-          console.log($(this));
-          console.log($(this)[0].id);
+          // console.log($(this));
+          // console.log($(this)[0].id);
           var btnId = $(this)[0].id;
           var delBtnIndex = btnId.match(/\d/).index;
           var locId = delBtnIndex;
           for (var i=delBtnIndex+1; i<btnId.length; i++) {
-            var locId = locId+btnId[i];
+            var locId = btnId.indexOf(delBtnIndex)+btnId[i];
                console.log(locId);
           }
 

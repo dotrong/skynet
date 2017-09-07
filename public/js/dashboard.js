@@ -60,7 +60,7 @@ var reload = function() {
     $.get("/api/users",function(data,status) {
         
         console.log(data);
-        console.log(id);
+        console.log(data.id);
 
         var location = data.Locations;
 

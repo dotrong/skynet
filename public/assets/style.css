@@ -296,7 +296,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	#mapContainer {
 		width:100%;
 		overflow: hidden;
-		/*position: relative;*/
 	}
 	#map {
 		width: 100%;

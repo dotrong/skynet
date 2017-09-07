@@ -132,22 +132,14 @@ var reload = function() {
         var id = location.id;
 
         $(".delete").click( function(){
-          // console.log("DELETE WORKING", id);
-          // console.log($(this));
-          // console.log($(this)[0].id);
           var btnId = $(this)[0].id; // grabs entire id
           var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
-  console.log(delBtnIndex);
           var locId = btnId.charAt(6); // first number
-  console.log(locId);
           for (var i=delBtnIndex+1; i<btnId.length; i++) {
             var locId = locId+btnId[i];
-  console.log(locId);
           }
-
-  console.log(locId);
-
-          // window.location.href='api/locations/:' + id;
+          console.log(locId);
+          window.location.href='api/locations/:' + locId;
         });
     });
 };

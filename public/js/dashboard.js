@@ -123,13 +123,12 @@ var reload = function() {
                   }
                 }
                 else {
-                  console.log("Alert issue - no exists or null");
                   // Fill in dynamic city, state/country data
-                  $("#watch" + i + ".ui-content img").attr('src', picture);
-                  // $("#watch" + i + " div.ui-collapsible-content").html("");            
+                  $("#watch" + i + ".ui-content img").attr('src', picture);           
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
                   $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+                  $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
                 } 
             } // end of watches for loop
 

@@ -4,14 +4,20 @@ html, body {
 	padding: 0px;
 	height: 100%;
 }
+/* html {background-color: #2d4f59;} */
+
 body{
 	margin: 0px auto;
 	background-image: url("../images/ocean.jpg");
-	height: 100%;
+	/* width: 100%; */
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover;	
+	/*-webkit-background-size: 100% 100%;            Safari 3.0 */
+	/*-moz-background-size: 100% 100%;            Gecko 1.9.2 (Firefox 3.6) */
+		/*-o-background-size: 100% 100%;            Opera 9.5 */
+			 /*background-size: 100% 100%;            Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
 }
 .signinContainer, .userForm { /*flex container */
 	margin: 0px auto;		
@@ -24,6 +30,10 @@ body{
 	align-items: center;
 	/* -webkit-justify-content: center;
 	justify-content: center; */
+}
+.about img, .user img {
+	width: 110px;
+	height: 100px;
 }
 .about h1, .user h1 { 
 	color: orange; 
@@ -131,10 +141,10 @@ h2 { color: white;
 
 
 /******* LOCATION PAGE ******/
-html.ui-mobile, body.ui-mobile-viewport, div.ui-mobile-viewport, div.ui-page-theme-a.ui-page-active {
+/* html.ui-mobile, body.ui-mobile-viewport, div.ui-mobile-viewport, div.ui-page-theme-a.ui-page-active {
   border: none;
   background-color: #00222b; 
-}
+} */
 /*span.leftIcon, a { float: left;
   display: inline;
   margin: 5px;  
@@ -143,7 +153,7 @@ a.ui-link i {
   color: white;
 }
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
     border-color: #bbb;
     color: #333;
     text-shadow: 0 1px 0 #f3f3f3;
@@ -173,8 +183,8 @@ span.rightIcon, a { float: right;
 }
 #worldMap { 
   grid-column: 1 / 7;
-  grid-row: 3 / auto;
-  align-self: auto;
+	/* grid-row: 3 / auto;
+	align-self: auto; */
 }
 /*CHRIS ADDED (end)*/
 #watch0, #watch1, #watch2, #worldMap {
@@ -210,12 +220,12 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 .cityImgs img {
  width: 100%;
- transform: translate(0, -23%) /* centers img vertically */
+ transform: translate(0, -23%) centers img vertically 
 }
 .imgPlaceholder {
- width: 100%;
- transform: translate(0, -23%) /* centers img vertically */
-}
+	width: 100%;
+	transform: translate(0, -23%) /* centers img vertically */
+ }
 .ui-page-theme-a .ui-btn {
  color: black;
  text-shadow: none;
@@ -231,7 +241,8 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 #watchTitle2 .ui-collapsible-heading-toggle .delete {
 	width: 23px;
 	height: 23px;
-	position: absolute; right: 7px;
+	float: right;
+	margin-right: -7px;
 }
 
 #watchTitle0 .ui-collapsible-heading-toggle .delete:hover,
@@ -240,22 +251,28 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	opacity: 0.5;
 }
 
-
-
-
 /******MEDIA QUERIES******/
 @media screen and (max-width: 1100px) {
-	.about h1, .user h1 {
-		font-size: 2.3em;
-	}
 	.signinContainer p, .userForm p {
-		font-size: 1.6em;
+		font-size: 1.3em;
+	}
+	.about img, .user img {
+		width: 90px;
+		height: 80px;
+	}
+	.about h1, .user h1 {
+		font-size: 2em;
 	}
 }
 @media screen and (max-width:850px) {
 	.signinContainer, .userForm { 
 		flex-direction: column;
-/* 		min-width: 300px; */
+	}
+	div.middle {
+		margin-top: 0px;
+	}
+	.signinForm {
+		padding: 3px;
 	}
 }
 @media screen and (min-width: 850px) {
@@ -280,6 +297,11 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	  grid-column: 5 / 7;
 	  grid-row: 2;
 	}
+	#worldMap { 
+	  grid-column: 1 / 7;
+	  grid-row: 3;
+	}
+	/* DYNAMIC MAP */
 	#mapContainer {
 		width:100%;
 		overflow: hidden;
@@ -303,3 +325,16 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		text-align: center;
 	}
  }
+ @media screen and (max-width:600px) {
+	 	.signinContainer p, .userForm p {
+		font-size: 1em;
+		}
+	.about img, .user img {
+		width: 70px;
+		height: 60px;
+	}
+	.about h1, .user h1 {
+		font-size: 1.6em;
+	}
+
+}

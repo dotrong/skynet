@@ -137,14 +137,15 @@ var reload = function() {
           // console.log($(this)[0].id);
           var btnId = $(this)[0].id; // grabs entire id
           var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
-          var locId = btnId.indexOf(delBtnIndex); // first number
-          console.log(locId);
+  console.log(delBtnIndex);
+          var locId = btnId.indexOf(6); // first number
+  console.log(locId);
           for (var i=delBtnIndex+1; i<btnId.length; i++) {
             var locId = locId+btnId[i];
-               console.log(locId);
+  console.log(locId);
           }
 
-          console.log(locId);
+  console.log(locId);
 
           // window.location.href='api/locations/:' + id;
         });

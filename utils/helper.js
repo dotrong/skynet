@@ -49,7 +49,7 @@ var helper = {
           //customImgs();
         }
         else {
-            var customImg = "images/defaultImg.jpg"
+          var customImg = "images/defaultImg.jpg";
         }
       }).catch(function(error) {console.log(error)});
     })

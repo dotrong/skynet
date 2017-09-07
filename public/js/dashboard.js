@@ -143,9 +143,10 @@ var reload = function() {
           $.ajax({
               url: '/api/locations/:' + locId,
               type: 'DELETE',
-              success: /*function(result) {*/
-                  location.reload(true);
-              // }
+              success: function(result) {
+                console.log("SUCCESS");
+                  // location.reload(true);
+              }
           });
         });
     });

@@ -141,7 +141,7 @@ var reload = function() {
           // console.log(locId);
           // window.location.href='api/locations/:' + locId;
           $.ajax({
-              url: '/api/locations/:' + locId,
+              url: '/api/locations/' + locId,
               type: 'DELETE',
               success: function(result) {
                 console.log("SUCCESS");

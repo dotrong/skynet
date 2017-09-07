@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- *****GOOGLE FONTS***** -->
+    <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
       
     <!-- *****PREVENT FAVICON REQUESTS***** -->    
     <link rel="shortcut icon" href="data:image/x-icon" type="image/x-icon">
@@ -22,15 +25,17 @@
 </head>
 
 <body>  
-  
-<div class="signinContainer" >
 
-  <img src="images/ocean2.jpg" alt="ocean with clouds" class="indexImage">
+<div class="signinContainer" >  
+
+  <div class="about"><img src="images/indexLogo2.png">
+    <h1>Welcome to SkyNet</h1>
+    <br>
+    <p> an app that keeps you informed of travel warnings and weather alerts for locations <em>you</em> select!</p>
+  </div>
 
   <div class="middle">
-
     <form class="signinForm" method="POST" action="signin">
-
       <div class="text">
         <!-- <span class="close">&times;</span> -->
         <input type="text" placeholder="Enter Email" name="email" required>
@@ -41,62 +46,11 @@
         <input class="btn" type="submit" value="Sign In" />
         <br>
         <input class="btn" id="signUp" type="button" value="Create Account">
-
       </div>
     </form>
-  
+
   </div>
 </div>
-
-<!-- <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    Modal content
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 style="color:blue;"><span class="glyphicon glyphicon-lock"></span> Create Account</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-
-          <div class="form-group">
-                <input type="text" class="form-control" name="firstname" placeholder="First Name" required>
-          </div>
-
-          <div class="form-group">
-                <input type="text" class="form-control" name="lastname" placeholder="Last Name" required>
-          </div>  
-
-          <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="email@email.com" 
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-          </div>
-
-          <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password" 
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                title="must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
-                required>
-          </div>
-
-          <div class="form-group">
-                <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" 
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-                title="must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
-                required>
-          </div>        
-      </form>
-      </div>
-      <div class="modal-footer">
-          <div class="userBtns">
-            <button type="submit" class="btn btn-default" id="userSubmit">Submit</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          </div>  
-      </div>
-    </div>
-  </div>
-</div> -->
-
 
 <script>
   $("#signUp").click(function () {

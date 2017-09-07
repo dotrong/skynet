@@ -16,7 +16,7 @@ var helper = {
 
     return new Promise(function(resolve,reject) {
 
-      var locImg = city + " " + state;
+      var locImg = city + "+" + state;
       var imgAttempt = 0; // counter for no result
       var imgKey = "6299821-762bdea8a954438f2918f510d";
       var url = "https://pixabay.com/api/?key=" + imgKey + "&q=" + locImg + "&image_type=photo&orientation=horizontal&category=places&safesearch=true";
@@ -124,7 +124,6 @@ var helper = {
           //   {city: 'Irvine', state: 'California', watch_id: 9},
           // ];
 
-          // customImgs();
           getEarthQuakeWatch(obj.earthquake);
           getWeatherAlert(obj.weather);
           getTravelWatch(obj.travel);
@@ -135,51 +134,6 @@ var helper = {
   },
 
 };
-
-/*function customImgs() {
-  var locImg = city + " " + state;
-  var imgAttempt = 0; // counter for no result
-  var imgKey = "6299821-762bdea8a954438f2918f510d";
-  var url = "https://pixabay.com/api/?key=" + imgKey + "&q=" + locImg + "&image_type=photo&orientation=horizontal&category=places&safesearch=true";
-  
-  axios.get(url).then(function(response) {
-
-      if (response.hits.length > 0) { // if at least one image result
-          // Store the number of likes in an array
-          var userLikes = 0;
-          var bestImg;
-          for (var i=0; i<response.hits.length; i++) {
-              var width = response.hits[i].webformatWidth;
-              var height = response.hits[i].webformatHeight;
-              var ratio = height/width; // aspect ratio
-              // console.log(ratio);
-              if (ratio > 0.60 && response.hits[i].likes >= userLikes) { // if most likes and not panorama img
-                  userLikes = response.hits[i].likes; // store most likes
-                  bestImg = response.hits[i]; // store current img data
-              }
-          }
-          // set the img variable          
-          var customImg = bestImg.webformatURL;            
-      }
-      else if (imgAttempt < 2 && response.hits.length === 0) {
-        imgAttempt++;
-        locImg = city; // make 2nd attempt with only city
-        customImgs();
-      }
-      else {
-        return false;
-      }
-
-      axios.post(baseUrl+"/api/alerts",{
-        status: 1,
-        picture: customImg          
-      }).then(function(response) {
-        //console.log(response);
-      }).catch(function(error) {
-        console.log(error);
-      })
-  }
-}*/
 
 var getEarthQuakeWatch = function(earthquake) { 
   var timeZone = "UTC";
@@ -204,9 +158,39 @@ var getEarthQuakeWatch = function(earthquake) {
         var magnitude = Number($(element).children("title").text().substring(2,5)); // capture magnitude and convert to number
         var titleInfo = $(element).children("title").text(); // variable of 'title' info
         //console.log(titleInfo); 
-        var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
+// var location = cityRegex.test(titleInfo) || stateRegex.test(titleInfo); // check whether the 'city', 'state' or 'country' exists
         //console.log(location);
         var details = $(element).children("link").attr("href"); // variable of 'details' url
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if (state.length > 2) { // check if country and not state abbreviation
+  var location = stateRegex.test(titleInfo); // set regex of 'state' for conditional below
+}
+else { // is U.S. state
+  var location = cityRegex.test(titleInfo); // set regex of 'city' for conditional below
+}
+
+
+
+
+
+
+
+
+
+
         
         //if (magnitude >= 6 && location != false) { // high magnitude in watched city
           // console.log(el);
@@ -293,13 +277,9 @@ var getTravelWatch = function(travel) {
         if (stateRegex.test(title) && state.length > 2) {
           //console.log($(element).children("date"));
 
-          /*var month = $(element).date.substring(5, 7);
-          var day = $(element).date.substring(8, 10);
-          var year = $(element).date.substring(0, 4);
-          var newDate = (year + "-" + month + "-" + day);*/
-          var month = $(element).children("date").text().substring(5, 7);
-          var day = $(element).children("date").text().substring(8, 10);
-          var year = $(element).children("date").text().substring(0, 4);
+          var month = $(element).children("pubDate").text().substring(8, 11);
+          var day = $(element).children("pubDate").text().substring(5, 7);
+          var year = $(element).children("pubDate").text().substring(12, 16);
           var newDate = (year + "-" + month + "-" + day);
           var summary = $(element).children("link").text();
           //console.log(summary);
@@ -309,7 +289,7 @@ var getTravelWatch = function(travel) {
 
           axios.post(baseUrl+"/api/alerts",{
             status: 1,
-            description: summary,
+            // description: summary,
             WatchId: watchId,
             severity: alertLevel,
             title: title,
@@ -337,6 +317,8 @@ var getWeatherAlert = function(weather) {
   for (var i =0; i< weather.length;i++) {   
     var city = weather[i].city;
     var state = weather[i].state;
+    var stateLC = state.toLowerCase();
+    var cityLC = city.toLowerCase();
     var watchId = weather[i].watch_id;
     //console.log("watchId: " + watchId);
     city = city.replace(/ /i, "_");
@@ -350,7 +332,6 @@ var getWeatherAlert = function(weather) {
       var conditions_result = results[1].data.current_observation;
       var temp;
       var newWatchId = results[2];
-      
       var dateTime;
       var description;
       var alertLevel;
@@ -368,7 +349,8 @@ var getWeatherAlert = function(weather) {
           
           var onIndex = timeDate.search(/ on /i); // find starting index of ' on '
           var newDate = timeDate.substring(onIndex + 4);
-          var time = timeDate.substring(0, onIndex);          
+          var time = timeDate.substring(0, onIndex);
+          var summary = "https://www.wunderground.com/weather/us/" + stateLC + "/" + cityLC;
           switch (item.type) {
               case "TOR":
                   alertLevel = "Red";
@@ -403,20 +385,25 @@ var getWeatherAlert = function(weather) {
           alertLevel = item.level_meteoalarm_name;
           description = item.description;
           dateTime = newDate + ' ' + time;
-          var summary = item.message;
+          var countryInitCap = stateLC.replace(stateLC.charAt(0), stateLC.charAt(0).toUpperCase()); // replace first letter of 'state' with capital letter
+          var countryCodeLC = countryCodes[countryInitCap].toLowerCase(); // pull country code from json at bottom of script
+          var summary = "https://www.wunderground.com/weather/" + countryCodeLC + "/" + cityLC;
+          var countryCodeUC = countryCodes[countryInitCap].toUpperCase(); // pull country code from json at bottom of script
         }
 
       }
         //insert/update db
       if (temp) {
-        console.log('date: ' + dateTime + 'description ' + temp + ' title ' + description + ' alert ' + alertLevel);
+        // console.log('date: ' + dateTime + 'description ' + temp + ' title ' + description + ' alert ' + alertLevel);
         axios.post(baseUrl+"/api/alerts",{
           status: 1,
           description: temp,
           title: description,
           WatchId: newWatchId,
           severity: alertLevel,
-          dateTime: dateTime          
+          dateTime: dateTime,
+          external: summary,
+          country: countryCodeUC
         }).then(function(response) {
           //console.log(response);
         }).catch(function(error) {
@@ -431,5 +418,283 @@ var getWeatherAlert = function(weather) {
 
   } //end of for loop
 }
+
+var countryCodes = {
+  "Afghanistan": "AF",
+  "Albania": "AL",
+  "Algeria": "DZ",
+  "Andorra": "AD",
+  "Angola": "AO",
+  "Antigua": "AG",
+  "Antilles": "AN",
+  "Barbuda": "AG",
+  "Argentina": "AR",
+  "Armenia": "AM",
+  "Aruba": "AW",
+  "Australia": "AU",
+  "Austria": "AT",
+  "Azerbaijan": "AZ",
+  "Bahamas": "BS",
+  "Bahrain": "BH",
+  "Bangladesh": "BD",
+  "Barbados": "BB",
+  "Belarus": "BY",
+  "Belgium": "BE",
+  "Belize": "BZ",
+  "Benin": "BJ",
+  "Bermuda": "BM",
+  "Bhutan": "BT",
+  "Bolivia": "BO",
+  "Bosnia": "BA",
+  "Herzegovina": "BA",
+  "Bissau": "GW",
+  "Botswana": "BW",
+  "Brazil": "BR",
+  "Brunei": "BN",
+  "Bulgaria": "BG",
+  "Burkina Faso": "BF",
+  "Burundi": "BI",
+  "Cambodia": "KH",
+  "Cameroon": "CM",
+  "Canada": "CA",
+  "Cape Verde": "CV",
+  "Cayman Islands": "KY",
+  "Central African Republic": "CF",
+  "Chad": "TD",
+  "Chile": "CL",
+  "China": "CN",
+  "Colombia": "CO",
+  "Comoros": "KM",
+  "Congo": "CG",
+  "Costa Rica": "CR",
+  "Cote dIvoire": "CI",
+  "Croatia": "HR",
+  "Cuba": "CU",
+  "Cyprus": "CY",
+  "Czech Republic": "CZ",
+  "Czechia": "CZ",
+  "Denmark": "DK",
+  "Djibouti": "DJ",
+  "Dominica": "DM",
+  "Dominican Republic": "DO",
+  "Ecuador": "EC",
+  "Egypt": "EG",
+  "El Salvador": "SV",
+  "Equatorial Guinea": "GQ",
+  "Eritrea": "ER",
+  "Estonia": "EE",
+  "Ethiopia": "ET",
+  "Falkland Islands": "FK",
+  "Fiji": "FJ",
+  "Finland": "FI",
+  "France": "FR",
+  "French Guiana": "GF",
+  "French Polynesia": "PF",
+  "Gabon": "GA",
+  "Gambia": "GM",
+  "Georgia": "GE",
+  "Germany": "DE",
+  "Ghana": "GH",
+  "Greece": "GR",
+  "Greenland": "GL",
+  "Grenada": "GD",
+  "Grenadines": "VC",
+  "Guam": "GU",
+  "Guatemala": "GT",
+  "Guinea": "GN",
+  "Guinea-Bissau": "GW",
+  "Guyana": "GY",
+  "Haiti": "HT",
+  "Holy See": "VA",
+  "Honduras": "HN",
+  "Hong Kong": "HK",
+  "Hungary": "HU",
+  "Iceland": "IS",
+  "India": "IN",
+  "Indonesia": "ID",
+  "Iran": "IR",
+  "Iraq": "IQ",
+  "Ireland": "IE",
+  "Israel": "IL",
+  "Italy": "IT",
+  "Jamaica": "JM",
+  "Japan": "JP",
+  "Jordan": "JO",
+  "Kazakhstan": "KZ",
+  "Kenya": "KE",
+  "Kiribati": "KI",
+  "Kuwait": "KW",
+  "Kyrgyzstan": "KG",
+  "Laos": "LA",
+  "Latvia": "LV",
+  "Lebanon": "LB",
+  "Lesotho": "LS",
+  "Liberia": "LR",
+  "Libya": "LY",
+  "Liechtenstein": "LI",
+  "Lithuania": "LT",
+  "Luxembourg": "LU",
+  "Macau": "MO",
+  "Macedonia": "MK",
+  "Madagascar": "MG",
+  "Malawi": "MW",
+  "Malaysia": "MY",
+  "Maldives": "MV",
+  "Mali": "ML",
+  "Malta": "MT",
+  "Mariana Islands": "MP",
+  "Marshall Islands": "MH",
+  "Martinique": "MQ",
+  "Mauritania": "MR",
+  "Mauritius": "MU",
+  "Mayotte": "YT",
+  "Mexico": "MX",
+  "Micronesia": "FM",
+  "Moldova": "MD",
+  "Monaco": "MC",
+  "Mongolia": "MN",
+  "Montenegro": "ME",
+  "Morocco": "MA",
+  "Mozambique": "MZ",
+  "Myanmar": "MM",
+  "Namibia": "NA",
+  "Nauru": "NR",
+  "Nepal": "NP",
+  "Netherlands": "NL",
+  "New Caledonia": "NC",
+  "New Zealand": "NZ",
+  "Nicaragua": "NI",
+  "Niger": "NE",
+  "Nigeria": "NG",
+  "North Korea": "KP",
+  "Norway": "NO",
+  "Oman": "OM",
+  "Pakistan": "PK",
+  "Palau": "PW",
+  "Palestine": "PS",
+  "Panama": "PA",
+  "Papua New Guinea": "PG",
+  "Paraguay": "PY",
+  "Peru": "PE",
+  "Philippines": "PH",
+  "Poland": "PL",
+  "Polynesia": "PF",
+  "Portugal": "PT",
+  "Puerto Rico": "PR",
+  "Qatar": "QA",
+  "Reunion": "RE",
+  "Romania": "RO",
+  "Russia": "RU",
+  "Rwanda": "RW",
+  "Saint Barthelemy": "BL",
+  "Saint Helena": "SH",
+  "Saint Kitts": "KN",
+  "Saint Lucia": "LC",
+  "Saint Martin": "MF",
+  "Saint Vincent": "VC",
+  "Samoa": "WS",
+  "San Marino": "SM",
+  "Sao Tome": "ST",
+  "Saudi Arabia": "SA",
+  "Senegal": "SN",
+  "Serbia": "RS",
+  "Seychelles": "SC",
+  "Sierra Leone": "SL",
+  "Singapore": "SG",
+  "Slovakia": "SK",
+  "Slovenia": "SI",
+  "Solomon Islands": "SB",
+  "Somalia": "SO",
+  "South Africa": "ZA",
+  "South Korea": "KR",
+  "South Sudan": "SS",
+  "Spain": "ES",
+  "Sri Lanka": "LK",
+  "Sudan": "SD",
+  "Suriname": "SR",
+  "Swaziland": "SZ",
+  "Sweden": "SE",
+  "Switzerland": "CH",
+  "Syria": "SY",
+  "Taiwan": "TW",
+  "Tajikistan": "TJ",
+  "Tanzania": "TZ",
+  "Thailand": "TH",
+  "Timor-Leste": "TL",
+  "Togo": "TG",
+  "Tonga": "TO",
+  "Trinidad-Tobago": "TT",
+  "Tunisia": "TN",
+  "Turkey": "TR",
+  "Turkmenistan": "TM",
+  "Turks and Caicos": "TC",
+  "Tuvalu": "TV",
+  "Uganda": "UG",
+  "Ukraine": "UA",
+  "United Arab Emirates": "AE",
+  "United Kingdom": "GB",
+  "United States": "US",
+  "Uruguay": "UY",
+  "Uzbekistan": "UZ",
+  "Vanuatu": "VU",
+  "Venezuela": "VE",
+  "Vietnam": "VN",
+  "Virgin Islands": "VI",
+  "Western Sahara": "EH",
+  "Yemen": "YE",
+  "Zambia": "ZM",
+  "Zimbabwe": "ZW",
+  "AK": "US",
+  "AL": "US",
+  "AZ": "US",
+  "AR": "US",
+  "CA": "US",
+  "CO": "US",
+  "CT": "US",
+  "DE": "US",
+  "FL": "US",
+  "GA": "US",
+  "HI": "US",
+  "ID": "US",
+  "IL": "US",
+  "IN": "US",
+  "IA": "US",
+  "KS": "US",
+  "KY": "US",
+  "LA": "US",
+  "ME": "US",
+  "MD": "US",
+  "MA": "US",
+  "MI": "US",
+  "MN": "US",
+  "MS": "US",
+  "MO": "US",
+  "MT": "US",
+  "NE": "US",
+  "NV": "US",
+  "NH": "US",
+  "NJ": "US",
+  "NM": "US",
+  "NY": "US",
+  "NC": "US",
+  "ND": "US",
+  "OH": "US",
+  "OK": "US",
+  "OR": "US",
+  "PA": "US",
+  "RI": "US",
+  "SC": "US",
+  "SD": "US",
+  "TN": "US",
+  "TX": "US",
+  "UT": "US",
+  "VT": "US",
+  "VA": "US",
+  "WA": "US",
+  "WV": "US",
+  "WI": "US",
+  "WY": "US"
+}
+
 // We export the API helper
 module.exports = helper;

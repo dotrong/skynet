@@ -143,9 +143,8 @@ var reload = function() {
               success: function(result) {
                 // console.log("DELETED");
               }
-          }).done(function() {
-            location.reload(true);
           });
+          location.reload(true);
         });
     });
 };

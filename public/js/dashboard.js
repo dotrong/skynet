@@ -134,6 +134,7 @@ var reload = function() {
         $(".delete").click( function(){
           // console.log("DELETE WORKING", id);
           console.log($(this));
+          console.log($(this).id);
           /*var btnId = $(this).id;
           var delBtnIndex = btnId.match(/\d/).index;
           var locId = delBtnIndex;

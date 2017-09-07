@@ -144,8 +144,7 @@ var reload = function() {
               url: '/api/locations/' + locId,
               type: 'DELETE',
               success: function(result) {
-                console.log("SUCCESS");
-                  // location.reload(true);
+                location.reload(true);
               }
           });
         });

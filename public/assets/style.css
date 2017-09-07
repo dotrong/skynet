@@ -265,7 +265,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	grid-gap: 10px;
 	grid-auto-rows: minmax(100px, auto);
 	}
-	.watch {
+	.ui-collapsible-heading-toggle .watch {
 		margin-right: 25px;
 	}
 	#watch0 { 

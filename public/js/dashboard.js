@@ -130,7 +130,7 @@ var reload = function() {
         }
 
         $(".delete").click( function(){
-          $('.target').click(function() {
+            console.log("DELETE WORKING");
             window.location.href='/api/locations/:id';
           });
         });

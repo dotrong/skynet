@@ -47,6 +47,7 @@ var helper = {
           imgAttempt++;
           locImg = city; // make 2nd attempt with only city
           //customImgs();
+          resolve("NA");
         }
         else {
             resolve("NA");

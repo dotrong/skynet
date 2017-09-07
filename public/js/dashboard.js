@@ -32,7 +32,7 @@ $(document).ready(function() {
 
         }
 
-        console.log(watches);
+        //console.log(watches);
         
         $.post("/api/locations", {
             city: city,
@@ -43,11 +43,10 @@ $(document).ready(function() {
 
             console.log(data);
 
+            $("#myModal").modal('hide');
+            reload();
+
         })
-
-
-        $("#myModal").modal('hide');
-        reload();
 
 
     });
@@ -59,6 +58,7 @@ setInterval(function() {
 }, 3600000); // one hour
 
 var reload = function() {
+    console.log('in reload');
 
     $.get("/api/users",function(data,status) {
         

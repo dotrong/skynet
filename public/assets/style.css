@@ -255,7 +255,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 @media screen and (max-width:850px) {
 	.signinContainer, .userForm { 
 		flex-direction: column;
-		min-width: 300px;
+/* 		min-width: 300px; */
 	}
 }
 @media screen and (min-width: 850px) {

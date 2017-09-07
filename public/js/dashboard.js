@@ -138,8 +138,15 @@ var reload = function() {
           for (var i=delBtnIndex+1; i<btnId.length; i++) {
             var locId = locId+btnId[i];
           }
-          console.log(locId);
-          window.location.href='api/locations/:' + locId;
+          // console.log(locId);
+          // window.location.href='api/locations/:' + locId;
+          $.ajax({
+              url: '/locations/api/:' + locId,
+              type: 'DELETE',
+              success: function(result) {
+                  location.reload();
+              }
+          });
         });
     });
 };

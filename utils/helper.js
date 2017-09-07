@@ -4,7 +4,7 @@ var request = require("request");
 var cheerio = require("cheerio");
 var PORT = process.env.PORT||3000;
 var baseUrl = "http://localhost:"+PORT;
-var countryCodes = require("country");
+var countryCodes = require("./country");
 
 // example API
 //api.openweathermap.org/data/2.5/weather?q=London&appid=0558d69e2ef94da5a18c33d8a9dffd5b&units=imperial

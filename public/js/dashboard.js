@@ -60,7 +60,7 @@ var reload = function() {
     $.get("/api/users",function(data,status) {
         
         console.log(data);
-        console.log(data.id);
+        var id = data.id;
 
         var location = data.Locations;
 
@@ -132,7 +132,7 @@ var reload = function() {
 
         $(".delete").click( function(){
           console.log("DELETE WORKING", id);
-          window.location.href='https://tenyks.herokuapp.com/api/locations/:id';
+          window.location.href='api/locations/:id';
         });
     });
 };

@@ -302,7 +302,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	}
 	#mapOverlay {
 		width: 100%;
-		position: absolute;
+		position: relative;
 	}
 	#worldMap { 
 	  grid-column: 1 / 7;

@@ -14,6 +14,7 @@ module.exports = function(app) {
                 db.Location.create(req.body, {
                     include: [db.Watch]
                 } ).then(function(dbLocation) {
+                    //force to check alert in backend after adding new locations
                     helper.runQuery();  
                     res.json(dbLocation);
                 });
@@ -42,7 +43,7 @@ module.exports = function(app) {
         })
     });
     //to delete a location by id
-    app.post("/api/locations/:id", function(req, res) {
+    app.delete("/api/locations/:id", function(req, res) {
 
         db.Location.destroy({
             where: {

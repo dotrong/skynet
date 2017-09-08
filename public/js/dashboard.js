@@ -26,7 +26,7 @@ $(document).ready(function() {
         }).done(function(data) {
           $("#deleteModal").modal('show');
             // console.log(data);
-            document.reload();
+            // document.reload();
         })
     });
 
@@ -91,6 +91,7 @@ var reload = function() {
             var watches = location[i].Watches;
             var curSeverity = "Green";
             // var severity = "Green";
+            var id = location[i].id;
 
             for (var j=0; j<watches.length; j++) {
                 if (watches[j].Alert && watches[j].Alert.title != null && watches[j].Alert != null) { // some watches don't have 'Alert' which causes an error
@@ -132,7 +133,7 @@ var reload = function() {
                   $("#watch" + i + ".ui-content img").attr('src', picture);
                   // $("#watch" + i + " div.ui-collapsible-content").html("");            
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                  $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
+                  $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                   $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
                   // if (severity === "Red" || severity === "Yellow") {
@@ -177,7 +178,7 @@ var reload = function() {
                 // Fill in dynamic city, state/country data
                 $("#watch" + i + ".ui-content img").attr('src', picture);           
                 $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
+                $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                 $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
                 $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
@@ -189,7 +190,7 @@ var reload = function() {
           // Fill in dynamic city, state/country data
           $("#watch" + i + ".ui-content img").attr('src', picture);           
           $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-          $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
+          $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
           $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
           
           $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");

@@ -63,7 +63,7 @@ $(document).ready(function() {
         },function(data,status) {
 
             console.log(data);
-            //$("#myModal").modal('hide');
+            $("#myModal").modal('hide');
             reload();
 
         })

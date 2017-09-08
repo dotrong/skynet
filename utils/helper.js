@@ -286,7 +286,7 @@ var getWeatherAlert = function(weather) {
       console.log(temp,watchId);
       console.log(alerts_result);
 
-      // if (alerts_result && alerts_result.length > 0) {
+      if (alerts_result) {
         var item = alerts_result[0]; // only most recent result
         var timeDate = item.date;
         //DOMESTIC
@@ -335,8 +335,8 @@ var getWeatherAlert = function(weather) {
           var summary = "https://www.wunderground.com/weather/" + countryCodeLC + "/" + cityLC;
           var countryCodeUC = countryCodes[countryInitCap].toUpperCase(); // pull country code from json at bottom of script
         }
-      // }
-      
+      }
+
         //insert/update db
       if (temp) {
         // console.log('date: ' + dateTime + 'description ' + temp + ' title ' + description + ' alert ' + alertLevel);

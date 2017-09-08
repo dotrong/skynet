@@ -119,12 +119,12 @@ var reload = function() {
                   else if (severity === "Green" && curSeverity === "Red") {
                     severity = "Red";
                   }
-                  else if (severity == null && curSeverity === "Yellow") {
+                  /*else if (severity == null && curSeverity === "Yellow") {
                     severity = "Yellow";
                   }
                   else if (severity == null && curSeverity === "Red") {
                     severity = "Red";
-                  }
+                  }*/
 
                   console.log(city,state,title,picture,description,dateTime,external,severity);
 
@@ -149,7 +149,7 @@ var reload = function() {
                       $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                   }
               }
-              else {
+              /*else {
                 if (severity === "Red" && curSeverity === "Green") {
                   curSeverity = "Red";
                 }
@@ -181,7 +181,7 @@ var reload = function() {
                 $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
 
                 $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
-              } 
+              } */
             } // end of watches for loop
         } // end of locations for loop
 

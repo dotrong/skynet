@@ -150,7 +150,30 @@ var reload = function() {
                   }
                 }
                 else {
-                  severity = "Green";
+                  if (severity === "Red" && curSeverity === "Green") {
+                    curSeverity = "Red";
+                  }
+                  else if (severity === "Red" && curSeverity === "Yellow") {
+                    curSeverity = "Red";
+                  }
+                  else if (severity === "Yellow" && curSeverity === "Green") {
+                    curSeverity = "Yellow";
+                  }
+                  else if (severity === "Yellow" && curSeverity === "Red") {
+                    severity = "Red";
+                  }
+                  else if (severity === "Green" && curSeverity === "Yellow") {
+                    severity = "Yellow";
+                  }
+                  else if (severity === "Green" && curSeverity === "Red") {
+                    severity = "Red";
+                  }
+                  else if (severity == null && curSeverity === "Yellow") {
+                    severity = "Yellow";
+                  }
+                  else if (severity == null && curSeverity === "Red") {
+                    severity = "Red";
+                  }
                   // Fill in dynamic city, state/country data
                   $("#watch" + i + ".ui-content img").attr('src', picture);           
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);

@@ -25,8 +25,8 @@ $(document).ready(function() {
             // success: document.reload()
         }).done(function(data) {
           $("#deleteModal").modal('show');
-            console.log(data);
-            reload();
+            // console.log(data);
+            document.reload();
         })
     });
 

@@ -1,11 +1,10 @@
-/******* INDEX PAGE ******/
 html, body { 
 	margin: 0px; 
 	padding: 0px;
 	height: 100%;
 }
-/* html {background-color: #2d4f59;} */
 
+/******* INDEX & USER PAGES ******/
 body{
 	margin: 0px auto;
 	background-image: url("../images/ocean.jpg");
@@ -14,12 +13,8 @@ body{
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;	
-	/*-webkit-background-size: 100% 100%;            Safari 3.0 */
-	/*-moz-background-size: 100% 100%;            Gecko 1.9.2 (Firefox 3.6) */
-		/*-o-background-size: 100% 100%;            Opera 9.5 */
-			 /*background-size: 100% 100%;            Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
 }
-.signinContainer, .userForm { /*flex container */
+.signinContainer, .userForm { /*flex container for index & user pgs*/
 	margin: 0px auto;		
 	display: -webkit-flex;
 	display: flex;
@@ -28,10 +23,8 @@ body{
 	height: 100%; 
 	-webkit-align-items: center;
 	align-items: center;
-	/* -webkit-justify-content: center;
-	justify-content: center; */
 }
-.about img, .user img {
+.about img, .user img { /*logo on index & user pgs*/
 	width: 110px;
 	height: 100px;
 }
@@ -48,23 +41,24 @@ body{
 	color: white;
 	text-shadow: 1px 2px #00222b;
 }
-.about, .middle, .user, .userSignup { /*flex items*/ 
+.about, .middle, .user, .userSignup { /*flex items - forms on index & user pgs*/ 
 	padding: 10px;		
 	width: 90%;	
 	height: auto;
 	margin: 10px;
 	align-self: auto;
 }
-.middle, .userSignup { box-shadow: 4px 3px #00222b;
+.middle, .userSignup { 
+	box-shadow: 4px 3px #00222b;
 	border-radius: 10px;
 	opacity: 0.7;
 	background-color: white;
 }
-/*SIGN IN FORM CONTAINER*/
-.signinForm {   padding: 15px;
-	/* height: 50%;   */
+
+.signinForm {  /*signin form container*/ 
+	padding: 15px;
 }
-.signinForm input[type=text], input[type=password], input.btn, .userSignup input[type=text], input[type=email], input[type=password] button { 
+.signinForm input[type=text], input[type=password], input.btn, .userSignup input[type=text], input[type=email], input[type=password] button { /*input fields - forms on index & user pgs*/ 
 	border-radius: 6px;
 	width: 90%;
 	padding: 5px;
@@ -92,8 +86,6 @@ input.btn:hover {
 	background-color: #074290;
   }
 
-
-
 /******* USER PAGE ******/
 .userBtns { 
 	width: 90%; 
@@ -118,52 +110,34 @@ input.btn:hover {
 	background-color: orange;
 }  
 
-
-
-/******* WATCH PAGE ******/
-h2 { color: white;
-	text-align: center;
-	font-size: 1.5em;
-	background-color: #00222b;
+/******* LOCATION PAGE ******/
+.navbar {
+	background-color: #074290;
+	margin-bottom: 0px;
 }
-/*LOREE COMMENTED OUT - CONFLICTING WITH USER.HTML
-.form-control, .form-check { 
-	font-size: 16px;
-	height: 40px; 
+nav.navbar div.container-fluid {
+	margin: 15px;
+}
+.form-check { /* modal on location page */
 	color: white;
-	width: 80%;
-	margin: 0px auto;
-}*/
-.form-check { color: white;
 	width: 60%;
 }  
-
-
-
-/******* LOCATION PAGE ******/
-/* html.ui-mobile, body.ui-mobile-viewport, div.ui-mobile-viewport, div.ui-page-theme-a.ui-page-active {
-  border: none;
-  background-color: #00222b; 
-} */
-/*span.leftIcon, a { float: left;
-  display: inline;
-  margin: 5px;  
-}*/
+.modal-backdrop {
+	background-color: unset;
+	position: relative;
+}
 a.ui-link i {
   color: white;
 }
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
-    /* background-color: #f9f9f9; */
     border-color: #bbb;
     color: #333;
     text-shadow: 0 1px 0 #f3f3f3;
 }
-/*html > .ui-bar-a > .ui-body-a > .ui-group-theme-a {
-  color: white;
-}*/
-span.rightIcon, a { float: right; 
-  /*display: inline;*/
-  margin: 5px;  
+span.rightIcon, a { 
+	/* float: right;  */
+  display: inline;
+  margin: 15px;  
 }
 .wrapper { 
   padding: 10px; 
@@ -183,16 +157,11 @@ span.rightIcon, a { float: right;
 }
 #worldMap { 
   grid-column: 1 / 7;
-	/* grid-row: 3 / auto;
-	align-self: auto; */
 }
 /*CHRIS ADDED (end)*/
 #watch0, #watch1, #watch2, #worldMap {
   padding: 10px 10px 50px 10px;
-	/*text-align: center; CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
-	/*margin: 20px auto; CHRIS REMOVED - LOREE TURNED BACK ON - FOR USER.HTML*/
 }
-/*LOREE REMOVED - CONFLICTING WITH USER.HTML*/
 div#watch0 img, div#watch1 img, div#watch2 img { 
   margin: 0px auto;
   width: 90%;
@@ -202,7 +171,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 .ui-collapsible-inset .ui-collapsible-heading, .ui-collapsible-heading > .ui-btn {
   width: 94%;
-	/*margin: 0px auto; */
 	border: none;
 }
 .ui-collapsible-content.ui-body-inherit {
@@ -220,7 +188,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 .cityImgs img {
  width: 100%;
- transform: translate(0, -23%) centers img vertically 
+ transform: translate(0, -23%) /*centers img vertically*/ 
 }
 .imgPlaceholder {
 	width: 100%;
@@ -252,7 +220,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 
 /******MEDIA QUERIES******/
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1100px) { /*for index & user pgs*/
 	.signinContainer p, .userForm p {
 		font-size: 1.3em;
 	}
@@ -264,7 +232,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		font-size: 2em;
 	}
 }
-@media screen and (max-width:850px) {
+@media screen and (max-width:850px) { /*for index & user pgs*/
 	.signinContainer, .userForm { 
 		flex-direction: column;
 	}
@@ -275,7 +243,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		padding: 3px;
 	}
 }
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 850px) { /*for dashboard pg*/
 	.wrapper { padding: 10px;
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
@@ -325,7 +293,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		text-align: center;
 	}
  }
- @media screen and (max-width:600px) {
+ @media screen and (max-width:600px) { /*for index & user pgs*/
 	 	.signinContainer p, .userForm p {
 		font-size: 1em;
 		}

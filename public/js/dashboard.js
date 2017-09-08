@@ -90,7 +90,7 @@ var reload = function() {
             var picture = location[i].picture;
             var watches = location[i].Watches;
             var curSeverity = "Green";
-            var severity = "Green";
+            // var severity = "Green";
 
             for (var j=0; j<watches.length; j++) {
                 if (watches[j].Alert && watches[j].Alert.title != null) { // some watches don't have 'Alert' which causes an error
@@ -119,6 +119,12 @@ var reload = function() {
                   else if (severity === "Green" && curSeverity === "Red") {
                     severity = "Red";
                   }
+                  else if (severity == null && curSeverity === "Yellow") {
+                    severity = "Yellow";
+                  }
+                  else if (severity == null && curSeverity === "Red") {
+                    severity = "Red";
+                  }
 
                   console.log(city,state,title,picture,description,dateTime,external,severity);
 
@@ -144,6 +150,7 @@ var reload = function() {
                   }
                 }
                 else {
+                  severity = "Green";
                   // Fill in dynamic city, state/country data
                   $("#watch" + i + ".ui-content img").attr('src', picture);           
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);

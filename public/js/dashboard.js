@@ -148,54 +148,52 @@ var reload = function() {
                       var countryCode = countryCodes[state];
                       $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                   }
-                }
-                else {
-                  if (severity === "Red" && curSeverity === "Green") {
-                    curSeverity = "Red";
-                  }
-                  else if (severity === "Red" && curSeverity === "Yellow") {
-                    curSeverity = "Red";
-                  }
-                  else if (severity === "Yellow" && curSeverity === "Green") {
-                    curSeverity = "Yellow";
-                  }
-                  else if (severity === "Yellow" && curSeverity === "Red") {
-                    severity = "Red";
-                  }
-                  else if (severity === "Green" && curSeverity === "Yellow") {
-                    severity = "Yellow";
-                  }
-                  else if (severity === "Green" && curSeverity === "Red") {
-                    severity = "Red";
-                  }
-                  else if (severity == null && curSeverity === "Yellow") {
-                    severity = "Yellow";
-                  }
-                  else if (severity == null && curSeverity === "Red") {
-                    severity = "Red";
-                  }
-                  // Fill in dynamic city, state/country data
-                  $("#watch" + i + ".ui-content img").attr('src', picture);           
-                  $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                  $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
-                  $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
-
-                  $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
-                } 
               }
-              if (severity == null || severity === "Green") {
+              else {
+                if (severity === "Red" && curSeverity === "Green") {
+                  curSeverity = "Red";
+                }
+                else if (severity === "Red" && curSeverity === "Yellow") {
+                  curSeverity = "Red";
+                }
+                else if (severity === "Yellow" && curSeverity === "Green") {
+                  curSeverity = "Yellow";
+                }
+                else if (severity === "Yellow" && curSeverity === "Red") {
+                  severity = "Red";
+                }
+                else if (severity === "Green" && curSeverity === "Yellow") {
+                  severity = "Yellow";
+                }
+                else if (severity === "Green" && curSeverity === "Red") {
+                  severity = "Red";
+                }
+                else if (severity == null && curSeverity === "Yellow") {
+                  severity = "Yellow";
+                }
+                else if (severity == null && curSeverity === "Red") {
+                  severity = "Red";
+                }
                 // Fill in dynamic city, state/country data
                 $("#watch" + i + ".ui-content img").attr('src', picture);           
                 $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                 $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
                 $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
-                
+
                 $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
-              }
-
+              } 
             } // end of watches for loop
-
         } // end of locations for loop
+
+        if (severity == null || severity === "Green") {
+          // Fill in dynamic city, state/country data
+          $("#watch" + i + ".ui-content img").attr('src', picture);           
+          $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
+          $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
+          $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+          
+          $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
+        }
 
         //var id = location.id;
     });

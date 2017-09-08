@@ -43,11 +43,6 @@ var helper = {
             console.log(customImg); 
               resolve(customImg);
         }
-        // else if (imgAttempt < 2 && response.data.hits.length === 0) {
-        //   imgAttempt++;
-        //   locImg = city; // make 2nd attempt with only city
-        //   //customImgs();
-        // }
         else {
           var customImg = "images/defaultImg.jpg";
           resolve(customImg);
@@ -101,30 +96,6 @@ var helper = {
           }
           //console.log(obj);
 
-          //getWeatherWatch(obj.weather);
-
-          // var earthquake = [
-
-          //   {city: 'new delhi', state: 'india', watch_id: 1},
-          //   {city: 'pyongyang', state: 'North Korea', watch_id: 2},
-          //   {city: 'Heicheng', state: 'China', watch_id: 3} //Heicheng, China
-
-          // ];
-
-          // var weather = [
-
-          //   {city: 'new delhi', state: 'india', watch_id: 4},
-          //   {city: 'pyongyang', state: 'North Korea', watch_id: 5},
-          //   {city: 'Irvine', state: 'California', watch_id: 6}
-          // ];
-
-          // var travel = [
-
-          //   {city: 'pyongyang', state: 'North Korea', watch_id: 7},
-          //   {city: 'damacus', state: 'Venezuela', watch_id: 8},
-          //   {city: 'Irvine', state: 'California', watch_id: 9},
-          // ];
-
           getEarthQuakeWatch(obj.earthquake);
           getWeatherAlert(obj.weather);
           getTravelWatch(obj.travel);
@@ -169,10 +140,6 @@ var getEarthQuakeWatch = function(earthquake) {
         else { // is U.S. state
           var location = cityRegex.test(titleInfo); // set regex of 'city' for conditional below
         }
-        
-        //if (magnitude >= 6 && location != false) { // high magnitude in watched city
-          // console.log(el);
-        // var alerts = [];
 
         if (magnitude >= 5 && location != false) {
 
@@ -207,7 +174,6 @@ var getEarthQuakeWatch = function(earthquake) {
                   break;
           }//end of switch
           //console.log('dateTime: '+ dateTime + 'city ' + city + ' temp ' + magnitude + 'details ' + details +' alert ' + alertLevel);
-          //alerts.push({external:details,description:magnitude,severity:alertLevel,WatchId:WatchId});
 
           axios.post(baseUrl+"/api/alerts",{
             status: 1,

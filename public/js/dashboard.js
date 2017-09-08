@@ -9,6 +9,27 @@ $(document).ready(function() {
 
     });
 
+    $(".watch").on("click",".delete",function(){
+        event.preventDefault();
+        var btnId = $(this).attr("id"); // grabs entire id of event target
+        console.log(btnId);
+        var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
+        var locId = btnId.charAt(6); // first number
+        for (var i=delBtnIndex+1; i<btnId.length; i++) { // start at index position of number
+          var locId = locId+btnId[i]; // add next number
+        }
+        // console.log(locId);
+        $.ajax({
+            url: '/api/locations/' + locId,
+            type: 'DELETE'
+            // success: document.reload()
+        }).done(function(data) {
+          $("#deleteModal").modal('show');
+            console.log(data);
+            reload();
+        })
+    });
+
     $("#userSubmit").on("click",function(event) {
         event.preventDefault();
         var city = $('[name="city"]').val();
@@ -42,12 +63,10 @@ $(document).ready(function() {
         },function(data,status) {
 
             console.log(data);
-            $("#myModal").modal('hide');
+            //$("#myModal").modal('hide');
             reload();
 
         })
-
-
 
     });
 
@@ -136,22 +155,7 @@ var reload = function() {
 
         } // end of locations for loop
 
-        var id = location.id;
-
-        $(".delete").click( function(){
-          var btnId = $(this)[0].id; // grabs entire id of event target
-          var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
-          var locId = btnId.charAt(6); // first number
-          for (var i=delBtnIndex+1; i<btnId.length; i++) { // start at index position of number
-            var locId = locId+btnId[i]; // add next number
-          }
-          // console.log(locId);
-          $.ajax({
-              url: '/api/locations/' + locId,
-              type: 'DELETE'
-              // success: document.reload()
-          });
-        });
+        //var id = location.id;
     });
 };
 

@@ -193,7 +193,7 @@ var reload = function() {
                 $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
               }
 
-             // end of watches for loop
+            } // end of watches for loop
 
         } // end of locations for loop
 

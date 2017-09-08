@@ -26,7 +26,7 @@ $(document).ready(function() {
         }).done(function(data) {
           $("#deleteModal").modal('show');
             // console.log(data);
-            document.reload();
+            // document.reload();
         })
     });
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
             console.log(data);
             $("#myModal").modal('hide');
-            document.reload();
+            // document.reload();
 
         })
 

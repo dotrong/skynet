@@ -191,12 +191,12 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 #map {
 	width: 100%;
-	position: static;
+	position: absolute;
 	left: 0;
 }
 #mapOverlay {
 	width: 100%;
-	position: static;
+	position: absolute;
 	left: 0;
 }
 

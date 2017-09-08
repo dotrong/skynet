@@ -266,8 +266,8 @@ var getWeatherAlert = function(weather) {
     var cityLC = city.toLowerCase();
     var watchId = weather[i].watch_id;
     //console.log("watchId: " + watchId);
-    city = city.replace(/ /i, "_");
-    state = state.replace(/ /i, "_");
+    city = city.replace(/ /gi, "_");
+    state = state.replace(/ /gi, "_");
     var alerts = "https://api.wunderground.com/api/" + wthrKey + "/alerts/q/" + state + "/" + city + ".json";
     var conditions = "https://api.wunderground.com/api/" + wthrKey + "/conditions/q/" + state + "/" + city + ".json"; 
     var promise1 = axios.get(alerts);
@@ -286,7 +286,7 @@ var getWeatherAlert = function(weather) {
       console.log(temp,watchId);
       console.log(alerts_result);
 
-      if (alerts_result && alerts_result.length > 0) {
+      // if (alerts_result && alerts_result.length > 0) {
         var item = alerts_result[0]; // only most recent result
         var timeDate = item.date;
         //DOMESTIC
@@ -335,8 +335,8 @@ var getWeatherAlert = function(weather) {
           var summary = "https://www.wunderground.com/weather/" + countryCodeLC + "/" + cityLC;
           var countryCodeUC = countryCodes[countryInitCap].toUpperCase(); // pull country code from json at bottom of script
         }
-
-      }
+      // }
+      
         //insert/update db
       if (temp) {
         // console.log('date: ' + dateTime + 'description ' + temp + ' title ' + description + ' alert ' + alertLevel);

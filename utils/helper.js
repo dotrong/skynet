@@ -295,7 +295,7 @@ var getWeatherAlert = function(weather) {
           var onIndex = timeDate.search(/ on /i); // find starting index of ' on '
           var newDate = timeDate.substring(onIndex + 4);
           var time = timeDate.substring(0, onIndex);
-          var summary = "https://www.wunderground.com/weather/us/" + stateLC + "/" + cityLC;
+          var summary = "https://www.wunderground.com/weather/us/" + state + "/" + city;
           switch (item.type) {
               case "TOR":
                   alertLevel = "Red";

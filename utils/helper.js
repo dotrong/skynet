@@ -273,8 +273,8 @@ var getWeatherAlert = function(weather) {
     var promise1 = axios.get(alerts);
     var promise2 = axios.get(conditions);
     Promise.all([promise1,promise2,watchId]).then(function(results) {
-      var alerts_result= results[0].data.alerts;
-      var conditions_result = results[1].data.current_observation;
+      var alerts_result = results[0].data.alerts; // alerts API
+      var conditions_result = results[1].data.current_observation; // conditions API
       var temp;
       var newWatchId = results[2];
       var dateTime;
@@ -286,7 +286,7 @@ var getWeatherAlert = function(weather) {
       console.log(temp,watchId);
       console.log(alerts_result);
 
-      if (alerts_result) {
+      if (alerts_result && alerts_result.length > 0) {
         var item = alerts_result[0]; // only most recent result
         var timeDate = item.date;
         //DOMESTIC

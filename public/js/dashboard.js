@@ -12,11 +12,11 @@ $(document).ready(function() {
     $(".watch").on("click",".delete",function(){
         event.preventDefault();
         var btnId = $(this).attr("id"); // grabs entire id of event target
-        console.log(btnId);
+        // console.log(btnId);
         var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
         var locId = btnId.charAt(6); // first number
         for (var i=delBtnIndex+1; i<btnId.length; i++) { // start at index position of number
-          var locId = locId+btnId[i]; // add next number
+          var locId = locId+btnId[i]; // add next number to string
         }
         // console.log(locId);
         $.ajax({
@@ -149,6 +149,7 @@ var reload = function() {
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                   $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + location[i].id + '" class="delete">');
                   $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+                  $("#watch" + i + " div.ui-collapsible-content").html("");
                   $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
                 } 
             } // end of watches for loop

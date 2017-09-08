@@ -42,10 +42,12 @@ $(document).ready(function() {
         },function(data,status) {
 
             console.log(data);
+            $("#myModal").modal('hide');
+            reload();
+
         })
 
-        $("#myModal").modal('hide');
-        reload();
+
 
     });
 

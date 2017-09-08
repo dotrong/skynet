@@ -43,13 +43,14 @@ var helper = {
             console.log(customImg); 
               resolve(customImg);
         }
-        else if (imgAttempt < 2 && response.data.hits.length === 0) {
-          imgAttempt++;
-          locImg = city; // make 2nd attempt with only city
-          //customImgs();
-        }
+        // else if (imgAttempt < 2 && response.data.hits.length === 0) {
+        //   imgAttempt++;
+        //   locImg = city; // make 2nd attempt with only city
+        //   //customImgs();
+        // }
         else {
           var customImg = "images/defaultImg.jpg";
+          resolve(customImg);
         }
       }).catch(function(error) {console.log(error)});
     })

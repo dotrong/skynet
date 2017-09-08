@@ -119,7 +119,7 @@ input.btn:hover {
 nav.navbar div.container-fluid {
 	margin: 15px;
 }
-.modal-body .form-check, .modal-body .form-check { /* modal on location page */
+.modal-body .form-control, .modal-body .form-check { /* modal on location page */
 	/* color: white; */
 	width: 60%;
 }  
@@ -139,7 +139,7 @@ a.ui-link i {
 span.rightIcon, a { 
 	/* float: right;  */
   display: inline;
-  margin: 15px;  
+  /* margin: 15px;   */
 }
 .wrapper { 
   padding: 10px; 

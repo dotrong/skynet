@@ -346,9 +346,9 @@ var getWeatherAlert = function(weather) {
           title: description,
           WatchId: newWatchId,
           severity: alertLevel,
-          dateTime: dateTime,
+          dateTime: dateTime/*,
           external: summary,
-          country: countryCodeUC
+          country: countryCodeUC*/
         }).then(function(response) {
           //console.log(response);
         }).catch(function(error) {

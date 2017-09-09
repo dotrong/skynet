@@ -321,7 +321,9 @@ var getWeatherAlert = function(weather) {
       var description;
       var alertLevel;
       if (conditions_result) {
-        temp = conditions_result.temp_f;
+        temperature = conditions_result.temp_f;
+        weather = conditions_result.weather;
+        temp = temperature + "<br>" + weather;
       }
       console.log(temp,watchId);
       console.log(alerts_result);

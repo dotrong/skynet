@@ -186,7 +186,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
  overflow: hidden;
  /* background-color: #00222b; */
 }
-.temperature{
+.temperature{ border: solid 1px red;
 	background-color: yellow;
 	float: right;
 	width: 50px;

@@ -2,6 +2,10 @@ $(document).ready(function() {
     
     reload();
 
+    $("#logout").click(function(event) {
+        window.location.href="/logout";
+    });
+
     $("#city2,#city1,#city0").on("click",function(event) {
 
         event.preventDefault();

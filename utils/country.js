@@ -281,7 +281,7 @@ var countryCodes = {
      "Colorado": "US",
      "Connecticut": "US",
      "Delaware": "US",
-     "Forida": "US",
+     "Florida": "US",
      "Georgia": "US",
      "Hawaii": "US",
      "Idaho": "US",

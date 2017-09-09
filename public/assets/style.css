@@ -286,7 +286,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	  grid-column: 5 / 7;
 	  grid-row: 2;
 	}
-	#worldMap { 
+	#worldMap { height: 600px;
 	  grid-column: 1 / 7;
 	  grid-row: 3;
 	}
@@ -315,7 +315,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	}
  }
  @media screen and (max-width:600px) { /*for index & user pgs*/
-	 	.signinContainer p, .userForm p {
+	 .signinContainer p, .userForm p {
 		font-size: 1em;
 		}
 	.about img, .user img {
@@ -324,6 +324,9 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	}
 	.about h1, .user h1 {
 		font-size: 1.6em;
+	}
+	#worldMap {
+		height: 400px;
 	}
 
 }

@@ -83,7 +83,7 @@ var reload = function() {
         console.log(data);
 
         var location = data.Locations;
-        var descript;
+        var weather;
 
         for (var i=0; i<location.length; i++) {
             var city = location[i].city;
@@ -96,7 +96,7 @@ var reload = function() {
             var alertTitle;
 
             for (var j=0; j<watches.length; j++) {
-descript = watches[j].Alert.description;
+weather = watches[j].Alert.description;
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     alertTile = watches[j].Alert.title;
                     var title = watches[j].Alert.title.toUpperCase();
@@ -127,7 +127,7 @@ descript = watches[j].Alert.description;
                     // console.log(city,state,title,picture,description,dateTime,external,severity);
 
                     // Fill in dynamic city, state/country data                    
-                   
+                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
                     $("#watch" + i + ".ui-content img").attr('src', picture);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
@@ -146,12 +146,15 @@ descript = watches[j].Alert.description;
                         $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                     }
                 }
-            } // end of watches for loop
 
-            if (alertTitle == null) {
-              console.log(descript);
-                $("#watch" + i + ".ui-content").append('<div class="temperature">' + descript + '</div>');
-            }
+                if (alertTitle == null) {
+                  console.log(weather);
+                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
+                }
+
+
+
+            } // end of watches for loop
 
             if (severity == null || severity === "Green") {
                 // Fill in dynamic city, state/country data

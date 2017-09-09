@@ -96,9 +96,12 @@ var reload = function() {
 
             for (var j=0; j<watches.length; j++) {
                 
-                if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
-                    alertTile = watches[j].Alert.title;
-                    var title = watches[j].Alert.title.toUpperCase();
+                if (watches[j].Alert && watches[j].Alert != null) { // some watches don't have 'Alert' which causes an error
+                    
+                    if (watches[j].Alert.title != null) { // some watches don't have 'title' which causes an error
+                      alertTile = watches[j].Alert.title;                    
+                      var title = watches[j].Alert.title.toUpperCase();
+                    }
                     var weather = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
@@ -135,7 +138,9 @@ var reload = function() {
                     // if (severity === "Red" || severity === "Yellow") {
                     if (severity != "Green") {
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************</div>");
-                        $("#watch" + i + " div.ui-collapsible-content").append("<div>" + title + "</div>");
+                        if (watches[j].Alert.title != null) {
+                          $("#watch" + i + " div.ui-collapsible-content").append("<div>" + title + "</div>");
+                        }
                         // $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>" + dateTime + "</div>");
                         // More Details

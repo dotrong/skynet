@@ -83,7 +83,7 @@ var reload = function() {
         console.log(data);
 
         var location = data.Locations;
-        var description;
+        var descript;
 
         for (var i=0; i<location.length; i++) {
             var city = location[i].city;
@@ -96,7 +96,7 @@ var reload = function() {
             var alertTitle;
 
             for (var j=0; j<watches.length; j++) {
-description = watches[j].Alert.description;
+descript = watches[j].Alert.description;
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     alertTile = watches[j].Alert.title;
                     var title = watches[j].Alert.title.toUpperCase();
@@ -149,8 +149,8 @@ description = watches[j].Alert.description;
             } // end of watches for loop
 
             if (alertTitle == null) {
-              console.log(description);
-                $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
+              console.log(descript);
+                $("#watch" + i + ".ui-content").append('<div class="temperature">' + descript + '</div>');
             }
 
             if (severity == null || severity === "Green") {

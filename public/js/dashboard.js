@@ -96,6 +96,7 @@ var reload = function() {
             for (var j=0; j<watches.length; j++) {
 
                 var description = watches[j].Alert.description;
+                console.log(description);
                 $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
 
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error

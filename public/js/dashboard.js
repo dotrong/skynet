@@ -146,7 +146,7 @@ var reload = function() {
                 }
             } // end of watches for loop
 
-            if (watches[j].Alert.title != null) {
+            if (watches[j].Alert.title == null) {
                 $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
             }
 

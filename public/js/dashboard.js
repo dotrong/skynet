@@ -100,7 +100,7 @@ var reload = function() {
                     $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
                 }
 
-                else if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
+                if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     var title = watches[j].Alert.title.toUpperCase();
                     
                     var dateTime = watches[j].Alert.dateTime;

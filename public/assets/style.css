@@ -114,8 +114,8 @@ input.btn:hover {
 	background-color: white;
 	border-radius: 0px;
 	margin-bottom: 0px;
-	position: absolute;
-	top: 0;
+	/*position: absolute;
+	top: 0;*/
 }
 nav.navbar div.container-fluid {
 	margin: 15px;
@@ -186,7 +186,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
  overflow: hidden;
  /* background-color: #00222b; */
 }
-.temperature{
+.temperature {
 	background-color: yellow;
 	/*float: right;*/
 	width: 50px;

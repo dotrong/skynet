@@ -125,7 +125,7 @@ var reload = function() {
 
                     // Fill in dynamic city, state/country data
                     $("#watch" + i + ".ui-content img").attr('src', picture);
-                    $("#city" + i/* + ".ui-content img"*/).append('<div class="temperature">' + temp + '</div>');
+                    $("#city" + i/* + ".ui-content img"*/).append('<div class="temperature">' + description + '</div>');
 
 
 

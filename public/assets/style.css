@@ -184,13 +184,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
  overflow: hidden;
  /* background-color: #00222b; */
 }
-.temperature {
-	background-color: yellow;
-	width: 50px;
-	height: 50px;
-	position: absolute;
-	top: 0;
-}
 .cityImgs img {
  width: 100%;
  transform: translate(0, -23%) /*centers img vertically*/ 
@@ -268,6 +261,13 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	#watch2 { 
 	  grid-column: 5 / 7;
 	  grid-row: 2;
+	}
+	.temperature {
+		background-color: yellow;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		top: 250px;
 	}
 	#worldMap { 
 	  grid-column: 1 / 7;

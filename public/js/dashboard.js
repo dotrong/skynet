@@ -26,12 +26,9 @@ $(document).ready(function() {
         $.ajax({
             url: '/api/locations/' + locId,
             type: 'DELETE'
-            // success: document.reload()
         }).done(function(data) {
-          // $("#deleteModal").modal('show');
-            console.log(data);
-           // reload();
-           window.location.href="/dashboard";
+            // console.log(data);
+            window.location.href="/dashboard";
         });
     });
 
@@ -58,7 +55,7 @@ $(document).ready(function() {
 
         }
 
-        console.log(watches);
+        // console.log(watches);
         
         $.post("/api/locations", {
             city: city,
@@ -66,10 +63,8 @@ $(document).ready(function() {
             Watches: watches
 
         },function(data,status) {
-
             console.log(data);
             $("#myModal").modal('hide');
-            // reload();
             window.location.href="/dashboard";
         });
 
@@ -85,7 +80,7 @@ var reload = function() {
 
     $.get("/api/users",function(data,status) {
         
-        console.log(data);
+        // console.log(data);
 
         var location = data.Locations;
 
@@ -125,14 +120,8 @@ var reload = function() {
                     else if (severity === "Green" && curSeverity === "Red") {
                       severity = "Red";
                     }
-                    /*else if (severity == null && curSeverity === "Yellow") {
-                      severity = "Yellow";
-                    }
-                    else if (severity == null && curSeverity === "Red") {
-                      severity = "Red";
-                    }*/
 
-                    console.log(city,state,title,picture,description,dateTime,external,severity);
+                    // console.log(city,state,title,picture,description,dateTime,external,severity);
 
                     // Fill in dynamic city, state/country data
                     $("#watch" + i + ".ui-content img").attr('src', picture);            
@@ -446,5 +435,55 @@ var countryCodes = {
   "WA": "US",
   "WV": "US",
   "WI": "US",
-  "WY": "US"
+  "WY": "US",
+  "Alaska": "US",
+  "Alabama": "US",
+  "Arizona": "US",
+  "Arkansas": "US",
+  "California": "US",
+  "Colorado": "US",
+  "Connecticut": "US",
+  "Delaware": "US",
+  "Florida": "US",
+  "Georgia": "US",
+  "Hawaii": "US",
+  "Idaho": "US",
+  "Illinois": "US",
+  "Indiana": "US",
+  "Iowa": "US",
+  "Kansas": "US",
+  "Kentucky": "US",
+  "Louisiana": "US",
+  "Maine": "US",
+  "Maryland": "US",
+  "Massachusetts": "US",
+  "Michigan": "US",
+  "Minnesota": "US",
+  "Mississippi": "US",
+  "Missouri": "US",
+  "Montana": "US",
+  "Nebraska": "US",
+  "Nevada": "US",
+  "New Hampshire": "US",
+  "New Jersey": "US",
+  "New Mexico": "US",
+  "New York": "US",
+  "North Carolina": "US",
+  "North Dakota": "US",
+  "Ohio": "US",
+  "Oklahoma": "US",
+  "Oregon": "US",
+  "Pennsylvania": "US",
+  "Rhode Island": "US",
+  "South Carolina": "US",
+  "South Dakota": "US",
+  "Tennessee": "US",
+  "Texas": "US",
+  "Utah": "US",
+  "Vermont": "US",
+  "Virginia": "US",
+  "Washington": "US",
+  "West Virginia": "US",
+  "Wisconsin": "US",
+  "Wyoming": "US"
 }

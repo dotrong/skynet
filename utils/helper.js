@@ -361,9 +361,47 @@ var getWeatherAlert = function(weather) {
         } //end if Domestic
         else {
           var month = timeDate.substring(5, 7);
+          switch (month) {
+            case "01":
+              month = "Jan";
+              break;
+            case "02":
+              month = "Feb";
+              break;
+            case "03":
+              month = "Mar";
+              break;
+            case "04":
+              month = "Apr";
+              break;
+            case "05":
+              month = "May";
+              break;
+            case "06":
+              month = "Jun";
+              break;
+            case "07":
+              month = "Jul";
+              break;
+            case "08":
+              month = "Aug";
+              break;
+            case "09":
+              month = "Sep";
+              break;
+            case "10":
+              month = "Oct";
+              break;
+            case "11":
+              month = "Nov";
+              break;
+            case "12":
+              month = "Dec";
+              break;
+          }
           var day = timeDate.substring(8, 10);
           var year = timeDate.substring(0, 4);
-          var newDate = (year + "-" + month + "-" + day);
+          var newDate = (month + " " + day + ", " + year);
           var hours = Number(timeDate.substring(11, 13));
           var minutes = timeDate.substring(14, 16);
           var time = hours + ":" + minutes + " " + timeZone;

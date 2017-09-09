@@ -266,7 +266,8 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		background-color: yellow;
 		width: 50px;
 		height: 50px;
-		position: absolute;
+		position: relative;
+		top: 0;
 	}
 	#worldMap { 
 	  grid-column: 1 / 7;

@@ -124,7 +124,12 @@ var reload = function() {
                     // console.log(city,state,title,picture,description,dateTime,external,severity);
 
                     // Fill in dynamic city, state/country data
-                    $("#watch" + i + ".ui-content img").attr('src', picture);            
+                    $("#watch" + i + ".ui-content img").attr('src', picture);
+                    $("#city" + i/* + ".ui-content img"*/).append('<div class="temperature">' + temp + '</div>');
+
+
+
+
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                     $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);

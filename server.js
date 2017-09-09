@@ -18,7 +18,8 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Add authentication
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+//app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true, cookie:{maxAge:null}}));//no timeout
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 //end

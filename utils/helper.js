@@ -33,10 +33,10 @@ var helper = {
                 var height = response.data.hits[i].webformatHeight;
                 var ratio = height/width; // aspect ratio
                 // console.log(ratio);
-                if (ratio > 0.60 && response.data.hits[i].likes >= userLikes) { // if most likes and not panorama img
+                //if (ratio > 0.60 && response.data.hits[i].likes >= userLikes) { // if most likes and not panorama img
                     userLikes = response.data.hits[i].likes; // store most likes
                     bestImg = response.data.hits[i]; // store current img data
-                }
+                //}
             }
             // set the img variable          
             var customImg = bestImg.webformatURL;

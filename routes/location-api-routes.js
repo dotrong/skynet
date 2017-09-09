@@ -17,6 +17,7 @@ module.exports = function(app) {
                     include: [db.Watch]
                 } ).then(function(dbLocation) {
                     //force to check alert in backend after adding new locations
+                    console.log("run query");
                     helper.runQuery(); 
 
                     res.json(dbLocation);

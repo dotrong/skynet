@@ -149,6 +149,7 @@ var reload = function() {
             } // end of watches for loop
 
             if (alertTitle == null) {
+              console.log(description);
                 $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
             }
 

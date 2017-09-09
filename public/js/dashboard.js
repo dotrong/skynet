@@ -95,9 +95,14 @@ var reload = function() {
 
             for (var j=0; j<watches.length; j++) {
 
-                if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
-                    var title = watches[j].Alert.title.toUpperCase();
+                if (watches[j].Alert && watches[j].Alert != null) {
                     var description = watches[j].Alert.description;
+                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
+                }
+
+                else if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
+                    var title = watches[j].Alert.title.toUpperCase();
+                    
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
                     var severity = watches[j].Alert.severity;
@@ -124,7 +129,7 @@ var reload = function() {
                     // console.log(city,state,title,picture,description,dateTime,external,severity);
 
                     // Fill in dynamic city, state/country data                    
-                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
+                   
                     $("#watch" + i + ".ui-content img").attr('src', picture);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');

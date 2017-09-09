@@ -165,7 +165,6 @@ var reload = function() {
         } // end of locations for loop
 
     });
-  }
 
 };
 

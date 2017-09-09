@@ -160,6 +160,9 @@ div#watch0 img, div#watch1 img, div#watch2 img {
   margin: 0px auto;
   width: 100%;
 }
+.temperature {
+		color: #fff;
+	}
 #worldMap { /*gradient not supported by IE9 and earlier versions*/
 	background-color: black;
 	height: 800px; 
@@ -263,9 +266,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	  grid-row: 2;
 	}
 	.temperature {
-		/*background-color: yellow;*/
-		/*width: 50px;
-		height: 50px;*/
 		position: absolute;
 		color: #fff;
 	}

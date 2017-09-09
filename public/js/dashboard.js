@@ -95,11 +95,11 @@ var reload = function() {
             var alertTitle;
 
             for (var j=0; j<watches.length; j++) {
-                var weather = watches[j].Alert.description;
+                
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     alertTile = watches[j].Alert.title;
                     var title = watches[j].Alert.title.toUpperCase();
-                    
+                    var weather = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
                     var severity = watches[j].Alert.severity;
@@ -146,12 +146,10 @@ var reload = function() {
                     }
                 }
 
-                if (alertTitle == null) {
+                /*if (alertTitle == null) {
                   console.log(weather);
                     $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                }
-
-
+                }*/
 
             } // end of watches for loop
 

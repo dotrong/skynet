@@ -186,8 +186,8 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 }
 .temperature{
 	background-color: yellow;
-	width: 75px;
-	height: 75px;
+	width: 50px;
+	height: 50px;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -300,6 +300,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		font-size: 1.6em;
 	}
 	#worldMap {
-		height: 350px;
+		height: 340px;
 	}
 }

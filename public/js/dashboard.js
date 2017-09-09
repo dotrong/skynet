@@ -22,12 +22,9 @@ $(document).ready(function() {
         $.ajax({
             url: '/api/locations/' + locId,
             type: 'DELETE'
-            // success: document.reload()
         }).done(function(data) {
-          // $("#deleteModal").modal('show');
             console.log(data);
-           // reload();
-           window.location.href="/dashboard";
+            window.location.href="/dashboard";
         });
     });
 
@@ -62,10 +59,8 @@ $(document).ready(function() {
             Watches: watches
 
         },function(data,status) {
-
             console.log(data);
             $("#myModal").modal('hide');
-            // reload();
             window.location.href="/dashboard";
         });
 

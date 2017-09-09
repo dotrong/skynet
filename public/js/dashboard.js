@@ -96,11 +96,11 @@ var reload = function() {
             var alertTitle;
 
             for (var j=0; j<watches.length; j++) {
-
+description = watches[j].Alert.description;
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     alertTile = watches[j].Alert.title;
                     var title = watches[j].Alert.title.toUpperCase();
-                    description = watches[j].Alert.description;
+                    
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
                     var severity = watches[j].Alert.severity;

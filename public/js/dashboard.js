@@ -134,6 +134,7 @@ var reload = function() {
                         // More Details
                         $("#watch" + i + " div.ui-collapsible-content").append('<a href="' + external + '" target="_blank">More Details</a><br>');
                         // Map Display
+                        console.log(state);
                         var countryCode = countryCodes[state];
                         console.log(countryCode);
                         $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');

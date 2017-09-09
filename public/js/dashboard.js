@@ -95,14 +95,9 @@ var reload = function() {
 
             for (var j=0; j<watches.length; j++) {
 
-                if (watches[j].Alert && watches[j].Alert != null) {
-                    var description = watches[j].Alert.description;
-                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
-                }
-
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     var title = watches[j].Alert.title.toUpperCase();
-                    
+                    var description = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
                     var severity = watches[j].Alert.severity;
@@ -146,6 +141,11 @@ var reload = function() {
                         // Map Display
                         var countryCode = countryCodes[state];
                         $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
+                    }
+
+                    else if (watches[j].Alert.title == null) {
+                        
+                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
                     }
                 }
             } // end of watches for loop

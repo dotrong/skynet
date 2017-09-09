@@ -146,10 +146,13 @@ var reload = function() {
                 }
             } // end of watches for loop
 
+            if (watches[j].Alert.title != null) {
+                $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
+            }
+
             if (severity == null || severity === "Green") {
                 // Fill in dynamic city, state/country data
-                severity = "Green";
-                $("#watch" + i + ".ui-content").append('<div class="temperature">' + description + '</div>');
+                severity = "Green";                
                 $("#watch" + i + ".ui-content img").attr('src', picture);           
                 $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                 $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');

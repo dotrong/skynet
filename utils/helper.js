@@ -295,8 +295,10 @@ var getTravelWatch = function(travel) {
 var getWeatherAlert = function(weather) {
   var timeZone = "UTC";
   var alertLevel;
-  var wthrKey = "fe7effa08314f68a"; // Chris
+  // var wthrKey = "fe7effa08314f68a"; // Chris
   // var wthrKey = "6c4e6e946a271f60"; // Loree
+  var wthrKey = "6b521b9837ba6c24"; // Kevin
+  // var wthrKey = "59c81b9ea554f23b"; // Trong
   for (var i =0; i< weather.length;i++) {   
     var city = weather[i].city;
     var state = weather[i].state;

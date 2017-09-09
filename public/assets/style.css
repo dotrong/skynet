@@ -178,16 +178,19 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	position: absolute;
 	left: 0;
 }
- .cityImgs { z-index: -1;
+ .cityImgs {
  width: 100%;
  height: 120px;
  overflow: hidden;
  /* background-color: #00222b; */
 }
 .temperature{
-	border: 1px solid black;
+	background-color: yellow;
 	width: 75px;
 	height: 75px;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 .cityImgs img {
  width: 100%;
@@ -297,6 +300,6 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		font-size: 1.6em;
 	}
 	#worldMap {
-		height: 380px;
+		height: 350px;
 	}
 }

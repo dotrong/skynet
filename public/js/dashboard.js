@@ -93,10 +93,12 @@ var reload = function() {
             var curSeverity = "Green";
             // var severity = "Green";
             var id = location[i].id;
+            var alertTitle;
 
             for (var j=0; j<watches.length; j++) {
 
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
+                    alertTile = watches[j].Alert.title;
                     var title = watches[j].Alert.title.toUpperCase();
                     description = watches[j].Alert.description;
                     var dateTime = watches[j].Alert.dateTime;

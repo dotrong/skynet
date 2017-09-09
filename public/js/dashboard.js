@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // window.location.href="/dashboard";
     // reload();
 
     $("#city3,#city2,#city1").on("click",function(event) {
@@ -165,6 +164,13 @@ var reload = function() {
         } // end of locations for loop
 
     });
+
+  // Reset the page with new content
+  var count = 1;
+  if (count === 1) {
+    window.location.href="/dashboard";
+    count++;
+  }
 
 };
 

@@ -83,7 +83,6 @@ var reload = function() {
         console.log(data);
 
         var location = data.Locations;
-        var weather;
 
         for (var i=0; i<location.length; i++) {
             var city = location[i].city;
@@ -96,7 +95,7 @@ var reload = function() {
             var alertTitle;
 
             for (var j=0; j<watches.length; j++) {
-weather = watches[j].Alert.description;
+                var weather = watches[j].Alert.description;
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     alertTile = watches[j].Alert.title;
                     var title = watches[j].Alert.title.toUpperCase();

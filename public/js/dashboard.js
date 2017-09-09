@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     // reload();
 
     $("#city3,#city2,#city1").on("click",function(event) {
@@ -23,8 +24,8 @@ $(document).ready(function() {
             type: 'DELETE'
             // success: document.reload()
         }).done(function(data) {
-          $("#deleteModal").modal('show');
-            // console.log(data);
+          // $("#deleteModal").modal('show');
+            console.log(data);
            // reload();
            window.location.href="/dashboard";
         });
@@ -63,9 +64,9 @@ $(document).ready(function() {
         },function(data,status) {
 
             console.log(data);
-            $("#myModal").modal('hide');
-            reload();
-
+           /* $("#myModal").modal('hide');
+            reload();*/
+            window.location.href="/dashboard";
         });
 
     });

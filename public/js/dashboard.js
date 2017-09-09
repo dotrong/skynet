@@ -2,11 +2,7 @@ $(document).ready(function() {
     
     reload();
 
-    $("#logout").click(function(event) {
-        window.location.href="/logout";
-    });
-
-    $("#city3,#city2,#city1").on("click",function(event) {
+    $("#city2,#city1,#city0").on("click",function(event) {
 
         event.preventDefault();
         $("#myModal").modal('show');
@@ -152,7 +148,7 @@ var reload = function() {
                 $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                 $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                 
-                $("#watch" + i + " div.ui-collapsible-content").append("<div><br>No Alerts</div>");
+                $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
             }
 
         } // end of locations for loop

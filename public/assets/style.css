@@ -114,8 +114,9 @@ input.btn:hover {
 	background-color: white;
 	border-radius: 0px;
 	margin-bottom: 0px;
-	/*position: absolute;
-	top: 0;*/
+	position: absolute;
+	top: 0;
+	width: 100%;
 }
 nav.navbar div.container-fluid {
 	margin: 15px;

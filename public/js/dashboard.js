@@ -98,7 +98,7 @@ var reload = function() {
                 
                 if (watches[j].Alert && watches[j].Alert != null) { // some watches don't have 'Alert' which causes an error
                     
-                    if (watches[j].Alert.title != null) { // some watches don't have 'title' which causes an error
+                    if (watches[j].Alert.title == null) { // some watches don't have 'title' which causes an error
                       alertTile = watches[j].Alert.title;                    
                       var title = watches[j].Alert.title.toUpperCase();
                     }
@@ -138,7 +138,7 @@ var reload = function() {
                     // if (severity === "Red" || severity === "Yellow") {
                     if (severity != "Green") {
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************</div>");
-                        if (watches[j].Alert.title != null) {
+                        if (watches[j].Alert.title == null) {
                           $("#watch" + i + " div.ui-collapsible-content").append("<div>" + title + "</div>");
                         }
                         // $("#watch" + i + " div.ui-collapsible-content").append("<div>" + description + "</div>");

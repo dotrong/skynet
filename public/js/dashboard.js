@@ -26,7 +26,8 @@ $(document).ready(function() {
         }).done(function(data) {
           $("#deleteModal").modal('show');
             // console.log(data);
-           reload();
+           // reload();
+           window.location.href="/dashboard";
         });
     });
 

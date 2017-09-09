@@ -1,6 +1,6 @@
 $(document).ready(function() {
     
-    // reload();
+    reload();
 
     $("#city3,#city2,#city1").on("click",function(event) {
 

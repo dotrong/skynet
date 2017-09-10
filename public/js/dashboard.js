@@ -94,10 +94,8 @@ var reload = function() {
             var severity = "Green";
             var id = location[i].id;
 
-            var cityLC = city.toLowerCase();
-            console.log(cityLC.match(/\w/g));
-            // var cityIC = cityLC.replace(/\w/g);
-
+            var cityIC = city.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            console.log(cityIC);
 
 
             for (var j=0; j<watches.length; j++) {

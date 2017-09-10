@@ -240,7 +240,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		padding: 3px;
 	}
 	.cityImgs {
-		height: 150px;
+		height: 300px;
 	}
 	#worldMap {
 		height: 600px;
@@ -302,7 +302,7 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 		font-size: 1.6em;
 	}
 	.cityImgs {
-		height: 300px;
+		height: 150px;
 	}
 	#worldMap {
 		height: 340px;

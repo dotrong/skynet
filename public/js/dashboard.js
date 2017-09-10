@@ -90,6 +90,7 @@ var reload = function() {
             var picture = location[i].picture;
             var watches = location[i].Watches;
             var curSeverity = "Green";
+            var severity = "Green";
             var id = location[i].id;
             var alertTitle;
 
@@ -106,7 +107,7 @@ var reload = function() {
                     
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
-                    var severity = watches[j].Alert.severity;
+                    severity = watches[j].Alert.severity;
 
                     if (severity === "Red" && curSeverity === "Green") {
                       curSeverity = "Red";

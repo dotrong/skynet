@@ -155,9 +155,9 @@ var reload = function() {
                         $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                     }
                 }                
-                counter++;
+                
             } // end of watches for loop
-
+            counter++;
             if (severity == null || severity === "Green") {
                 // Fill in dynamic city, state/country data
                 severity = "Green";

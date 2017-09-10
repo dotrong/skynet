@@ -17,7 +17,7 @@ var helper = {
     return new Promise(function(resolve,reject) {
 
       if (state.length < 3) {
-          state = countryCodes[state];
+          state = countryCodes[state].toUpperCase();
       }
       var locImg = city + "+" + state;
       var imgAttempt = 0; // counter for no result

@@ -16,9 +16,9 @@ var helper = {
 
     return new Promise(function(resolve,reject) {
 
-      if (state.length < 3) {
+      /*if (state.length < 3) {
           state = countryCodes[state].toUpperCase();
-      }
+      }*/
       var locImg = city + "+" + state;
       var imgAttempt = 0; // counter for no result
       var imgKey = "6299821-762bdea8a954438f2918f510d";

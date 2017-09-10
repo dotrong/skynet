@@ -167,7 +167,7 @@ var reload = function() {
 
                 else {
                     // Fill in dynamic city, state/country data
-                    severity = "Green";
+                    // severity = "Green";
                     if (weather != undefined) {
                         $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
                     }

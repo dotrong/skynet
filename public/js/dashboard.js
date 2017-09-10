@@ -157,7 +157,7 @@ var reload = function() {
                 }                
                 
             } // end of watches for loop
-            counter++;
+            
             if (severity == null || severity === "Green") {
                 // Fill in dynamic city, state/country data
                 severity = "Green";
@@ -171,7 +171,7 @@ var reload = function() {
                 
                 $("#watch" + counter + " div.ui-collapsible-content").append("<div>No Alerts</div>");
             }
-
+            counter++;
         } // end of locations for loop
 
     });

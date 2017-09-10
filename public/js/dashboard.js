@@ -160,7 +160,7 @@ var reload = function() {
             if (severity == null || severity === "Green") {
                 // Fill in dynamic city, state/country data
                 severity = "Green";
-                i+=;
+                i++;
                 if (weather != undefined) {
                     $("#watch" + i".ui-content").append('<div class="temperature">' + weather + '</div>');
                 }

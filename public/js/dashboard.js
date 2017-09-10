@@ -143,7 +143,7 @@ var reload = function() {
                     // Fill in dynamic city, state/country data
                     if (severity != "Green" || severity != null) {
                         dataFill();
-                        $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+                        // $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************</div>");
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>" + title + "</div>");
                         // $("#watch" + i + " div.ui-collapsible-content").append("<div>" + weather + "</div>");
@@ -151,8 +151,8 @@ var reload = function() {
                         // More Details
                         $("#watch" + i + " div.ui-collapsible-content").append('<a href="' + external + '" target="_blank">More Details</a><br>');
                         // Map Display
-                        var countryCode = countryCodes[state];
-                        $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
+                        // var countryCode = countryCodes[state];
+                        // $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                     }
                 }
 
@@ -175,6 +175,8 @@ var reload = function() {
                     $("#watch" + i + ".ui-content img").attr('src', picture);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                     $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+                    var countryCode = countryCodes[state];
+                    $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                 }
                 
             } // end of watches for loop

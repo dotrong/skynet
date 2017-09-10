@@ -84,6 +84,7 @@ var reload = function() {
 
         var location = data.Locations;
 
+        // Loop through locations
         for (var i=0; i<location.length; i++) {
             var city = location[i].city;
             var state = location[i].state;
@@ -99,9 +100,8 @@ var reload = function() {
                 return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
             }
             city, state = toTitleCase(city, state);
-            console.log(cityIC, stateIC);
 
-
+            // Loop through watches
             for (var j=0; j<watches.length; j++) {
                 
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error

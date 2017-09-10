@@ -171,7 +171,7 @@ var reload = function() {
                 
                 $("#watch" + counter + " div.ui-collapsible-content").append("<div>No Alerts</div>");
             }
-            counter++;
+            counter+2;
         } // end of locations for loop
 
     });

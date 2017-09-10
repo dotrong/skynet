@@ -176,12 +176,13 @@ var reload = function() {
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                     $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
-                    
-                    $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
                 }
                 
             } // end of watches for loop
 
+            if (severity === "Green") {
+                $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
+            }
             
         } // end of locations for loop
 

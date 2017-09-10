@@ -95,6 +95,9 @@ var reload = function() {
             var id = location[i].id;
             var alertTitle;
 
+            console.log(city);
+            console.log(state);
+
             for (var j=0; j<watches.length; j++) {
                 
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
@@ -128,9 +131,9 @@ var reload = function() {
 
                     // Fill in dynamic city, state/country data
                     if (severity != "Green" || severity != null) {
-                        // if (weather != undefined) {            
-                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                        // }
+                        if (weather != undefined || weather != null) {            
+                            $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
+                        }
                         $("#watch" + i + ".ui-content img").attr('src', picture);
                         $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                         $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
@@ -148,9 +151,9 @@ var reload = function() {
                 }
 
                 else {
-                    // if (weather != undefined) {
-                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                    // }
+                    if (weather != undefined || weather != null) {
+                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
+                    }
                     $("#watch" + i + ".ui-content img").attr('src', picture);           
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');

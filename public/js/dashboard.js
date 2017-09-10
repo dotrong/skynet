@@ -93,16 +93,18 @@ var reload = function() {
             var curSeverity = "Green";
             var severity = "Green";
             var id = location[i].id;
-            var alertTitle;
 
-            console.log(city);
-            console.log(state);
+            var cityLC = city.toLowerCase();
+            console.log(cityLC.match(/\w/g));
+            // var cityIC = cityLC.replace(/\w/g);
+
+
 
             for (var j=0; j<watches.length; j++) {
                 
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     
-                    alertTile = watches[j].Alert.title;                    
+                    var alertTile = watches[j].Alert.title;                    
                     var title = watches[j].Alert.title.toUpperCase();                    
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;

@@ -92,7 +92,7 @@ var reload = function() {
             var watches = location[i].Watches;
             var weather = location[i].temperature;
             var curSeverity = "Green";
-            var severity = "Green";
+            // var severity = "Green";
             var id = location[i].id;
 
             // Set city and state to Title Case

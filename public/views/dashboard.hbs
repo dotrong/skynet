@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
     <!-- *****LOCAL STYLES AND JS LINKS***** -->
+    <!-- USE WHEN NOT USING BOOTSTRAP <link rel="stylesheet" href="assets/css/reset.css"> -->
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="assets/style.css">
 
@@ -30,8 +31,17 @@
     <!-- *****NAVIGATON BAR***** -->
     <nav id="fixedNav" class="navbar navbar-default" role="navigation">
       <div class="container-fluid">
+        {{!-- <span class="leftIcon">
+          <a href="/addwatch">
+            <i class="glyphicon glyphicon-menu-hamburger"></i>
+          </a>
+        </span>
+              <h1 class="text-center">Locations</h1> --}}
         <span class="rightIcon">
+          {{!-- <a href="/logout"> Welcome {{username}}  --}}
+            {{!-- <i class="glyphicon glyphicon-user"></i> --}}
             <a href="#" id="logout"> Welcome {{username}}
+
           </a>
         </span> 
       </div>
@@ -97,7 +107,7 @@
           <form>
 
             <div class="form-group">
-                  <input type="text" class="form-control" name="state" placeholder="State or Country" required>
+                  <input type="text" class="form-control" name="state" placeholder="State or Country" required autofocus>
             </div>
 
             <div class="form-group">

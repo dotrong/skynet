@@ -17,11 +17,15 @@ var helper = {
 
     return new Promise(function(resolve,reject) {
 
-      if (state.length < 3) {
+      if (state.length < 3) { // state is US abbreviation
           state = state.toUpperCase();
-          state = stateCodes[state];
+          state = stateCodes[state]; // convert to US state full name
       }
-      var locImg = city + "+" + state;
+      if (!city || city == null || city == undefined) { // no city entered
+          locImg = state;
+      }
+      else {var locImg = city + "+" + state;
+      }      
       var imgAttempt = 0; // counter for no result
       var imgKey = "6299821-762bdea8a954438f2918f510d";
       var url = "https://pixabay.com/api/?key=" + imgKey + "&q=" + locImg + "&image_type=photo&orientation=horizontal&category=places&safesearch=true";

@@ -41,7 +41,7 @@ var helper = {
             // set the img variable          
             var customImg = bestImg.webformatURL;
             console.log(customImg); 
-              resolve(customImg);
+            resolve(customImg);
         }
         else {
           var customImg = "images/defaultImg.jpg";
@@ -203,7 +203,7 @@ var getEarthQuakeWatch = function(earthquake) {
               case magnitude >= 7:
                   alertLevel = "Red";
                   break;
-              case magnitude >=6 && magnitude < 7:
+              case magnitude >= 6 && magnitude < 7:
                   alertLevel = "Yellow";
                   break;
               
@@ -321,7 +321,7 @@ var getWeatherAlert = function(weather) {
       var description;
       var alertLevel;
       if (conditions_result) {
-        temperature = conditions_result.temp_f;
+        temperature = Math.round(conditions_result.temp_f);
         weather = conditions_result.weather;
         temp = temperature + "&#0176;F " + weather;
       }

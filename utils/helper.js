@@ -5,6 +5,7 @@ var cheerio = require("cheerio");
 var PORT = process.env.PORT||3000;
 var baseUrl = "http://localhost:"+PORT;
 var countryCodes = require("./country");
+var stateCodes = require("./state");
 
 // example API
 //api.openweathermap.org/data/2.5/weather?q=London&appid=0558d69e2ef94da5a18c33d8a9dffd5b&units=imperial
@@ -17,7 +18,7 @@ var helper = {
     return new Promise(function(resolve,reject) {
 
       if (state.length < 3) {
-          state = countryCodes[state];
+          state = stateCodes[state];
       }
       var locImg = city + "+" + state;
       var imgAttempt = 0; // counter for no result

@@ -153,7 +153,7 @@ var reload = function() {
                         var countryCode = countryCodes[state];
                         $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                     }
-                    else {
+                    /*else {
                         if (weather != undefined) {
                             $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
                         }
@@ -163,10 +163,10 @@ var reload = function() {
                         $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                         
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
-                    }
+                    }*/
                 }
 
-                /*else {
+                else {
                     // Fill in dynamic city, state/country data
                     // severity = "Green";
                     if (weather != undefined) {
@@ -178,7 +178,7 @@ var reload = function() {
                     $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                     
                     $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
-                }*/
+                }
                 
             } // end of watches for loop
 

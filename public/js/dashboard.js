@@ -96,11 +96,17 @@ var reload = function() {
             var id = location[i].id;
 
             // Set city and state to Title Case
-            function toTitleCase(str){
+            function titleCase(str){
                 return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
             }
-            city = toTitleCase(city);
-            state = toTitleCase(state);
+            if (state.length < 3) { // if US state
+                state = state.toUpperCase();
+            }
+            else { // is country
+                state = titleCase(state);
+            }            
+            city = titleCase(city);
+
 
             // Loop through watches
             for (var j=0; j<watches.length; j++) {

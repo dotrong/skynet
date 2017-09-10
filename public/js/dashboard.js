@@ -166,7 +166,7 @@ var reload = function() {
                     }
                 }
 
-                else {
+                /*else {
                     // Fill in dynamic city, state/country data
                     // severity = "Green";
                     if (weather != undefined) {
@@ -177,7 +177,7 @@ var reload = function() {
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                     $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                     
-                    $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
+                    $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");*/
                 }
                 
             } // end of watches for loop

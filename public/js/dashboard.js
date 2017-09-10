@@ -14,7 +14,7 @@ $(document).ready(function() {
     });
 
     $(".watch").on("click",".delete",function(){
-        event.preventDefault();
+        event.preventDefault();        
         var btnId = $(this).attr("id"); // grabs entire id of event target
         // console.log(btnId);
         var delBtnIndex = btnId.match(/\d/).index; // captures index of first number(digit) in id (6)
@@ -81,7 +81,6 @@ var reload = function() {
     $.get("/api/users",function(data,status) {
         
         console.log(data);
-        var counter = 0;
 
         var location = data.Locations;
 
@@ -161,17 +160,17 @@ var reload = function() {
             if (severity == null || severity === "Green") {
                 // Fill in dynamic city, state/country data
                 severity = "Green";
+                console.log(i);
                 if (weather != undefined) {
-                    $("#watch" + counter + ".ui-content").append('<div class="temperature">' + weather + '</div>');
+                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
                 }
-                $("#watch" + counter + ".ui-content img").attr('src', picture);           
-                $("#watchTitle" + counter + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                $("#watchTitle" + counter + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
-                $("#watch" + counter + " .ui-collapsible-heading-toggle").css("background-color", severity);
+                $("#watch" + i + ".ui-content img").attr('src', picture);           
+                $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
+                $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
+                $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                 
-                $("#watch" + counter + " div.ui-collapsible-content").append("<div>No Alerts</div>");
+                $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
             }
-            counter+2;
         } // end of locations for loop
 
     });

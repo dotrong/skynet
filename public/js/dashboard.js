@@ -133,25 +133,6 @@ var reload = function() {
 
                     // console.log(city,state,title,picture,description,dateTime,external,severity);
 
-                    function dataFill() {
-                        switch (true) {
-                            case state == "":
-                                $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city);
-                                break;
-                            case city == "":
-                                $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(state);
-                                break;
-                            default:
-                                $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                        }
-                        $("#watch" + i + ".ui-content img").attr('src', picture);
-                        $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
-                        $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
-                        if (weather != undefined || weather != null) {            
-                            $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                        }
-                    }
-
                     // Fill in dynamic city, state/country data
                     if (severity != "Green" || severity != null) {
                         dataFill();
@@ -169,6 +150,25 @@ var reload = function() {
 
                 else {
                     dataFill();
+                }
+
+                function dataFill() {
+                    switch (true) {
+                        case state == "":
+                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city);
+                            break;
+                        case city == "":
+                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(state);
+                            break;
+                        default:
+                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
+                    }
+                    $("#watch" + i + ".ui-content img").attr('src', picture);
+                    $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
+                    $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+                    if (weather != undefined || weather != null) {            
+                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
+                    }
                 }
                 
             } // end of watches for loop

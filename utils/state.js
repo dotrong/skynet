@@ -48,8 +48,7 @@ var stateCodes = {
      "Washington": "WA",
      "West Virginia": "WV",
      "Wisconsin": "WI",
-     "Wyoming": "WY"
-
+     "Wyoming": "WY",
      "AK": "Alaska",
      "AL": "Alabama",
      "AZ": "Arizona",

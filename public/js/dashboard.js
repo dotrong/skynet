@@ -89,22 +89,18 @@ var reload = function() {
             var state = location[i].state;
             var picture = location[i].picture;
             var watches = location[i].Watches;
+            var weather = location[i].temperature;
             var curSeverity = "Green";
             var severity = "Green";
             var id = location[i].id;
             var alertTitle;
 
             for (var j=0; j<watches.length; j++) {
-
-                if (watches[j].Alert && watches[j].type === "weather") {
-                  var weather = watches[j].Alert.description;
-                }
                 
                 if (watches[j].Alert && watches[j].Alert != null && watches[j].Alert.title != null) { // some watches don't have 'Alert' or 'title' which causes an error
                     
                     alertTile = watches[j].Alert.title;                    
-                    var title = watches[j].Alert.title.toUpperCase();
-                    
+                    var title = watches[j].Alert.title.toUpperCase();                    
                     var dateTime = watches[j].Alert.dateTime;
                     var external = watches[j].Alert.external;
                     severity = watches[j].Alert.severity;
@@ -131,14 +127,10 @@ var reload = function() {
                     // console.log(city,state,title,picture,description,dateTime,external,severity);
 
                     // Fill in dynamic city, state/country data
-                    
-
-
-
                     if (severity != "Green" || severity != null) {
-                        if (weather != undefined) {            
-                            $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                        }
+                        // if (weather != undefined) {            
+                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
+                        // }
                         $("#watch" + i + ".ui-content img").attr('src', picture);
                         $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                         $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
@@ -153,25 +145,12 @@ var reload = function() {
                         var countryCode = countryCodes[state];
                         $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                     }
-                    /*else {
-                        if (weather != undefined) {
-                            $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                        }
-                        $("#watch" + i + ".ui-content img").attr('src', picture);           
-                        $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                        $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
-                        $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
-                        
-                        $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
-                    }*/
                 }
 
                 else {
-                    // Fill in dynamic city, state/country data
-                    // severity = "Green";
-                    if (weather != undefined) {
-                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                    }
+                    // if (weather != undefined) {
+                    $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
+                    // }
                     $("#watch" + i + ".ui-content img").attr('src', picture);           
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');

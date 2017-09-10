@@ -81,7 +81,7 @@ var reload = function() {
     $.get("/api/users",function(data,status) {
         
         console.log(data);
-
+        var counter = 0;
         var location = data.Locations;
 
         for (var i=0; i<location.length; i++) {
@@ -156,7 +156,7 @@ var reload = function() {
                 }                
                 
             } // end of watches for loop
-            
+            counter++; console.log(counter);
             if (severity == null || severity === "Green") {
                 // Fill in dynamic city, state/country data
                 severity = "Green";

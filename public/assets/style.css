@@ -181,11 +181,10 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	position: absolute;
 	left: 0;
 }
- .cityImgs {
+.cityImgs {
  width: 100%;
- height: 140px;
+ height: 150px;
  overflow: hidden;
- /* background-color: #00222b; */
 }
 .cityImgs img {
  width: 100%;
@@ -240,7 +239,11 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	.signinForm {
 		padding: 3px;
 	}
-	#worldMap { height: 600px;
+	.cityImgs {
+		height: 150px;
+	}
+	#worldMap {
+		height: 600px;
 	}
 }
 @media screen and (min-width: 850px) { /*for dashboard pg*/
@@ -297,6 +300,9 @@ div#watch0 img, div#watch1 img, div#watch2 img {
 	}
 	.about h1, .user h1 {
 		font-size: 1.6em;
+	}
+	.cityImgs {
+		height: 300px;
 	}
 	#worldMap {
 		height: 340px;

@@ -153,25 +153,23 @@ var reload = function() {
                         var countryCode = countryCodes[state];
                         $("#mapContainer").append('<img src="images/map/' + countryCode + '-' + severity + '.png" id="mapOverlay">');
                     }
-                }
-
-                if (severity == null || severity === "Green") {
-                    // Fill in dynamic city, state/country data
-                    severity = "Green";
-                    if (weather != undefined) {
-                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                    }
-                    $("#watch" + i + ".ui-content img").attr('src', picture);           
-                    $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                    $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
-                    $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
-                    
-                    $("#watch" + i + " div.ui-collapsible-content").append("<div>No Alerts</div>");
-                }
+                }                
 
             } // end of watches for loop
 
-            
+            if (severity == null || severity === "Green") {
+                // Fill in dynamic city, state/country data
+                severity = "Green";
+                if (weather != undefined) {
+                    $("#watch" + i + 1".ui-content").append('<div class="temperature">' + weather + '</div>');
+                }
+                $("#watch" + i + 1".ui-content img").attr('src', picture);           
+                $("#watchTitle" + i + 1" .ui-collapsible-heading-toggle").text(city + ", " + state);
+                $("#watchTitle" + i + 1" .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
+                $("#watch" + i + 1" .ui-collapsible-heading-toggle").css("background-color", severity);
+                
+                $("#watch" + i + 1" div.ui-collapsible-content").append("<div>No Alerts</div>");
+            }
 
         } // end of locations for loop
 

@@ -175,9 +175,6 @@ var reload = function() {
                     $("#watch" + i + ".ui-content img").attr('src', picture);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
                     $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
-                    /*if (weather != undefined || weather != null) {            
-                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                    }*/
                 }
                 
             } // end of watches for loop

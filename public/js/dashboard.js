@@ -99,8 +99,8 @@ var reload = function() {
             function toTitleCase(str){
                 return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
             }
-            city = toTitleCase(city);
-            state = toTitleCase(state);
+            // city = toTitleCase(city);
+            // state = toTitleCase(state);
 
             // Loop through watches
             for (var j=0; j<watches.length; j++) {

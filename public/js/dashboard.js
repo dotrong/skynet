@@ -81,7 +81,7 @@ var reload = function() {
     $.get("/api/users",function(data,status) {
         
         console.log(data);
-        counter = 0;
+        var counter = 0;
 
         var location = data.Locations;
 

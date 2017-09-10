@@ -99,8 +99,8 @@ var reload = function() {
             function toTitleCase(str){
                 return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
             }
-            // city = toTitleCase(city);
-            // state = toTitleCase(state);
+            city = toTitleCase(city);
+            state = toTitleCase(state);
 
             // Loop through watches
             for (var j=0; j<watches.length; j++) {
@@ -136,22 +136,7 @@ var reload = function() {
 
                     // Fill in dynamic city, state/country data
                     if (severity != "Green" || severity != null) {
-                        switch (true) {
-                        case state == "":
-                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city);
-                            break;
-                        case city == "":
-                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(state);
-                            break;
-                        default:
-                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                        }
-                        $("#watch" + i + ".ui-content img").attr('src', picture);
-                        $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
-                        if (weather != undefined || weather != null) {            
-                            $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                        }
-                        // dataFill();
+                        dataFill();
                         $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>*****************************</div>");
                         $("#watch" + i + " div.ui-collapsible-content").append("<div>" + title + "</div>");
@@ -166,23 +151,8 @@ var reload = function() {
                 }
 
                 else {
-                    switch (true) {
-                        case state == "":
-                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city);
-                            break;
-                        case city == "":
-                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(state);
-                            break;
-                        default:
-                            $("#watchTitle" + i + " .ui-collapsible-heading-toggle").text(city + ", " + state);
-                    }
-                    $("#watch" + i + ".ui-content img").attr('src', picture);
-                    $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
-                    if (weather != undefined || weather != null) {            
-                        $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
-                    }
-                    // dataFill();
-                    $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
+                    dataFill();
+                    
                 }
 
                 function dataFill() {
@@ -198,6 +168,7 @@ var reload = function() {
                     }
                     $("#watch" + i + ".ui-content img").attr('src', picture);
                     $("#watchTitle" + i + " .ui-collapsible-heading-toggle").append('<img src="images/trash-can-icon.png" id="delete' + id + '" class="delete">');
+                    $("#watch" + i + " .ui-collapsible-heading-toggle").css("background-color", severity);
                     if (weather != undefined || weather != null) {            
                         $("#watch" + i + ".ui-content").append('<div class="temperature">' + weather + '</div>');
                     }

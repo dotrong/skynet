@@ -58,4 +58,20 @@ module.exports = function(app) {
         });
 
     });
+
+    //update location temperature
+
+    app.put("/api/locations/:id", function(req, res) {
+        
+        db.Location.update(
+            req.body,
+            {
+            where: {
+                id: req.params.id
+            }
+            }).then(function(dbLocation) {
+            res.json(dbLocation);
+        });
+        
+    });
 };

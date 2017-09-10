@@ -64,11 +64,13 @@ var helper = {
           for (var i = 0; i< response.data.length;i++) {
             var city = response.data[i].city;
             var state = response.data[i].state;
+            var location_id = response.data[i].id;
             for (var j = 0; j< response.data[i].Watches.length;j++) {
               if (response.data[i].Watches[j].type == 'weather') {
                 var weatherObj = {
                   city: city,
                   state: state,
+                  location_id: location_id,
                   watch_id: response.data[i].Watches[j].id
                 }
                 obj.weather.push(weatherObj) ;
@@ -302,6 +304,7 @@ var getWeatherAlert = function(weather) {
   for (var i =0; i< weather.length;i++) {   
     var city = weather[i].city;
     var state = weather[i].state;
+    var location_id = weather[i].location_id;
     var stateLC = state.toLowerCase();
     var cityLC = city.toLowerCase();
     var watchId = weather[i].watch_id;
@@ -312,10 +315,11 @@ var getWeatherAlert = function(weather) {
     var conditions = "https://api.wunderground.com/api/" + wthrKey + "/conditions/q/" + state + "/" + city + ".json"; 
     var promise1 = axios.get(alerts);
     var promise2 = axios.get(conditions);
-    Promise.all([promise1,promise2,watchId]).then(function(results) {
+    Promise.all([promise1,promise2,watchId,location_id]).then(function(results) {
       var alerts_result = results[0].data.alerts; // alerts API
       var conditions_result = results[1].data.current_observation; // conditions API
       var temp;
+      var new_location_id = results[3];
       var newWatchId = results[2];
       var dateTime;
       var description;
@@ -432,7 +436,13 @@ var getWeatherAlert = function(weather) {
           //console.log(response);
         }).catch(function(error) {
           console.log(error);
-        })
+        });
+
+        axios.put(baseUrl+"/api/locations/"+new_location_id, {
+          temperature:temp
+        }).then(function(response) {
+          //console.log(response);
+        }).catch(function(error){console.log(error);});
         
       }
     }).catch(function(error) {

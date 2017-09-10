@@ -18,6 +18,7 @@ var helper = {
     return new Promise(function(resolve,reject) {
 
       if (state.length < 3) {
+          state = state.toUpperCase();
           state = stateCodes[state];
       }
       var locImg = city + "+" + state;

@@ -48,7 +48,7 @@ body{
 	align-self: auto;
 }
 .middle, .userSignup { 
-	box-shadow: 4px 3px #00222b;
+	box-shadow: 4px 3px 3px #00222b;
 	border-radius: 10px;
 	opacity: 0.7;
 	background-color: white;

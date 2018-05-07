@@ -46,7 +46,7 @@ db.sequelize.sync().then(function(){
 
     app.listen(PORT,function(){
 
-        console.log("Listening On Port "+ PORT);
+        console.log("Listening On the Port "+ PORT);
         setInterval(helper.runQuery,1800000);
 
     })

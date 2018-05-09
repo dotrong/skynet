@@ -1,0 +1,9 @@
+version: 0.0
+os: linux
+
+hooks: 
+  BeforeInstall:
+    - location: scripts/deregister_from_elb.sh
+  AfterInstall:
+    - location: scripts/docker-exec.sh
+    - location: scripts/register_with_elb.sh
